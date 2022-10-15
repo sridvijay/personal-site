@@ -1,57 +1,146 @@
 <head>
-  <style> body { margin: 0; } </style>
-
-  <script src="//unpkg.com/globe.gl"></script>
-<!--  <script src="../../dist/globe.gl.js"></script>-->
+    <style>
+    body {
+        margin: 0;
+    }
+    </style>
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <!--<script src="../../dist/globe.gl.js"></script>-->
 </head>
 
-<body>
-  <div id="globeViz"></div>
-
-  <script>
+<body style="background-color: black;">
+    <div id="globeViz" style="width: 100%; height: 800px; background-color: back; position: absolute; display: block;"></div>
+    <script>
     const ARC_REL_LEN = 0.4; // relative to whole arc
     const FLIGHT_TIME = 1000;
     const NUM_RINGS = 3;
-    const RINGS_MAX_R = 5; // deg
-    const RING_PROPAGATION_SPEED = 5; // deg/sec
+    const RINGS_MAX_R = 1; // deg
+    const RING_PROPAGATION_SPEED = 1; // deg/sec
 
     const globe = Globe()
-      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-      .arcColor(() => 'darkOrange')
-      .onGlobeClick(emitArc)
-      .arcDashLength(ARC_REL_LEN)
-      .arcDashGap(2)
-      .arcDashInitialGap(1)
-      .arcDashAnimateTime(FLIGHT_TIME)
-      .arcsTransitionDuration(0)
-      .ringColor(() => t => `rgba(255,100,50,${1-t})`)
-      .ringMaxRadius(RINGS_MAX_R)
-      .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod(FLIGHT_TIME * ARC_REL_LEN / NUM_RINGS)
-      (document.getElementById('globeViz'));
+        .globeImageUrl('/cities.png')
+        .bumpImageUrl('./bump3.jpg')
+        .arcColor(() => 'darkOrange')
+        .backgroundColor('#000000')
+        .onGlobeClick(emitArc)
+        .arcDashLength(ARC_REL_LEN)
+        .showAtmosphere(false)
+        .arcDashGap(2)
+        .arcDashInitialGap(1)
+        .arcStroke(0.25)
+        .arcAltitudeAutoScale(0.5)
+        .arcColor(() => t => `rgba(255,255,255,${ 1 - (1-t)})`)
+        .arcDashAnimateTime(FLIGHT_TIME)
+        .arcsTransitionDuration(0)
+        .ringColor(() => t => `rgba(255,255,255,${1-t})`)
+        .ringMaxRadius(RINGS_MAX_R)
+        .ringPropagationSpeed(RING_PROPAGATION_SPEED)
+        .ringRepeatPeriod(FLIGHT_TIME * ARC_REL_LEN / NUM_RINGS)
+        (document.getElementById('globeViz'));
 
+    // setTimeout(function() {
+    //     globe.scene().children.forEach(function(e) {
+    //         console.log("e name is ", e.isLight)
+    //         if (e.isLight) {
+
+    //             scene.remove(e);
+
+    //         }
+
+    //     });
+    // }, 10);
+
+    // setTimeout(function() {
+    //     globe.scene().children.forEach(function(e) {
+    //         console.log("e name is ", e.isLight)
+    //         if (e.isLight) {
+
+    //             scene.remove(e);
+
+    //         }
+
+    //     });
+
+    //     ambientLight = new THREE.AmbientLight(0xffffff);
+    //     globe.scene().add(ambientLight);
+    // }, 20);
+
+
+var cities = [
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+  { city: "somerset", latitude: "40.4963", longitude: "-74.4853" },
+  { city: "porches", latitude: "37.0902", longitude: "-8.2439" },
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+  { city: "boston", latitude: "42.3601", longitude: "-71.0589" },
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+  { city: "calgary", latitude: "51.0447", longitude: "-114.0719" },
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+  { city: "denver", latitude: "39.7392", longitude: "-104.9903" },
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+  { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
+  { city: "los ángeles", latitude: "34.0522", longitude: "-118.2437" },
+  { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
+  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+    { city: "zillertal", latitude: "47.3333", longitude: "11.6667" },
+    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+    { city: "budapest", latitude: "47.4979", longitude: "19.0402" },
+    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+    { city: "park city", latitude: "40.6461", longitude: "-111.4980" },
+    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+    { city: "telluride", latitude: "37.937502", longitude: "-107.812408" },
+    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+    { city: "aruba", latitude: "12.5186", longitude: "-70.0358" },
+    { city: "new york", latitude: "40.7128", longitude: "-74.0060" }
+];
+
+
+var timer;
+var timerIndex = 0;
+function startTimer() {
+  timer = setInterval(function() {
+    console.log("Hello");
+    var city = cities[timerIndex]
+        console.log("city", city);
+
+    emitArc({lat: city["latitude"], lng: city["longitude"]})
+    timerIndex++;
+  }, 2500);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
+startTimer();
     let prevCoords = { lat: 0, lng: 0 };
+
     function emitArc({ lat: endLat, lng: endLng }) {
-      const { lat: startLat, lng: startLng } = prevCoords;
-      setTimeout(() => { prevCoords = { lat: endLat, lng: endLng }}, FLIGHT_TIME);
+        const { lat: startLat, lng: startLng } = prevCoords;
+        setTimeout(() => { prevCoords = { lat: endLat, lng: endLng } }, FLIGHT_TIME);
 
-      // add and remove arc after 1 cycle
-      const arc = { startLat, startLng, endLat, endLng };
-      globe.arcsData([...globe.arcsData(), arc]);
-      setTimeout(() => globe.arcsData(globe.arcsData().filter(d => d !== arc)), FLIGHT_TIME * 2);
+        // add and remove arc after 1 cycle
+        const arc = { startLat, startLng, endLat, endLng };
+        globe.arcsData([...globe.arcsData(), arc]);
+        setTimeout(() => globe.arcsData(globe.arcsData().filter(d => d !== arc)), FLIGHT_TIME * 2);
 
-      // add and remove start rings
-      const srcRing = { lat: startLat, lng: startLng };
-      globe.ringsData([...globe.ringsData(), srcRing]);
-      setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== srcRing)), FLIGHT_TIME * ARC_REL_LEN);
+        // add and remove start rings
+        const srcRing = { lat: startLat, lng: startLng };
+        globe.ringsData([...globe.ringsData(), srcRing]);
+        setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== srcRing)), FLIGHT_TIME * ARC_REL_LEN);
 
-      // add and remove target rings
-      setTimeout(() => {
-        const targetRing = { lat: endLat, lng: endLng };
-        globe.ringsData([...globe.ringsData(), targetRing]);
-        setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== targetRing)), FLIGHT_TIME * ARC_REL_LEN);
-      }, FLIGHT_TIME);
+        // add and remove target rings
+        setTimeout(() => {
+            const targetRing = { lat: endLat, lng: endLng };
+            globe.ringsData([...globe.ringsData(), targetRing]);
+            setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== targetRing)), FLIGHT_TIME * ARC_REL_LEN);
+        }, FLIGHT_TIME);
+
+        globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 100 }, 2000);
+
+        console.log("latitude: " + endLat + " longitude: " + endLng);
     }
-
-  </script>
+    </script>
 </body>
