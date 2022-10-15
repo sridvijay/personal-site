@@ -19,8 +19,8 @@
     const RING_PROPAGATION_SPEED = 1; // deg/sec
 
     const globe = Globe()
-        .globeImageUrl('/cities.png')
-        .bumpImageUrl('./bump3.jpg')
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+        // .bumpImageUrl('./bump3.jpg')
         .arcColor(() => 'darkOrange')
         .backgroundColor('#000000')
         .onGlobeClick(emitArc)
