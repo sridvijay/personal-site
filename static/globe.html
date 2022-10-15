@@ -39,32 +39,32 @@
         .ringRepeatPeriod(FLIGHT_TIME * ARC_REL_LEN / NUM_RINGS)
         (document.getElementById('globeViz'));
 
-    // setTimeout(function() {
-    //     globe.scene().children.forEach(function(e) {
-    //         console.log("e name is ", e.isLight)
-    //         if (e.isLight) {
+    setTimeout(function() {
+        globe.scene().children.forEach(function(e) {
+            console.log("e name is ", e.isLight)
+            if (e.isLight) {
 
-    //             scene.remove(e);
+                scene.remove(e);
 
-    //         }
+            }
 
-    //     });
-    // }, 10);
+        });
+    }, 10);
 
-    // setTimeout(function() {
-    //     globe.scene().children.forEach(function(e) {
-    //         console.log("e name is ", e.isLight)
-    //         if (e.isLight) {
+    setTimeout(function() {
+        globe.scene().children.forEach(function(e) {
+            console.log("e name is ", e.isLight)
+            if (e.isLight) {
 
-    //             scene.remove(e);
+                scene.remove(e);
 
-    //         }
+            }
 
-    //     });
+        });
 
-    //     ambientLight = new THREE.AmbientLight(0xffffff);
-    //     globe.scene().add(ambientLight);
-    // }, 20);
+        ambientLight = new THREE.AmbientLight(0xffffff);
+        globe.scene().add(ambientLight);
+    }, 20);
 
 
     var cities = [
