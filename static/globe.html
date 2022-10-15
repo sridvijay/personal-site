@@ -15,10 +15,10 @@
         <div id="globeViz" style="position: relative; display: inline-block;">
         </div>
     </div>
-    <p style="width: 200px; height: 80px; top: 20px; right: 40px; position: absolute; text-align: right; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal;">Vijay Sridhar</p>
-    <p style="width: 200px; height: 80px; top: 40px; right: 40px; position: absolute; text-align: right; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal;">Travel Log</p>
-    <p style="width: 200px; height: 40px; bottom: 20px; left: 40px; position: absolute; text-align: left; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */" id="city_name">New York, NY</p>
-    <p style="width: 200px; height: 40px; bottom: 0px; left: 40px; position: absolute; text-align: left; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */" id="season_name">Fall '22</p>
+    <p style="width: 80vw; height: 40px; top: 0.5em; right: 40px; position: absolute; text-align: right; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; font-size: min(60px, 5vw); margin: 0px;">Vijay Sridhar</p>
+    <p style="width: 80vw; height: 40px; top: 3em; right: 40px; position: absolute; text-align: right; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; font-size: min(40px, 3vw); margin: 0px;">Travel Log</p>
+    <p style="width: 80vw; height: 40px; bottom: 2em; left: 40px; position: absolute; text-align: left; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */ font-size: min(60px, 5vw); margin: 0px;" id="city_name">New York, NY</p>
+    <p style="width: 80vw; height: 40px; bottom: 1em; left: 40px; position: absolute; text-align: left; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */ font-size: min(40px, 3vw); margin: 0px;" id="season_name">Fall '22</p>
 </body>
 
 <script>
@@ -115,6 +115,7 @@
 
             if (city["season"] != lastSeasonShown) {
                 document.getElementById('season_name').style.opacity = 0;
+                lastSeasonShown = city["season"];
             }
 
             setTimeout(function() {
