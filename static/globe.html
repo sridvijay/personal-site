@@ -39,7 +39,7 @@
         .ringRepeatPeriod(FLIGHT_TIME * ARC_REL_LEN / NUM_RINGS)
         (document.getElementById('globeViz'));
 
-    globe.pointOfView({ lat: 39.6, lng: -98.5, altitude: 1 }); 
+    globe.pointOfView({ lat: 39.6, lng: -98.5, altitude: 1.6 }); 
 
     setTimeout(function() {
         globe.scene().children.forEach(function(e) {
@@ -141,7 +141,7 @@
             setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== targetRing)), FLIGHT_TIME * ARC_REL_LEN);
         }, FLIGHT_TIME);
 
-        globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 1 }, 2000);
+        globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 1.6 }, 2000);
 
         console.log("latitude: " + endLat + " longitude: " + endLng);
     }
