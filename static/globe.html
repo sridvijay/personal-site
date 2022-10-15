@@ -6,12 +6,22 @@
     </style>
     <script src="//unpkg.com/three"></script>
     <script src="//unpkg.com/globe.gl"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css">
     <!--<script src="../../dist/globe.gl.js"></script>-->
 </head>
 
 <body style="background-color: black;">
-    <div id="globeViz"></div>
-    <script>
+    <div id="travel_log" style="position: relative; display: inline-block;">
+        <div id="globeViz" style="position: relative; display: inline-block;">
+        </div>
+    </div>
+    <p style="width: 200px; height: 80px; top: 20px; right: 40px; position: absolute; text-align: right; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal;">Vijay Sridhar</p>
+    <p style="width: 200px; height: 80px; top: 40px; right: 40px; position: absolute; text-align: right; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal;">Travel Log</p>
+    <p style="width: 200px; height: 40px; bottom: 20px; left: 40px; position: absolute; text-align: left; color: white; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */" id="city_name">New York, NY</p>
+    <p style="width: 200px; height: 40px; bottom: 0px; left: 40px; position: absolute; text-align: left; color: white; opacity: 0.5; font-family: pinecone-mvb,sans-serif; font-weight: 400; font-style: normal; transition: opacity 0.5s; -webkit-transition: opacity 0.5s; /* Safari */" id="season_name">Fall '22</p>
+</body>
+
+<script>
     const ARC_REL_LEN = 0.4; // relative to whole arc
     const FLIGHT_TIME = 1000;
     const NUM_RINGS = 3;
@@ -25,6 +35,7 @@
         .backgroundColor('#000000')
         .onGlobeClick(emitArc)
         .arcDashLength(ARC_REL_LEN)
+        .enablePointerInteraction(false)
         .showAtmosphere(false)
         .arcDashGap(2)
         .arcDashInitialGap(1)
@@ -39,74 +50,80 @@
         .ringRepeatPeriod(FLIGHT_TIME * ARC_REL_LEN / NUM_RINGS)
         (document.getElementById('globeViz'));
 
-    globe.pointOfView({ lat: 39.6, lng: -98.5, altitude: 1.6 }); 
+    globe.pointOfView({ lat: 40.7128, lng: -74.0060, altitude: 1.6 }); 
 
+    // remove default lights
     setTimeout(function() {
         globe.scene().children.forEach(function(e) {
-            console.log("e name is ", e.isLight)
             if (e.isLight) {
-
                 scene.remove(e);
-
             }
-
         });
     }, 10);
 
     setTimeout(function() {
         globe.scene().children.forEach(function(e) {
-            console.log("e name is ", e.isLight)
             if (e.isLight) {
-
                 scene.remove(e);
-
             }
-
         });
 
+        // add new ambient light
         ambientLight = new THREE.AmbientLight(0xffffff);
         globe.scene().add(ambientLight);
     }, 20);
 
 
-    var cities = [
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "somerset", latitude: "40.4963", longitude: "-74.4853" },
-        { city: "porches", latitude: "37.0902", longitude: "-8.2439" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "boston", latitude: "42.3601", longitude: "-71.0589" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "calgary", latitude: "51.0447", longitude: "-114.0719" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "denver", latitude: "39.7392", longitude: "-104.9903" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
-        { city: "los ángeles", latitude: "34.0522", longitude: "-118.2437" },
-        { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-        { city: "zillertal", latitude: "47.3333", longitude: "11.6667" },
-        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-        { city: "budapest", latitude: "47.4979", longitude: "19.0402" },
-        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "park city", latitude: "40.6461", longitude: "-111.4980" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "telluride", latitude: "37.937502", longitude: "-107.812408" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-        { city: "aruba", latitude: "12.5186", longitude: "-70.0358" },
-        { city: "new york", latitude: "40.7128", longitude: "-74.0060" }
+    const cities = [
+      { city: "porches", latitude: "37.0902", longitude: "-8.2439", season: "fall '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "fall '22" },
+      { city: "denver", latitude: "39.7392", longitude: "-104.9903", season: "summer '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "summer '22" },
+      { city: "calgary", latitude: "51.0486", longitude: "-114.0708", season: "summer '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "summer '22" },
+      { city: "san francisco", latitude: "37.7749", longitude: "-122.4194", season: "summer '22" },
+      { city: "los angeles", latitude: "34.0522", longitude: "-118.2437", season: "summer '22" },
+      { city: "san francisco", latitude: "37.7749", longitude: "-122.4194", season: "summer '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "summer '22" },
+      { city: "lima", latitude: "-12.0464", longitude: "-77.0428", season: "spring '22" },
+      { city: "cusco", latitude: "-13.5319", longitude: "-71.9674", season: "spring '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "spring '22" },
+      { city: "frankfurt", latitude: "50.1109", longitude: "8.6821", season: "spring '22" },
+      { city: "zillertal", latitude: "47.3386", longitude: "11.6954", season: "winter '22" },
+      { city: "frankfurt", latitude: "50.1109", longitude: "8.6821", season: "winter '22" },
+      { city: "budapest", latitude: "47.4979", longitude: "19.0402", season: "winter '22" },
+      { city: "frankfurt", latitude: "50.1109", longitude: "8.6821", season: "winter '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "winter '22" },
+      { city: "park city", latitude: "40.6461", longitude: "-111.4949", season: "winter '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "winter '22" },
+      { city: "telluride", latitude: "37.937", longitude: "-107.812", season: "winter '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "winter '22" },
+      { city: "aruba", latitude: "12.5211", longitude: "-69.9683", season: "winter '22" },
+      { city: "new york", latitude: "40.7128", longitude: "-74.006", season: "winter'22" }
     ];
 
 
     var timer;
     var timerIndex = 0;
 
+    var lastSeasonShown = "fall '22"
     function startTimer() {
         timer = setInterval(function() {
-            console.log("Hello");
             var city = cities[timerIndex]
-            console.log("city", city);
+
+            document.getElementById('city_name').style.opacity = 0;
+
+            if (city["season"] != lastSeasonShown) {
+                document.getElementById('season_name').style.opacity = 0;
+            }
+
+            setTimeout(function() {
+                document.getElementById('city_name').innerText = city["city"];
+                document.getElementById('season_name').innerText = city["season"];
+
+                document.getElementById('city_name').style.opacity = 1;
+                document.getElementById('season_name').style.opacity = 0.5;
+            }, 500);
 
             emitArc({ lat: city["latitude"], lng: city["longitude"] })
             timerIndex++;
@@ -118,23 +135,20 @@
     }
 
     startTimer();
-    let prevCoords = { lat: 0, lng: 0 };
+    let prevCoords = { lat: 40.7128, lng: -74.0060 };
 
     function emitArc({ lat: endLat, lng: endLng }) {
         const { lat: startLat, lng: startLng } = prevCoords;
         setTimeout(() => { prevCoords = { lat: endLat, lng: endLng } }, FLIGHT_TIME);
 
-        // add and remove arc after 1 cycle
         const arc = { startLat, startLng, endLat, endLng };
         globe.arcsData([...globe.arcsData(), arc]);
         setTimeout(() => globe.arcsData(globe.arcsData().filter(d => d !== arc)), FLIGHT_TIME * 2);
 
-        // add and remove start rings
         const srcRing = { lat: startLat, lng: startLng };
         globe.ringsData([...globe.ringsData(), srcRing]);
         setTimeout(() => globe.ringsData(globe.ringsData().filter(r => r !== srcRing)), FLIGHT_TIME * ARC_REL_LEN);
 
-        // add and remove target rings
         setTimeout(() => {
             const targetRing = { lat: endLat, lng: endLng };
             globe.ringsData([...globe.ringsData(), targetRing]);
@@ -142,8 +156,5 @@
         }, FLIGHT_TIME);
 
         globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 1.6 }, 2000);
-
-        console.log("latitude: " + endLat + " longitude: " + endLng);
     }
     </script>
-</body>
