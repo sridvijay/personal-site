@@ -67,54 +67,55 @@
     // }, 20);
 
 
-var cities = [
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-  { city: "somerset", latitude: "40.4963", longitude: "-74.4853" },
-  { city: "porches", latitude: "37.0902", longitude: "-8.2439" },
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-  { city: "boston", latitude: "42.3601", longitude: "-71.0589" },
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-  { city: "calgary", latitude: "51.0447", longitude: "-114.0719" },
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-  { city: "denver", latitude: "39.7392", longitude: "-104.9903" },
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-  { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
-  { city: "los ángeles", latitude: "34.0522", longitude: "-118.2437" },
-  { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
-  { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-    { city: "zillertal", latitude: "47.3333", longitude: "11.6667" },
-    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-    { city: "budapest", latitude: "47.4979", longitude: "19.0402" },
-    { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
-    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-    { city: "park city", latitude: "40.6461", longitude: "-111.4980" },
-    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-    { city: "telluride", latitude: "37.937502", longitude: "-107.812408" },
-    { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
-    { city: "aruba", latitude: "12.5186", longitude: "-70.0358" },
-    { city: "new york", latitude: "40.7128", longitude: "-74.0060" }
-];
+    var cities = [
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "somerset", latitude: "40.4963", longitude: "-74.4853" },
+        { city: "porches", latitude: "37.0902", longitude: "-8.2439" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "boston", latitude: "42.3601", longitude: "-71.0589" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "calgary", latitude: "51.0447", longitude: "-114.0719" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "denver", latitude: "39.7392", longitude: "-104.9903" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
+        { city: "los ángeles", latitude: "34.0522", longitude: "-118.2437" },
+        { city: "san francisco", latitude: "37.7749", longitude: "-122.4194" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+        { city: "zillertal", latitude: "47.3333", longitude: "11.6667" },
+        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+        { city: "budapest", latitude: "47.4979", longitude: "19.0402" },
+        { city: "frankfurt", latitude: "50.1109", longitude: "8.6821" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "park city", latitude: "40.6461", longitude: "-111.4980" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "telluride", latitude: "37.937502", longitude: "-107.812408" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" },
+        { city: "aruba", latitude: "12.5186", longitude: "-70.0358" },
+        { city: "new york", latitude: "40.7128", longitude: "-74.0060" }
+    ];
 
 
-var timer;
-var timerIndex = 0;
-function startTimer() {
-  timer = setInterval(function() {
-    console.log("Hello");
-    var city = cities[timerIndex]
-        console.log("city", city);
+    var timer;
+    var timerIndex = 0;
 
-    emitArc({lat: city["latitude"], lng: city["longitude"]})
-    timerIndex++;
-  }, 2500);
-}
+    function startTimer() {
+        timer = setInterval(function() {
+            console.log("Hello");
+            var city = cities[timerIndex]
+            console.log("city", city);
 
-function stopTimer() {
-  clearInterval(timer);
-}
+            emitArc({ lat: city["latitude"], lng: city["longitude"] })
+            timerIndex++;
+        }, 2500);
+    }
 
-startTimer();
+    function stopTimer() {
+        clearInterval(timer);
+    }
+
+    startTimer();
     let prevCoords = { lat: 0, lng: 0 };
 
     function emitArc({ lat: endLat, lng: endLng }) {
