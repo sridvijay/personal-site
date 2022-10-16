@@ -5,9 +5,8 @@
     }
   </style>
   <script src="//unpkg.com/three"></script>
-  <script src="//unpkg.com/globe.gl"></script>
+  <script src="./dist/globe.gl.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
-  <!--<script src="../../dist/globe.gl.js"></script>-->
 </head>
 
 <body style="background-color: black">
@@ -17,8 +16,8 @@
   <p
     style="
       width: 80vw;
-      height: 40px;
-      top: 0.5em;
+      height: 60px;
+      top: 10px;
       right: 40px;
       position: absolute;
       text-align: right;
@@ -35,8 +34,8 @@
   <p
     style="
       width: 80vw;
-      height: 40px;
-      top: 3em;
+      height: 20px;
+      top: 80px;
       right: 40px;
       position: absolute;
       text-align: right;
@@ -55,7 +54,7 @@
     style="
       width: 80vw;
       height: 40px;
-      bottom: 2em;
+      bottom: 110px;
       left: 40px;
       position: absolute;
       text-align: left;
@@ -76,7 +75,7 @@
     style="
       width: 80vw;
       height: 40px;
-      bottom: 1em;
+      bottom: 40px;
       left: 40px;
       position: absolute;
       text-align: left;
@@ -110,7 +109,7 @@
     .backgroundColor("#000000")
     .onGlobeClick(emitArc)
     .arcDashLength(ARC_REL_LEN)
-    .enablePointerInteraction(false)
+    .enablePointerInteraction(true)
     .showAtmosphere(false)
     .arcDashGap(2)
     .arcDashInitialGap(1)
