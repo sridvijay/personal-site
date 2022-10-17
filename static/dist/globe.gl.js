@@ -66484,7 +66484,7 @@
 
   			if ( event.pointerType === 'touch' ) {
 
-  				onTouchStart( event );
+  				// onTouchStart( event );
 
   			} else {
 
@@ -66500,7 +66500,7 @@
 
   			if ( event.pointerType === 'touch' ) {
 
-  				onTouchMove( event );
+  				// onTouchMove( event );
 
   			} else {
 
@@ -66516,7 +66516,7 @@
 
   			if ( event.pointerType === 'touch' ) {
 
-  				onTouchEnd( event );
+  				// onTouchEnd( event );
 
   			} else {
 
@@ -66880,7 +66880,7 @@
 
   		this.object = object;
   		this.domElement = domElement;
-  		this.domElement.style.touchAction = 'none'; // disable touch scroll
+  		this.domElement.style.touchAction = 'pan-y'; // disable touch scroll
 
   		// Set to false to disable this control
   		this.enabled = true;
@@ -70798,7 +70798,7 @@
         }
       };
       state.renderObjs.objects([// Populate scene
-      new THREE.AmbientLight(0xbbbbbb), new THREE.DirectionalLight(0xffffff, 0.6), state.globe]).hoverOrderComparator(function (a, b) {
+      state.globe]).hoverOrderComparator(function (a, b) {
         var aObj = getGlobeObj(a);
         var bObj = getGlobeObj(b); // de-prioritize background / non-globe objects
 

@@ -603,7 +603,7 @@ var globe = Kapsule__default["default"]({
       }
     };
     state.renderObjs.objects([// Populate scene
-    new THREE.AmbientLight(0xbbbbbb), new THREE.DirectionalLight(0xffffff, 0.6), state.globe]).hoverOrderComparator(function (a, b) {
+    state.globe]).hoverOrderComparator(function (a, b) {
       var aObj = getGlobeObj(a);
       var bObj = getGlobeObj(b); // de-prioritize background / non-globe objects
 
