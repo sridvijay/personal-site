@@ -1,32 +1,32 @@
 .left {
-    width: 500px;
-    position: absolute;
-    left: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: top;
-    justify-content: left;
+  width: 500px;
+  position: absolute;
+  left: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: left;
 }
 
 .propic {
-    width: 170px;
-    height: 170px;
-    margin-top: 95px;
+  width: 170px;
+  height: 170px;
+  margin-top: 95px;
 }
 
 .right {
-    width: 700px;
-    position: absolute;
-    right: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: top;
-    justify-content: right;
+  width: 700px;
+  position: absolute;
+  right: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: right;
 }
 
 .life {
-    /* display: grid; */
-    margin-bottom: 54px;
+  /* display: grid; */
+  margin-bottom: 54px;
 }
 
 .resume {
@@ -35,20 +35,20 @@
 }
 
 .section_title {
-    font-family: pinecone-mvb, sans-serif;
-    font-size: 32px;
-    text-align: left;
-    color: white;
-    margin-bottom: 0px;
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 32px;
+  text-align: left;
+  color: white;
+  margin-bottom: 0px;
 }
 
 .mini_section_title {
-    font-family: pinecone-mvb, sans-serif;
-    font-size: 24px;
-    text-align: left;
-    color: white;
-    opacity: 40%;
-    margin-bottom: 0px;
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  color: white;
+  opacity: 40%;
+  margin-bottom: 0px;
 }
 
 .resume_item {
@@ -57,9 +57,9 @@
 }
 
 .move_indicator {
-    margin: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .resume_block {
@@ -87,16 +87,16 @@
 }
 
 .slide-right {
-    animation: slide-right 1s;
-  }
-  
+  animation: slide-right 1s;
+}
+
 @keyframes slide-right {
-from {
+  from {
     transform: translateX(-16px);
-}
-to {
+  }
+  to {
     transform: translateX(0);
-}
+  }
 }
 
 .resume_title {
@@ -124,6 +124,72 @@ to {
   opacity: 100%;
 }
 
+.name-input-field::placeholder {
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 24px;
+  opacity: 0.2;
+  color: white;
+}
+
+.name-input-field {
+  margin-top: 54px;
+  resize: none;
+  padding-left: 20px;
+  padding-top: 12px;
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  opacity: 100%;
+  width: 100%;
+  height: 60px;
+  border-radius: 20px;
+  border-width: 0px;
+}
+
+.form-input-field::placeholder {
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 24px;
+  opacity: 0.2;
+  position: relative;
+  top: 0px;
+  color: white;
+}
+
+.name-input-field:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #c3c3c381;
+    transition: box-shadow 0.25s;
+
+}
+
+.form-input-field:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #c3c3c381;
+    transition: box-shadow 0.25s;
+}
+
+.form-input-field {
+    resize: vertical;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 16px;
+  font-family: pinecone-mvb, sans-serif;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  opacity: 100%;
+  width: 100%;
+  height: 160px;
+  border-radius: 20px;
+  border-width: 0px;
+}
+
+.fillwhite {
+    fill: white;
+}
+
 .right_arrow {
   height: 20px;
   width: 20px;
@@ -134,31 +200,37 @@ to {
 }
 
 .down_arrow {
-    height: 48px;
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    width: 40px;
-    opacity: 0.7;
-    animation: wiggle 2s ease-in-out infinite;
+  height: 48px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  opacity: 0.7;
+  animation: wiggle 2s ease-in-out infinite;
 }
 
 @keyframes wiggle {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .signature_holder {
-    width: 100vw;
-    height: 80px;
-    position: absolute;
-    bottom: 100px;
+  width: 100vw;
+  height: 80px;
+  position: absolute;
+  bottom: 100px;
 }
 
 .signature {
-    width: 137px;
-    height: 81px;
-    margin-top: 30px;
-    padding-bottom: 200px;
+  width: 137px;
+  height: 81px;
+  margin-top: 30px;
+  padding-bottom: 200px;
 }

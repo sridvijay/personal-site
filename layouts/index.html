@@ -6,6 +6,7 @@
   </style>
   <script src="//unpkg.com/three"></script>
   <script src="./dist/globe.gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
 </head>
@@ -103,7 +104,48 @@
     <p style="color:rgba(255,255,255,0.5); font-family: pinecone-mvb-condensed, sans-serif; font-size: 24px;">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
     <p class="section_title">contact me</p>
 
-</div>
+    <form name="contact" method="POST" data-netlify="true">
+        <div class="contact-grid-item">
+        
+        <textarea type="text" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
+        
+        </div>
+        
+        <div class="contact-grid-item">
+        
+        <textarea type="text" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
+        
+        </div>
+        <button type="submit" style="width:90px;height:60px;background-color:rgba(255,255,255,0.05);border-radius:20px;border-width: 0px; margin-top: 16px; float: right; cursor: pointer;" class="bodymovinanim fillwhite" id="send-button"></button>
+    </form>
+
+        <script>
+
+let iconMenu = document.querySelector('.bodymovinanim');
+
+let animationMenu = bodymovin.loadAnimation({
+        container: iconMenu,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
+});
+
+var directionMenu = 1;
+  iconMenu.addEventListener('mouseenter', (e) => {
+  animationMenu.setDirection(directionMenu);
+  animationMenu.play();
+});
+
+  iconMenu.addEventListener('mouseleave', (e) => {
+  animationMenu.setDirection(-directionMenu);
+  animationMenu.play();
+});
+
+function testFunction() { console.log("YAHOOOOOOOOO")}
+function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
+        </script>
+    </div>
 
 
 <div class="right">
