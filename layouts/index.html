@@ -9,13 +9,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
+  <meta name="format-detection" content="telephone=no">
 </head>
 
-<body style="background-color: black;">
-<div id="travel_log" style="position: relative; display: inline-block">
+<body style="background-color: black">
+  <div id="header" style="position: relative; display: inline-block">
     <div id="globeViz" style="position: relative; display: inline-block"></div>
     <p
-        style="
+      style="
         width: 80vw;
         height: 60px;
         top: 30px;
@@ -26,17 +27,17 @@
         font-family: pinecone-mvb, sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 32px;
+        font-size: 64px;
         margin: 0px;
-        "
+      "
     >
-        Vijay Sridhar
+      Vijay Sridhar
     </p>
     <p
-        style="
+      style="
         width: 80vw;
         height: 20px;
-        top: 70px;
+        top: 102px;
         right: 40px;
         position: absolute;
         text-align: right;
@@ -45,17 +46,17 @@
         font-family: pinecone-mvb, sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 24px;
+        font-size: 48px;
         margin: 0px;
-        "
+      "
     >
-        Travel Log
+      Travel Log
     </p>
     <p
-        style="
+      style="
         width: 80vw;
         height: 40px;
-        bottom: 80px;
+        bottom: 132px;
         left: 40px;
         position: absolute;
         text-align: left;
@@ -65,18 +66,18 @@
         font-style: normal;
         transition: opacity 0.5s;
         -webkit-transition: opacity 0.5s; /* Safari */
-        font-size: 32px;
+        font-size: 64px;
         margin: 0px;
-        "
-        id="city_name"
+      "
+      id="city_name"
     >
-        New York, NY
+      New York, NY
     </p>
     <p
-        style="
+      style="
         width: 80vw;
         height: 40px;
-        bottom: 40px;
+        bottom: 60px;
         left: 40px;
         position: absolute;
         text-align: left;
@@ -87,180 +88,249 @@
         font-style: normal;
         transition: opacity 0.5s;
         -webkit-transition: opacity 0.5s; /* Safari */
-        font-size: 24px;
+        font-size: 48px;
         margin: 0px;
-        "
-        id="season_name"
+      "
+      id="season_name"
     >
-        Fall '22
+      Fall '22
     </p>
     <img class="down_arrow" src="./images/down_icon.png" />
+  </div>
 
-</div>
+  <div class="content">
+    <div class="mobile_item_one">
+      <img class="propic" src="./images/propic.png" />
+      <p class="description" style="width: auto; margin-left: 60px">
+        Hey! I'm
+        <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.<br /><br />I'm
+        a 24 year old
+        <span style="color: rgba(255, 255, 255, 1)">product engineer</span> and
+        <span style="color: rgba(255, 255, 255, 1)">designer</span> based out of
+        <span style="color: rgba(255, 255, 255, 1)">NYC</span>.
+      </p>
+    </div>
 
-<div class="left">
-    <img class="propic" src="./images/propic.png" />
-    <p style="color:rgba(255,255,255,0.5); font-family: pinecone-mvb-condensed, sans-serif; font-size: 24px;">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
-    <p style="color:rgba(255,255,255,0.5); font-family: pinecone-mvb-condensed, sans-serif; font-size: 24px;">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
-    <p class="section_title">contact me</p>
-
-    <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-        <div class="contact-grid-item">
-        
-        <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
-        
+    <div class="mobile_item_two">
+      <div class="life">
+        <p class="section_title">life</p>
+        <div class="video_grid">
+          <video
+            muted
+            playsinline
+            id="video-1"
+            class="life_video"
+            style="margin-left: 0px !important"
+          >
+            <source src="./videos/life_1.mp4" type="video/mp4" />
+          </video>
+          <video muted playsinline id="video-2" class="life_video">
+            <source src="./videos/life_2.mp4" type="video/mp4" />
+          </video>
+          <video muted playsinline id="video-3" class="life_video">
+            <source src="./videos/life_3.mp4" type="video/mp4" />
+          </video>
+          <video muted playsinline id="video-4" class="life_video">
+            <source src="./videos/life_4.mp4" type="video/mp4" />
+          </video>
         </div>
-        
-        <div class="contact-grid-item">
-        
-        <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
-        
-        </div>
-        <div style="position: absolute; bottom: 20px; left:20px" data-netlify-recaptcha="true"></div>
-        <button type="submit" style="width:90px;height:60px;background-color:rgba(255,255,255,0.05);border-radius:20px;border-width: 0px; margin-top: 16px; float: right; cursor: pointer;" class="bodymovinanim fillwhite" id="send-button"></button>
-    </form>
-
-        <script>
-
-let iconMenu = document.querySelector('.bodymovinanim');
-
-let animationMenu = bodymovin.loadAnimation({
-        container: iconMenu,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
-});
-
-var directionMenu = 1;
-  iconMenu.addEventListener('mouseenter', (e) => {
-  animationMenu.setDirection(directionMenu);
-  animationMenu.play();
-});
-
-  iconMenu.addEventListener('mouseleave', (e) => {
-  animationMenu.setDirection(-directionMenu);
-  animationMenu.play();
-});
-
-function testFunction() { console.log("YAHOOOOOOOOO")}
-function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
-        </script>
-    </div>
-
-
-<div class="right">
-<div class="life">
-    <p class="section_title">life</p>
-    <div class="video_grid" style="width: 700px; height: 320px; position: relative">
-    <video autoplay muted playsinline width="160" height="284" style="border-radius:20px; margin-top: 25px; margin-left: 0px;">
-        <source src="./videos/portugal1.MP4" type="video/mp4">
-    </video>
-    <video autoplay muted playsinline width="160" height="284" style="border-radius:20px; margin-top: 25px; margin-left: 12px;">
-        <source src="./videos/portugal3.MP4" type="video/mp4">
-    </video>
-    <video autoplay muted playsinline width="160" height="284" style="border-radius:20px; margin-top: 25px; margin-left: 12px;">
-        <source src="./videos/rocky1.MP4" type="video/mp4">
-    </video>
-    <video autoplay muted playsinline width="160" height="284" style="border-radius:20px; margin-top: 25px; margin-left: 12px;">
-        <source src="./videos/portugal2.MP4" type="video/mp4">
-    </video>
-    </div>
-  </span>
-  <span class="resume_info" style="color: white; font-size: 24px; margin-right: 15px; float: right;">my photo website <img class="right_arrow" src="./images/right_icon.png" />
-</div>
-
-<div class="resume">
-    <p class="section_title">work</p>
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/mood_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">mood</span>
-        <span class="resume_position">ios lead</span>
-        <span class="resume_time">‘22</span>
-        <span class="resume_info"
-          >install <img class="right_arrow" src="./images/right_icon.png" />
-        </span>
-      </div>
-    </div>
-
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/meta_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">meta</span>
-        <span class="resume_position">sw eng (xr maps)</span>
-        <span class="resume_time">‘21-’22</span>
-        <span class="resume_info">🤫</span>
-      </div>
-    </div>
-
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/sg_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">supergreat</span>
-        <span class="resume_position">ios lead</span>
-        <span class="resume_time">‘20-’21</span>
-        <span class="resume_info"
-          >install <img class="right_arrow" src="./images/right_icon.png" />
-        </span>
-      </div>
-    </div>
-
-    <img class="move_indicator" src="./images/move_indicator.svg" />
-
-
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/cm_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">clearmotion</span>
-        <span class="resume_position">director, mapping</span>
-        <span class="resume_time">‘16-’19</span>
-        <span class="resume_info"
-          >watch
+        <span class="photo_website_link"
+          >my photo website
           <img class="right_arrow" src="./images/right_icon.png" />
         </span>
       </div>
     </div>
 
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/mapkin_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">mapkin</span>
-        <span class="resume_position">ios lead</span>
-        <span class="resume_time">‘15-’16</span>
-        <span class="resume_info" style="opacity: 50%"
-          >acquired by verizon</span
-        >
-      </div>
-    </div>
+    <div class="mobile_item_three">
+      <p class="section_title">work</p>
+      <p class="description">
+        I've been
+        <span style="color: rgba(255, 255, 255, 1)">designing software</span>
+        and
+        <span style="color: rgba(255, 255, 255, 1)">writing code</span> since I
+        was 13 years old.<br /><br />I love building things that bring a
+        <span style="color: rgba(255, 255, 255, 1)">sense of joy</span> and
+        deeply value
+        <span style="color: rgba(255, 255, 255, 1)">human-centered design</span>
+        principles.<br /><br />I'm a
+        <span style="color: rgba(255, 255, 255, 1)">just-in-time learner</span>
+        & can build pretty much any software - but I specialize in
+        <span style="color: rgba(255, 255, 255, 1)">iOS development</span> &
+        <span style="color: rgba(255, 255, 255, 1)">design</span>.
+      </p>
 
-    <p class="mini_section_title">awards</p>
+      <div class="resume">
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/mood_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">mood</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘22</span>
+            <span class="resume_info"
+              >install <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
 
-    <div class="resume_item">
-      <img class="resume_icon" src="./images/cm_icon.png" />
-      <div class="resume_block">
-        <span class="resume_title">US Patent 2021/0055740</span>
-        <span class="resume_position">road surface based vehicle control</span>
-      </div>
-    </div>
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/meta_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">meta</span>
+            <span class="resume_position">sw eng (xr maps)</span>
+            <span class="resume_time">‘21-’22</span>
+            <span class="resume_info">🤫</span>
+          </div>
+        </div>
 
-    <div class="resume_item">
-        <img class="resume_icon" src="./images/apple_icon.png" />
-        <div class="resume_block">
-          <span class="resume_title">wwdc student scholarship</span>
-          <span class="resume_position">awarded in 2013 & 2014</span>
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/sg_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">supergreat</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘20-’21</span>
+            <span class="resume_info"
+              >install <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
+
+        <img class="move_indicator" src="./images/move_indicator.svg" />
+
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/cm_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">clearmotion</span>
+            <span class="resume_position">director, mapping</span>
+            <span class="resume_time">‘16-’19</span>
+            <span class="resume_info"
+              >watch
+              <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
+
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/mapkin_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">mapkin</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘15-’16</span>
+            <span class="resume_info" style="opacity: 50%"
+              >acquired by verizon</span
+            >
+          </div>
+        </div>
+
+        <p class="mini_section_title">awards</p>
+
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/cm_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">US Patent 2021/0055740</span>
+            <span class="resume_position"
+              >road surface based vehicle control</span
+            >
+          </div>
+        </div>
+
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/apple_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">wwdc student scholarship</span>
+            <span class="resume_position">awarded in 2013 & 2014</span>
+          </div>
         </div>
       </div>
-</div>
-</div>
+    </div>
 
-<!-- <div class="signature_holder">
-<video class="signature" autoplay muted playsinline>
-    <source src="./videos/signature.mp4" type="video/mp4">
+    <div class="mobile_item_four">
+    <p class="section_title">shoot me a note</p>
+
+    <form name="contact" method="POST" data-netlify="true">
+      <div class="contact-grid-item">
+        <textarea
+          type="text"
+          name="name"
+          placeholder="name"
+          class="name-input-field"
+          id="name-text-area"
+        ></textarea>
+      </div>
+
+      <div class="contact-grid-item">
+        <textarea
+          type="text"
+          name="form"
+          placeholder="what's on your mind?"
+          class="form-input-field"
+          id="form-text-area"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        id="send-button"
+        style="background-color: transparent; border-width: 0px; position: absolute; right: 0px; height: 60px; width: 180px; cursor: pointer; margin-top: 32px;"
+      >
+        <span class="photo_website_link" style="position: absolute; top: 0px;right: 0px; font-family: pinecone-mvb-condensed, sans-serif; font-weight: 400;"
+          >send&nbsp;
+          <img class="right_arrow" style="transform: translateY(2px);" src="./images/right_icon.png" />
+        </span>
+      </button>
+    </form>
+
+    <script>
+      let iconMenu = document.querySelector(".bodymovinanim");
+
+      let animationMenu = bodymovin.loadAnimation({
+        container: iconMenu,
+        renderer: "svg",
+        loop: false,
+        autoplay: false,
+        path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json",
+      });
+
+      var directionMenu = 1;
+      iconMenu.addEventListener("mouseenter", (e) => {
+        animationMenu.setDirection(directionMenu);
+        animationMenu.play();
+      });
+
+      iconMenu.addEventListener("mouseleave", (e) => {
+        animationMenu.setDirection(-directionMenu);
+        animationMenu.play();
+      });
+
+      function testFunction() {
+        console.log("YAHOOOOOOOOO");
+      }
+      function myFunction() {
+        if (
+          document.getElementById("name-text-area").value &&
+          document.getElementById("form-text-area").value
+        ) {
+          document.getElementById("send-button").disabled = false;
+        } else {
+          document.getElementById("send-button").disabled = true;
+        }
+      }
+      document
+        .getElementById("name-text-area")
+        .addEventListener("input", myFunction);
+      document
+        .getElementById("form-text-area")
+        .addEventListener("input", myFunction);
+    </script>
+  </div>
+
+  <video class="signature" autoplay muted playsinline infinite>
+    <source src="./videos/signature.mp4" type="video/mp4" />
     vsridhar
-</video>
-</div> -->
+  </video>
+</div>
 
+  <!-- <div class="bottom">
+
+</div> -->
 </body>
 
 <script>
@@ -315,6 +385,58 @@ function myFunction() { if (document.getElementById('name-text-area').value && d
     ambientLight = new THREE.AmbientLight(0xffffff);
     globe.scene().add(ambientLight);
   }, 20);
+
+  var observer = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      startAnimation();
+    }
+  });
+
+  function startAnimation() {
+
+    // weird hack to ensure videos don't show up as black before they are loaded and played.
+    document.getElementById("video-2").style.opacity = 0.25;
+    document.getElementById("video-3").style.opacity = 0.25;
+    document.getElementById("video-4").style.opacity = 0.25;
+
+    document.getElementById("video-2").play();
+    document.getElementById("video-2").pause();
+    document.getElementById("video-3").play();
+    document.getElementById("video-3").pause();
+    document.getElementById("video-4").play();
+    document.getElementById("video-4").pause();
+
+
+    document.getElementById("video-1").style.opacity = 1.0;
+    document.getElementById("video-1").play();
+
+    setTimeout(function () {
+      document.getElementById("video-1").style.opacity = 0.25;
+      document.getElementById("video-2").style.opacity = 1.0;
+      document.getElementById("video-2").play();
+    }, 2800 * 1);
+
+    setTimeout(function () {
+      document.getElementById("video-1").style.opacity = 0.25;
+      document.getElementById("video-2").style.opacity = 0.25;
+      document.getElementById("video-3").style.opacity = 1.0;
+      document.getElementById("video-3").play();
+    }, 2800 * 2);
+
+    setTimeout(function () {
+      document.getElementById("video-1").style.opacity = 0.25;
+      document.getElementById("video-2").style.opacity = 0.25;
+      document.getElementById("video-3").style.opacity = 0.25;
+      document.getElementById("video-4").style.opacity = 1.0;
+      document.getElementById("video-4").play();
+    }, 2800 * 3);
+
+    setTimeout(function () {
+      startAnimation();
+    }, 2900 * 4);
+  }
+
+  observer.observe(document.querySelector("#video-1"));
 
   const cities = [
     {
@@ -473,6 +595,7 @@ function myFunction() { if (document.getElementById('name-text-area').value && d
   var timerIndex = 0;
 
   var lastSeasonShown = "fall '22";
+
   function startTimer() {
     timer = setInterval(function () {
       var city = cities[timerIndex];
