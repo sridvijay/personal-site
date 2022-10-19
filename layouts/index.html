@@ -9,102 +9,46 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
-  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="initial-scale=1.0" />
 </head>
 
 <body style="background-color: black">
   <div id="header" style="position: relative; display: inline-block">
     <div id="globeViz" style="position: relative; display: inline-block"></div>
-    <p
-      style="
-        width: 80vw;
-        height: 60px;
-        top: 30px;
-        right: 40px;
-        position: absolute;
-        text-align: right;
-        color: white;
-        font-family: pinecone-mvb, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 64px;
-        margin: 0px;
-      "
-    >
+    <p class="header_title">
       Vijay Sridhar
     </p>
     <p
-      style="
-        width: 80vw;
-        height: 20px;
-        top: 102px;
-        right: 40px;
-        position: absolute;
-        text-align: right;
-        color: white;
-        opacity: 0.5;
-        font-family: pinecone-mvb, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 48px;
-        margin: 0px;
-      "
+      class="header_subtitle"
     >
       Travel Log
     </p>
     <p
-      style="
-        width: 80vw;
-        height: 40px;
-        bottom: 132px;
-        left: 40px;
-        position: absolute;
-        text-align: left;
-        color: white;
-        font-family: pinecone-mvb, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        transition: opacity 0.5s;
-        -webkit-transition: opacity 0.5s; /* Safari */
-        font-size: 64px;
-        margin: 0px;
-      "
+      class="city-name"
       id="city_name"
     >
       New York, NY
     </p>
     <p
-      style="
-        width: 80vw;
-        height: 40px;
-        bottom: 60px;
-        left: 40px;
-        position: absolute;
-        text-align: left;
-        color: white;
-        opacity: 0.5;
-        font-family: pinecone-mvb, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        transition: opacity 0.5s;
-        -webkit-transition: opacity 0.5s; /* Safari */
-        font-size: 48px;
-        margin: 0px;
-      "
+      class="season-name"
       id="season_name"
     >
       Fall '22
     </p>
     <img class="down_arrow" src="./images/down_icon.png" />
   </div>
+  
+  <div class="mobile-only">
 
   <div class="content">
     <div class="mobile_item_one">
       <img class="propic" src="./images/propic.png" />
-      <p class="description" style="width: auto; margin-left: 60px">
+      <p class="description" style="width: auto; margin-left: 20px; font-size: 16px;">
         Hey! I'm
-        <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.<br /><br />I'm
-        a 24 year old
+        <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.</br>
+        <span style="margin-top: 10px; display: block;"></span>
+        I'm a 24 year old
         <span style="color: rgba(255, 255, 255, 1)">product engineer</span> and
         <span style="color: rgba(255, 255, 255, 1)">designer</span> based out of
         <span style="color: rgba(255, 255, 255, 1)">NYC</span>.
@@ -115,25 +59,38 @@
       <div class="life">
         <p class="section_title">life</p>
         <div class="video_grid">
-          <video
-            muted
-            playsinline
-            id="video-1"
-            class="life_video"
-            style="margin-left: 0px !important"
-          >
-            <source src="./videos/life_1.mp4" type="video/mp4" />
-          </video>
+          <button onclick="openVideo(0)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
+            <video
+              muted
+              playsinline
+              id="video-1"
+              class="life_video"
+              style="margin-left: 0px !important"
+            >
+              <source src="./videos/life_1.mp4" type="video/mp4" />
+            </video>
+          </button>
+          <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-2" class="life_video">
             <source src="./videos/life_2.mp4" type="video/mp4" />
           </video>
+          </button>
+          <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-3" class="life_video">
             <source src="./videos/life_3.mp4" type="video/mp4" />
           </video>
+          </button>
+          <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-4" class="life_video">
             <source src="./videos/life_4.mp4" type="video/mp4" />
           </video>
+          </button>
         </div>
+        <script>
+          function openVideo(index) {
+            console.log("ASDLKAJSHDAK ", index);
+          }
+        </script>
         <span class="photo_website_link"
           >my photo website
           <img class="right_arrow" src="./images/right_icon.png" />
@@ -225,9 +182,9 @@
 
         <div class="resume_item">
           <img class="resume_icon" src="./images/cm_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">US Patent 2021/0055740</span>
-            <span class="resume_position"
+          <div class="resume_block" style="margin-top: 4.5px;">
+            <span class="resume_title" style="font-size: 16px;">US Patent 2021/0055740</span>
+            <span class="resume_position" style="font-size: 14px; margin-top: -4px;"
               >road surface based vehicle control</span
             >
           </div>
@@ -235,105 +192,233 @@
 
         <div class="resume_item">
           <img class="resume_icon" src="./images/apple_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">wwdc student scholarship</span>
-            <span class="resume_position">awarded in 2013 & 2014</span>
+          <div class="resume_block" style="margin-top: 4.5px;">
+            <span class="resume_title" style="font-size: 16px;">wwdc student scholarship</span>
+            <span class="resume_position" style="font-size: 14px; margin-top: -4px;">awarded in 2013 & 2014</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="mobile_item_four">
-    <p class="section_title">shoot me a note</p>
+      <p class="section_title">shoot me a note</p>
 
-    <form name="contact" method="POST" data-netlify="true">
-      <div class="contact-grid-item">
-        <textarea
-          type="text"
-          name="name"
-          placeholder="name"
-          class="name-input-field"
-          id="name-text-area"
-        ></textarea>
-      </div>
+      <form name="contact" method="POST" data-netlify="true">
+        <div class="contact-grid-item">
+          <textarea
+            type="text"
+            name="name"
+            placeholder="name"
+            class="name-input-field"
+            id="name-text-area"
+          ></textarea>
+        </div>
 
-      <div class="contact-grid-item">
-        <textarea
-          type="text"
-          name="form"
-          placeholder="what's on your mind?"
-          class="form-input-field"
-          id="form-text-area"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        id="send-button"
-        style="background-color: transparent; border-width: 0px; position: absolute; right: 0px; height: 60px; width: 180px; cursor: pointer; margin-top: 32px;"
-      >
-        <span class="photo_website_link" style="position: absolute; top: 0px;right: 0px; font-family: pinecone-mvb-condensed, sans-serif; font-weight: 400;"
-          >send&nbsp;
-          <img class="right_arrow" style="transform: translateY(2px);" src="./images/right_icon.png" />
-        </span>
-      </button>
-    </form>
+        <div class="contact-grid-item">
+          <textarea
+            type="text"
+            name="form"
+            placeholder="what's on your mind?"
+            class="form-input-field"
+            id="form-text-area"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="send-button"
+          id="send-button"
+        >
+          <span
+            class="photo_website_link"
+            style="
+              position: absolute;
+              top: 0px;
+              right: -4px;
+              font-family: pinecone-mvb-condensed, sans-serif;
+              font-weight: 400;
+            "
+            >send&nbsp;
+            <img
+              class="right_arrow"
+              style="transform: translateX(-4px)"
+              src="./images/right_icon.png"
+            />
+          </span>
+        </button>
+      </form>
+    </div>
 
-    <script>
-      let iconMenu = document.querySelector(".bodymovinanim");
-
-      let animationMenu = bodymovin.loadAnimation({
-        container: iconMenu,
-        renderer: "svg",
-        loop: false,
-        autoplay: false,
-        path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json",
-      });
-
-      var directionMenu = 1;
-      iconMenu.addEventListener("mouseenter", (e) => {
-        animationMenu.setDirection(directionMenu);
-        animationMenu.play();
-      });
-
-      iconMenu.addEventListener("mouseleave", (e) => {
-        animationMenu.setDirection(-directionMenu);
-        animationMenu.play();
-      });
-
-      function testFunction() {
-        console.log("YAHOOOOOOOOO");
-      }
-      function myFunction() {
-        if (
-          document.getElementById("name-text-area").value &&
-          document.getElementById("form-text-area").value
-        ) {
-          document.getElementById("send-button").disabled = false;
-        } else {
-          document.getElementById("send-button").disabled = true;
-        }
-      }
-      document
-        .getElementById("name-text-area")
-        .addEventListener("input", myFunction);
-      document
-        .getElementById("form-text-area")
-        .addEventListener("input", myFunction);
-    </script>
+    <video class="signature" autoplay muted playsinline infinite>
+      <source src="./videos/signature.mp4" type="video/mp4" />
+      vsridhar
+    </video>
+  </div>
   </div>
 
-  <video class="signature" autoplay muted playsinline infinite>
-    <source src="./videos/signature.mp4" type="video/mp4" />
-    vsridhar
-  </video>
-</div>
-
-  <!-- <div class="bottom">
-
-</div> -->
+  <div class="desktop-only">    
+    <div class="content">
+    <div class="left">
+        <img class="propic" src="./images/propic.png" />
+        <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
+        <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
+        
+        <p class="section_title">contact me</p>
+    
+        <form name="contact" method="POST" data-netlify="true">
+            <div class="contact-grid-item">
+            
+            <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
+            
+            </div>
+            
+            <div class="contact-grid-item">
+            
+            <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
+            
+            </div>
+            <button type="submit" class="bodymovinanim fillwhite send-button" id="send-button"></button>
+        </form>
+    
+            <script>
+              let iconMenu = document.querySelector('.bodymovinanim');
+    
+              let animationMenu = bodymovin.loadAnimation({
+                      container: iconMenu,
+                      renderer: 'svg',
+                      loop: false,
+                      autoplay: false,
+                      path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
+              });
+    
+              var directionMenu = 1;
+                iconMenu.addEventListener('mouseenter', (e) => {
+                animationMenu.setDirection(directionMenu);
+                animationMenu.play();
+              });
+    
+                iconMenu.addEventListener('mouseleave', (e) => {
+                animationMenu.setDirection(-directionMenu);
+                animationMenu.play();
+              });
+    
+              function testFunction() { console.log("YAHOOOOOOOOO")}
+              function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
+            </script>
+        </div>
+    
+    
+    <div class="right">
+    <div class="life">
+        <p class="section_title">life</p>
+        <div class="video_grid">
+        <video autoplay muted playsinline id="video-1" class="life_video" style="margin-left: 0px !important;">
+            <source src="./videos/life_3.mp4" type="video/mp4">
+        </video>
+        <video muted playsinline id="video-2" class="life_video">
+            <source src="./videos/life_2.mp4" type="video/mp4">
+        </video>
+        <video muted playsinline id="video-3" class="life_video" >
+            <source src="./videos/life_3.mp4" type="video/mp4">
+        </video>
+        <video muted playsinline id="video-4" class="life_video">
+            <source src="./videos/life_4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
+    </span>
+    </div>
+    
+    <div class="resume">
+        <p class="section_title">work</p>
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/mood_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">mood</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘22</span>
+            <span class="resume_info"
+              >install <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
+    
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/meta_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">meta</span>
+            <span class="resume_position">sw eng (xr maps)</span>
+            <span class="resume_time">‘21-’22</span>
+            <span class="resume_info">🤫</span>
+          </div>
+        </div>
+    
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/sg_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">supergreat</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘20-’21</span>
+            <span class="resume_info"
+              >install <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
+    
+        <img class="move_indicator" src="./images/move_indicator.svg" />
+    
+    
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/cm_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">clearmotion</span>
+            <span class="resume_position">director, mapping</span>
+            <span class="resume_time">‘16-’19</span>
+            <span class="resume_info"
+              >watch
+              <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+          </div>
+        </div>
+    
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/mapkin_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title">mapkin</span>
+            <span class="resume_position">ios lead</span>
+            <span class="resume_time">‘15-’16</span>
+            <span class="resume_info" style="opacity: 50%"
+              >acquired by verizon</span
+            >
+          </div>
+        </div>
+    
+        <p class="mini_section_title">awards</p>
+    
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/cm_icon.png" />
+          <div class="resume_block award">
+            <span class="resume_title long_text_title">US Patent 2021/0055740</span>
+            <span class="resume_position long_text_subtitle">road surface based vehicle control</span>
+          </div>
+        </div>
+    
+        <div class="resume_item">
+            <img class="resume_icon" src="./images/apple_icon.png" />
+            <div class="resume_block award">
+              <span class="resume_title long_text_title">wwdc student scholarship</span>
+              <span class="resume_position long_text_subtitle">awarded in 2013 & 2014</span>
+            </div>
+          </div>
+    </div>
+    </div>
+    </div>
+  
+    </div>
 </body>
 
+
 <script>
+
   const ARC_REL_LEN = 0.4; // relative to whole arc
   const FLIGHT_TIME = 1000;
   const NUM_RINGS = 3;
@@ -363,6 +448,11 @@
     document.getElementById("globeViz")
   );
 
+  window.addEventListener('resize', (event) => {
+    globe.width([event.target.innerWidth])
+    globe.height([event.target.innerHeight])
+  });
+
   globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
 
   // remove default lights
@@ -386,6 +476,8 @@
     globe.scene().add(ambientLight);
   }, 20);
 
+  var isAnimatingMovies = false;
+
   var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting) {
       startAnimation();
@@ -393,6 +485,7 @@
   });
 
   function startAnimation() {
+    isAnimatingMovies = true;
 
     // weird hack to ensure videos don't show up as black before they are loaded and played.
     document.getElementById("video-2").style.opacity = 0.25;
@@ -406,22 +499,22 @@
     document.getElementById("video-4").play();
     document.getElementById("video-4").pause();
 
-
     document.getElementById("video-1").style.opacity = 1.0;
     document.getElementById("video-1").play();
+  }
 
-    setTimeout(function () {
-      document.getElementById("video-1").style.opacity = 0.25;
-      document.getElementById("video-2").style.opacity = 1.0;
-      document.getElementById("video-2").play();
-    }, 2800 * 1);
+  function finishAnimations() {
+
+    document.getElementById("video-1").style.opacity = 0.25;
+    document.getElementById("video-2").style.opacity = 1.0;
+    document.getElementById("video-2").play();
 
     setTimeout(function () {
       document.getElementById("video-1").style.opacity = 0.25;
       document.getElementById("video-2").style.opacity = 0.25;
       document.getElementById("video-3").style.opacity = 1.0;
       document.getElementById("video-3").play();
-    }, 2800 * 2);
+    }, 2800);
 
     setTimeout(function () {
       document.getElementById("video-1").style.opacity = 0.25;
@@ -429,11 +522,11 @@
       document.getElementById("video-3").style.opacity = 0.25;
       document.getElementById("video-4").style.opacity = 1.0;
       document.getElementById("video-4").play();
-    }, 2800 * 3);
+    }, 2800 * 2);
 
     setTimeout(function () {
       startAnimation();
-    }, 2900 * 4);
+    }, 2900 * 3);
   }
 
   observer.observe(document.querySelector("#video-1"));
@@ -659,4 +752,8 @@
 
     globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 1.6 }, 2000);
   }
+
+  document.getElementById("video-1").addEventListener("ended", function() {
+    finishAnimations();
+  });
 </script>
