@@ -182,9 +182,9 @@
 
         <div class="resume_item">
           <img class="resume_icon" src="./images/cm_icon.png" />
-          <div class="resume_block" style="margin-top: 4.5px;">
-            <span class="resume_title" style="font-size: 16px;">US Patent 2021/0055740</span>
-            <span class="resume_position" style="font-size: 14px; margin-top: -4px;"
+          <div class="resume_block award" style="margin-top: 4.5px;">
+            <span class="resume_title long_text_title" style="font-size: 16px;">US Patent 2021/0055740</span>
+            <span class="resume_position long_text_subtitle" style="font-size: 14px; margin-top: -4px;"
               >road surface based vehicle control</span
             >
           </div>
@@ -192,9 +192,9 @@
 
         <div class="resume_item">
           <img class="resume_icon" src="./images/apple_icon.png" />
-          <div class="resume_block" style="margin-top: 4.5px;">
-            <span class="resume_title" style="font-size: 16px;">wwdc student scholarship</span>
-            <span class="resume_position" style="font-size: 14px; margin-top: -4px;">awarded in 2013 & 2014</span>
+          <div class="resume_block award" style="margin-top: 4.5px;">
+            <span class="resume_title long_text_title" style="font-size: 16px;">wwdc student scholarship</span>
+            <span class="resume_position long_text_subtitle" style="font-size: 14px; margin-top: -4px;">awarded in 2013 & 2014</span>
           </div>
         </div>
       </div>
@@ -479,13 +479,18 @@
   var isAnimatingMovies = false;
 
   var observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
+    if (entries[0].isIntersecting && !isAnimatingMovies) {
       startAnimation();
     }
   });
 
   function startAnimation() {
     isAnimatingMovies = true;
+
+    document.getElementById("video-1").currentTime = 0;
+    document.getElementById("video-2").currentTime = 0;
+    document.getElementById("video-3").currentTime = 0;
+    document.getElementById("video-4").currentTime = 0;
 
     // weird hack to ensure videos don't show up as black before they are loaded and played.
     document.getElementById("video-2").style.opacity = 0.25;

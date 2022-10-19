@@ -673,6 +673,7 @@
   .description {
     margin-top: 30px;
     font-size: 18px;
+    width:85vw !important;
   }
 
   .resume_block {
@@ -820,8 +821,8 @@
 
   .mobile_item_three {
     width: 100%;
-    height: 1300px;
-    margin-top: 7vh;
+    height: 1250px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -831,7 +832,7 @@
   .mobile_item_four {
     width: 100%;
     height: 300px;
-    margin-top: 0vh;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -872,7 +873,7 @@
   }
 
   .description {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 
   .mini_section_title {
@@ -926,6 +927,20 @@
     padding-top: 6px;
     margin-right: 0px;
     margin-left: 4px;
+  }
+
+  .award {
+    margin-top: 0px !important;
+  }
+
+  .long_text_title {
+    margin-top: 6px !important;
+    font-size: 16px !important;
+  }
+
+  .long_text_subtitle {
+    margin-top: 2px !important;
+    font-size: 14px !important;
   }
 }
 
