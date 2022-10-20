@@ -531,12 +531,12 @@ var globe = Kapsule({
     controls.minDistance = globeR * 1.01; // just above the surface
 
     controls.maxDistance = globeR * 100;
-    controls.enablePan = false;
+    controls.enablePan = true;
+    controls.enableZoom = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.1;
     controls.rotateSpeed = 0.3;
     controls.zoomSpeed = 0.3;
-    controls.enabled = false;
     controls.addEventListener('change', function () {
       // adjust controls speed based on altitude
       var pov = _this.pointOfView();
@@ -593,7 +593,7 @@ var globe = Kapsule({
       }
     };
     state.renderObjs.objects([// Populate scene
-    state.globe]).hoverOrderComparator(function (a, b) {
+    new THREE.AmbientLight(0xbbbbbb), new THREE.DirectionalLight(0xffffff, 0.6), state.globe]).hoverOrderComparator(function (a, b) {
       var aObj = getGlobeObj(a);
       var bObj = getGlobeObj(b); // de-prioritize background / non-globe objects
 

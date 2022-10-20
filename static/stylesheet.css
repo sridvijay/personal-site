@@ -1,5 +1,4 @@
 .header_title {
-  width: 80vw;
   height: 60px;
   top: 10px;
   right: 40px;
@@ -14,7 +13,6 @@
 }
 
 .header_subtitle {
-  width: 80vw;
   height: 20px;
   top: 50px;
   right: 40px;
@@ -30,7 +28,6 @@
 }
 
 .city-name {
-  width: 80vw;
   height: 40px;
   bottom: 60px;
   left: 40px;
@@ -47,7 +44,6 @@
 }
 
 .season-name {
-  width: 80vw;
   height: 40px;
   bottom: 20px;
   left: 40px;
@@ -118,7 +114,7 @@ a, u {
 
   .content {
     width: 100vw;
-    height: 1600px;
+    height: 1400px;
   }
 
   .left {
@@ -261,7 +257,7 @@ a, u {
 
   .resume {
     display: grid;
-    margin-bottom: 200px;
+    margin-bottom: 0px;
   }
 
   .resume_block {
@@ -424,10 +420,8 @@ a, u {
   .signature {
     width: 137px;
     height: 81px;
-    padding-top: 20px;
-    padding-left: calc(min(450px, 100%) - 137px);
-    /* margin-bottom: 300px; */
-    padding-bottom: 40px;
+    margin-bottom: 30px;
+    position: relative;
   }
 }
 
@@ -461,9 +455,9 @@ a, u {
 @media only screen and (max-width: 600px) {
 
   .mini_city {
-    width: 48% !important;
+    width: 58% !important;
     margin-left: 52% !important;
-    margin-top: 0px !important;
+    margin-top: -40px !important;
   }
 
   .header_title {

@@ -9124,7 +9124,7 @@
 
   		this.envMap = null;
   		this.combine = MultiplyOperation;
-  		this.reflectivity = 1;
+  		this.reflectivity = 0;
   		this.refractionRatio = 0.98;
 
   		this.wireframe = false;
@@ -33995,7 +33995,7 @@
 
   		this.envMap = null;
   		this.combine = MultiplyOperation;
-  		this.reflectivity = 1;
+  		this.reflectivity = 0;
   		this.refractionRatio = 0.98;
 
   		this.wireframe = false;
@@ -34081,7 +34081,7 @@
   		this.map = null;
 
   		this.lightMap = null;
-  		this.lightMapIntensity = 1.0;
+  		this.lightMapIntensity = 0.0;
 
   		this.aoMap = null;
   		this.aoMapIntensity = 1.0;
@@ -34107,7 +34107,7 @@
 
   		this.envMap = null;
   		this.combine = MultiplyOperation;
-  		this.reflectivity = 1;
+  		this.reflectivity = 0;
   		this.refractionRatio = 0.98;
 
   		this.wireframe = false;
@@ -63211,6 +63211,7 @@
     props: {
       globeImageUrl: {},
       bumpImageUrl: {},
+	  alphaImageUrl: {},
       showGlobe: {
         "default": true,
         onChange: function onChange(showGlobe, state) {
@@ -63313,6 +63314,18 @@
         } else {
           state.bumpImageUrl && new THREE$e.TextureLoader().load(state.bumpImageUrl, function (texture) {
             globeMaterial.bumpMap = texture;
+            globeMaterial.needsUpdate = true;
+          });
+        }
+      }
+
+	  if (changedProps.hasOwnProperty('alphaImageUrl')) {
+        if (!state.alphaImageUrl) {
+          globeMaterial.alphaMap = null;
+          globeMaterial.needsUpdate = true;
+        } else {
+          state.alphaImageUrl && new THREE$e.TextureLoader().load(state.alphaImageUrl, function (texture) {
+			globeMaterial.alphaMap = texture;
             globeMaterial.needsUpdate = true;
           });
         }
@@ -65828,7 +65841,7 @@
   var layers = ['globeLayer', 'pointsLayer', 'arcsLayer', 'hexBinLayer', 'polygonsLayer', 'hexedPolygonsLayer', 'pathsLayer', 'tilesLayer', 'labelsLayer', 'ringsLayer', 'htmlElementsLayer', 'objectsLayer', 'customLayer']; // Expose config from layers
 
   var bindGlobeLayer = linkKapsule$1('globeLayer', GlobeLayerKapsule);
-  var linkedGlobeLayerProps = Object.assign.apply(Object, _toConsumableArray$1(['globeImageUrl', 'bumpImageUrl', 'showGlobe', 'showGraticules', 'showAtmosphere', 'atmosphereColor', 'atmosphereAltitude'].map(function (p) {
+  var linkedGlobeLayerProps = Object.assign.apply(Object, _toConsumableArray$1(['globeImageUrl', 'bumpImageUrl', 'alphaImageUrl', 'showGlobe', 'showGraticules', 'showAtmosphere', 'atmosphereColor', 'atmosphereAltitude'].map(function (p) {
     return _defineProperty$1({}, p, bindGlobeLayer.linkProp(p));
   })));
   var linkedGlobeLayerMethods = Object.assign.apply(Object, _toConsumableArray$1(['globeMaterial'].map(function (p) {
@@ -66466,7 +66479,6 @@
   		// listeners
 
   		function onPointerDown( event ) {
-
   			if ( scope.enabled === false ) return;
 
   			if ( _pointers.length === 0 ) {
@@ -66478,13 +66490,11 @@
 
   			}
 
-  			//
-
   			addPointer( event );
 
   			if ( event.pointerType === 'touch' ) {
 
-  				// onTouchStart( event );
+  				onTouchStart( event );
 
   			} else {
 
@@ -66500,7 +66510,7 @@
 
   			if ( event.pointerType === 'touch' ) {
 
-  				// onTouchMove( event );
+  				onTouchMove( event );
 
   			} else {
 
@@ -66516,7 +66526,7 @@
 
   			if ( event.pointerType === 'touch' ) {
 
-  				// onTouchEnd( event );
+  				onTouchEnd( event );
 
   			} else {
 
@@ -66607,6 +66617,8 @@
   			const state = ( _keyState !== STATE.NONE ) ? _keyState : _state;
 
   			if ( state === STATE.ROTATE && ! scope.noRotate ) {
+
+				console.log("ASKLDJHASDKJHASLKDHJASLKDHJASLKDJHAKLJAHSKLAHSDKL");
 
   				_moveCurr.copy( getMouseOnCircle( event.pageX, event.pageY ) );
   				_movePrev.copy( _moveCurr );
@@ -66880,7 +66892,7 @@
 
   		this.object = object;
   		this.domElement = domElement;
-  		this.domElement.style.touchAction = 'pan-y'; // disable touch scroll
+  		this.domElement.style.touchAction = 'none'; // disable touch scroll
 
   		// Set to false to disable this control
   		this.enabled = true;
@@ -67360,9 +67372,12 @@
   		//
 
   		function handleMouseDownRotate( event ) {
+			rotateStart.set( event.clientX, event.clientY );
 
-  			rotateStart.set( event.clientX, event.clientY );
-
+			var event = new CustomEvent('rotateglobe', {
+				detail: "mouseDown"
+				});
+			document.dispatchEvent(event);
   		}
 
   		function handleMouseDownDolly( event ) {
@@ -67488,6 +67503,10 @@
   		}
 
   		function handleTouchStartRotate() {
+			var event = new CustomEvent('rotateglobe', {
+				detail: "mouseDown"
+				});
+			document.dispatchEvent(event);
 
   			if ( pointers.length === 1 ) {
 
@@ -67505,6 +67524,12 @@
   		}
 
   		function handleTouchStartPan() {
+
+			var event = new CustomEvent('rotateglobe', {
+				detail: "mouseDown"
+				});
+			document.dispatchEvent(event);
+			
 
   			if ( pointers.length === 1 ) {
 
@@ -70397,7 +70422,7 @@
   // Expose config from ThreeGlobe
 
   var bindGlobe = linkKapsule('globe', threeGlobe);
-  var linkedGlobeProps = Object.assign.apply(Object, _toConsumableArray$5(['globeImageUrl', 'bumpImageUrl', 'showGlobe', 'showGraticules', 'showAtmosphere', 'atmosphereColor', 'atmosphereAltitude', 'globeMaterial', 'onGlobeReady', 'pointsData', 'pointLat', 'pointLng', 'pointColor', 'pointAltitude', 'pointRadius', 'pointResolution', 'pointsMerge', 'pointsTransitionDuration', 'arcsData', 'arcStartLat', 'arcStartLng', 'arcEndLat', 'arcEndLng', 'arcColor', 'arcAltitude', 'arcAltitudeAutoScale', 'arcStroke', 'arcCurveResolution', 'arcCircularResolution', 'arcDashLength', 'arcDashGap', 'arcDashInitialGap', 'arcDashAnimateTime', 'arcsTransitionDuration', 'polygonsData', 'polygonGeoJsonGeometry', 'polygonCapColor', 'polygonCapMaterial', 'polygonSideColor', 'polygonSideMaterial', 'polygonStrokeColor', 'polygonAltitude', 'polygonCapCurvatureResolution', 'polygonsTransitionDuration', 'pathsData', 'pathPoints', 'pathPointLat', 'pathPointLng', 'pathPointAlt', 'pathResolution', 'pathColor', 'pathStroke', 'pathDashLength', 'pathDashGap', 'pathDashInitialGap', 'pathDashAnimateTime', 'pathTransitionDuration', 'hexBinPointsData', 'hexBinPointLat', 'hexBinPointLng', 'hexBinPointWeight', 'hexBinResolution', 'hexMargin', 'hexTopCurvatureResolution', 'hexTopColor', 'hexSideColor', 'hexAltitude', 'hexBinMerge', 'hexTransitionDuration', 'hexPolygonsData', 'hexPolygonGeoJsonGeometry', 'hexPolygonColor', 'hexPolygonAltitude', 'hexPolygonResolution', 'hexPolygonMargin', 'hexPolygonCurvatureResolution', 'hexPolygonsTransitionDuration', 'tilesData', 'tileLat', 'tileLng', 'tileAltitude', 'tileWidth', 'tileHeight', 'tileUseGlobeProjection', 'tileMaterial', 'tileCurvatureResolution', 'tilesTransitionDuration', 'ringsData', 'ringLat', 'ringLng', 'ringAltitude', 'ringColor', 'ringResolution', 'ringMaxRadius', 'ringPropagationSpeed', 'ringRepeatPeriod', 'labelsData', 'labelLat', 'labelLng', 'labelAltitude', 'labelRotation', 'labelText', 'labelSize', 'labelTypeFace', 'labelColor', 'labelResolution', 'labelIncludeDot', 'labelDotRadius', 'labelDotOrientation', 'labelsTransitionDuration', 'htmlElementsData', 'htmlLat', 'htmlLng', 'htmlAltitude', 'htmlElement', 'htmlTransitionDuration', 'objectsData', 'objectLat', 'objectLng', 'objectAltitude', 'objectThreeObject', 'customLayerData', 'customThreeObject', 'customThreeObjectUpdate'].map(function (p) {
+  var linkedGlobeProps = Object.assign.apply(Object, _toConsumableArray$5(['globeImageUrl', 'bumpImageUrl', 'alphaImageUrl', 'showGlobe', 'showGraticules', 'showAtmosphere', 'atmosphereColor', 'atmosphereAltitude', 'globeMaterial', 'onGlobeReady', 'pointsData', 'pointLat', 'pointLng', 'pointColor', 'pointAltitude', 'pointRadius', 'pointResolution', 'pointsMerge', 'pointsTransitionDuration', 'arcsData', 'arcStartLat', 'arcStartLng', 'arcEndLat', 'arcEndLng', 'arcColor', 'arcAltitude', 'arcAltitudeAutoScale', 'arcStroke', 'arcCurveResolution', 'arcCircularResolution', 'arcDashLength', 'arcDashGap', 'arcDashInitialGap', 'arcDashAnimateTime', 'arcsTransitionDuration', 'polygonsData', 'polygonGeoJsonGeometry', 'polygonCapColor', 'polygonCapMaterial', 'polygonSideColor', 'polygonSideMaterial', 'polygonStrokeColor', 'polygonAltitude', 'polygonCapCurvatureResolution', 'polygonsTransitionDuration', 'pathsData', 'pathPoints', 'pathPointLat', 'pathPointLng', 'pathPointAlt', 'pathResolution', 'pathColor', 'pathStroke', 'pathDashLength', 'pathDashGap', 'pathDashInitialGap', 'pathDashAnimateTime', 'pathTransitionDuration', 'hexBinPointsData', 'hexBinPointLat', 'hexBinPointLng', 'hexBinPointWeight', 'hexBinResolution', 'hexMargin', 'hexTopCurvatureResolution', 'hexTopColor', 'hexSideColor', 'hexAltitude', 'hexBinMerge', 'hexTransitionDuration', 'hexPolygonsData', 'hexPolygonGeoJsonGeometry', 'hexPolygonColor', 'hexPolygonAltitude', 'hexPolygonResolution', 'hexPolygonMargin', 'hexPolygonCurvatureResolution', 'hexPolygonsTransitionDuration', 'tilesData', 'tileLat', 'tileLng', 'tileAltitude', 'tileWidth', 'tileHeight', 'tileUseGlobeProjection', 'tileMaterial', 'tileCurvatureResolution', 'tilesTransitionDuration', 'ringsData', 'ringLat', 'ringLng', 'ringAltitude', 'ringColor', 'ringResolution', 'ringMaxRadius', 'ringPropagationSpeed', 'ringRepeatPeriod', 'labelsData', 'labelLat', 'labelLng', 'labelAltitude', 'labelRotation', 'labelText', 'labelSize', 'labelTypeFace', 'labelColor', 'labelResolution', 'labelIncludeDot', 'labelDotRadius', 'labelDotOrientation', 'labelsTransitionDuration', 'htmlElementsData', 'htmlLat', 'htmlLng', 'htmlAltitude', 'htmlElement', 'htmlTransitionDuration', 'objectsData', 'objectLat', 'objectLng', 'objectAltitude', 'objectThreeObject', 'customLayerData', 'customThreeObject', 'customThreeObjectUpdate'].map(function (p) {
     return _defineProperty$3({}, p, bindGlobe.linkProp(p));
   })));
   var linkedGlobeMethods = Object.assign.apply(Object, _toConsumableArray$5(['getGlobeRadius', 'getCoords', 'toGeoCoords'].map(function (p) {
@@ -70736,12 +70761,12 @@
       controls.minDistance = globeR * 1.01; // just above the surface
 
       controls.maxDistance = globeR * 100;
-      controls.enablePan = false;
+      controls.enablePan = true;
+      controls.enableZoom = false;
       controls.enableDamping = true;
       controls.dampingFactor = 0.1;
       controls.rotateSpeed = 0.3;
       controls.zoomSpeed = 0.3;
-      controls.enabled = false;
       controls.addEventListener('change', function () {
         // adjust controls speed based on altitude
         var pov = _this.pointOfView();
@@ -70753,6 +70778,12 @@
 
         state.globe.setPointOfView(state.renderObjs.camera().position);
         state.onZoom && state.onZoom(pov);
+
+
+		var event = new CustomEvent('changeglobe', {
+			detail: ""
+			});
+		document.dispatchEvent(event);
       }); // config renderObjs
 
       var getGlobeObj = function getGlobeObj(object) {
@@ -70798,7 +70829,7 @@
         }
       };
       state.renderObjs.objects([// Populate scene
-      state.globe]).hoverOrderComparator(function (a, b) {
+    	state.globe]).hoverOrderComparator(function (a, b) {
         var aObj = getGlobeObj(a);
         var bObj = getGlobeObj(b); // de-prioritize background / non-globe objects
 

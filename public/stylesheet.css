@@ -1,5 +1,4 @@
 .header_title {
-  width: 80vw;
   height: 60px;
   top: 10px;
   right: 40px;
@@ -14,7 +13,6 @@
 }
 
 .header_subtitle {
-  width: 80vw;
   height: 20px;
   top: 50px;
   right: 40px;
@@ -30,7 +28,6 @@
 }
 
 .city-name {
-  width: 80vw;
   height: 40px;
   bottom: 60px;
   left: 40px;
@@ -47,7 +44,6 @@
 }
 
 .season-name {
-  width: 80vw;
   height: 40px;
   bottom: 20px;
   left: 40px;
@@ -118,7 +114,7 @@ a, u {
 
   .content {
     width: 100vw;
-    height: 1600px;
+    height: 1400px;
   }
 
   .left {
@@ -143,21 +139,61 @@ a, u {
 
   @media only screen and (min-width: 1900px) {
     .right {
-      right: 15vw;
-    }
-
-    .left {
-      left: 15vw;
-    }
-  }
-
-  @media only screen and (min-width: 1400px) and (max-width: 1900px) {
-    .right {
       right: 10vw;
     }
 
     .left {
       left: 10vw;
+    }
+
+    .header_title {
+      right: 10vw;
+    }
+  
+    .header_subtitle {
+      right: 10vw;
+    }
+  
+    .city-name {
+      left: 10vw;
+    }
+  
+    .season-name {
+      left: 10vw;
+    }
+
+    .down_arrow {
+      right: 10vw;
+    }
+  }
+
+  @media only screen and (min-width: 1400px) and (max-width: 1900px) {
+    .right {
+      right: 5vw;
+    }
+
+    .left {
+      left: 5vw;
+    }
+
+    .header_title {
+      right: 5vw;
+    }
+  
+    .header_subtitle {
+      right: 5vw;
+    }
+  
+    .city-name {
+      left: 5vw;
+    }
+  
+    .season-name {
+      left: 5vw;
+    }
+
+    .down_arrow {
+      right: 5vw;
     }
   }
 
@@ -221,7 +257,7 @@ a, u {
 
   .resume {
     display: grid;
-    margin-bottom: 200px;
+    margin-bottom: 0px;
   }
 
   .resume_block {
@@ -384,10 +420,8 @@ a, u {
   .signature {
     width: 137px;
     height: 81px;
-    padding-top: 20px;
-    padding-left: calc(min(450px, 100%) - 137px);
-    /* margin-bottom: 300px; */
-    padding-bottom: 40px;
+    margin-bottom: 30px;
+    position: relative;
   }
 }
 
@@ -419,27 +453,34 @@ a, u {
 }
 
 @media only screen and (max-width: 600px) {
+
+  .mini_city {
+    width: 58% !important;
+    margin-left: 52% !important;
+    margin-top: -40px !important;
+  }
+
   .header_title {
-    top: 0px;
+    top: 10px;
     right: 20px;
     font-size: 24px;
   }
 
   .header_subtitle {
-    top: 30px;
+    top: 40px;
     right: 20px;
     font-size: 18px;
   }
 
   .city-name {
     bottom: 30px;
-    left: 20px;
+    left: 24px;
     font-size: 24px;
   }
 
   .season-name {
     bottom: 0px;
-    left: 20px;
+    left: 24px;
     font-size: 18px;
   }
 

@@ -5,6 +5,7 @@
     }
   </style>
   <script src="//unpkg.com/three"></script>
+  <!-- <script src="//unpkg.com/globe.gl"></script> -->
   <script src="./dist/globe.gl.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
@@ -296,193 +297,179 @@
   </div>
   </div>
 
-  <div class="desktop-only">    
-    <div class="content">
-    <div class="left">
-        <img class="propic" src="./images/propic.png" />
-        <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
-        <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
-        
-        <p class="section_title">contact me</p>
-    
-        <form name="contact" method="POST" data-netlify="true">
+<div class="desktop-only">
+   <div class="content">
+      <div class="left">
+         <img class="propic" src="./images/propic.png" />
+         <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
+         <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
+         <p class="section_title">contact me</p>
+         <form name="contact" method="POST" data-netlify="true">
             <div class="contact-grid-item">
-            
-            <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
-            
+               <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
             </div>
-            
             <div class="contact-grid-item">
-            
-            <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
-            
+               <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
             </div>
             <button type="submit" class="bodymovinanim fillwhite send-button" id="send-button"></button>
-        </form>
-    
-            <script>
-              let iconMenu = document.querySelector('.bodymovinanim');
-    
-              let animationMenu = bodymovin.loadAnimation({
-                      container: iconMenu,
-                      renderer: 'svg',
-                      loop: false,
-                      autoplay: false,
-                      path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
-              });
-    
-              var directionMenu = 1;
-                iconMenu.addEventListener('mouseenter', (e) => {
-                animationMenu.setDirection(directionMenu);
-                animationMenu.play();
-              });
-    
-                iconMenu.addEventListener('mouseleave', (e) => {
-                animationMenu.setDirection(-directionMenu);
-                animationMenu.play();
-              });
-    
-              function testFunction() { console.log("YAHOOOOOOOOO")}
-              function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
-            </script>
-        </div>
-    
-    
-    <div class="right">
-    <div class="life">
-        <p class="section_title">life</p>
-        <div class="video_grid">
-        <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-        <video autoplay muted playsinline id="video-1d" class="life_video" style="margin-left: 0px !important;">
-            <source src="./videos/1life.mp4" type="video/mp4">
-        </video>
-        </button>
-        <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-        <video muted playsinline id="video-2d" class="life_video">
-            <source src="./videos/2life.mp4" type="video/mp4">
-        </video>
-        </button>
-        <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-        <video muted playsinline id="video-3d" class="life_video" >
-            <source src="./videos/3life.mp4" type="video/mp4">
-        </video>
-        </button>
-        <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-        <video muted playsinline id="video-4d" class="life_video">
-            <source src="./videos/4life.mp4" type="video/mp4">
-        </video>
-        </button>
+         </form>
+         <script>
+            let iconMenu = document.querySelector('.bodymovinanim');
+            
+            let animationMenu = bodymovin.loadAnimation({
+                    container: iconMenu,
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: false,
+                    path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
+            });
+            
+            var directionMenu = 1;
+              iconMenu.addEventListener('mouseenter', (e) => {
+              animationMenu.setDirection(directionMenu);
+              animationMenu.play();
+            });
+            
+              iconMenu.addEventListener('mouseleave', (e) => {
+              animationMenu.setDirection(-directionMenu);
+              animationMenu.play();
+            });
+            
+            function testFunction() { console.log("YAHOOOOOOOOO")}
+            function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
+         </script>
       </div>
-      <a href="https://vijay.photo/">
-      <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
-      </a>
-      </span>
-    </div>
-    
-    <div class="resume">
-        <p class="section_title">work</p>
-        <div class="resume_item">
-          <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
-          <img class="resume_icon" src="./images/mood_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">mood</span>
-          </a>
-            <span class="resume_position">ios lead</span>
-            <span class="resume_time">‘22</span>
-            <a href="https://apps.apple.com/us/app/mood-camera/id1585452578">
-            <span class="resume_info"
-              >install <img class="right_arrow" src="./images/right_icon.png" />
-            </span>
-            </a>
-          </div>
-        </div>
-    
-        <div class="resume_item">
-          <a href="http://meta.com" style="width: 0px;">
-          <img class="resume_icon" src="./images/meta_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">meta</span>
-            </a>
-            <span class="resume_position">sw eng</span>
-            <span class="resume_time">‘21-’22</span>
-            <span class="resume_info" style="opacity: 0.5;">XR Maps Team</span>
-          </div>
-        </div>
-    
-        <div class="resume_item">
-          <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670" style="width: 0px;">
-          <img class="resume_icon" src="./images/sg_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">supergreat</span>
-            </a>
-            <span class="resume_position">ios lead</span>
-            <span class="resume_time">‘20-’21</span>
-            <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670">
-              <span class="resume_info">install <img class="right_arrow" src="./images/right_icon.png" /></span>
-            </a>
-          </div>
-        </div>
-    
-        <img class="move_indicator" src="./images/move_indicator.svg" />
-    
-    
-        <div class="resume_item">
-          <a href="https://www.clearmotion.com/roadmotion" style="width: 0px;">
-          <img class="resume_icon" src="./images/cm_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">clearmotion</span>
-            </a>
-            <span class="resume_position">director, mapping</span>
-            <span class="resume_time">‘16-’19</span>
-            <a href="https://www.clearmotion.com/roadmotion" >
-            <span class="resume_info"
-              >view
-              <img class="right_arrow" src="./images/right_icon.png" />
-            </span>
-            </a>
-          </div>
-        </div>
-    
-        <div class="resume_item">
-          <a href="https://vimeo.com/116007539" style="width: 0px;">
-          <img class="resume_icon" src="./images/mapkin_icon.png" />
-          <div class="resume_block">
-            <span class="resume_title">mapkin</span>
-            </a>
-            <span class="resume_position">ios lead</span>
-            <span class="resume_time">‘15-’16</span>
-            <span class="resume_info" style="opacity: 50%"
-              >acquired by verizon</span
-            >
-          </div>
-        </div>
-    
-        <p class="mini_section_title">awards</p>
-    
-        <div class="resume_item">
-          <a href="https://patents.google.com/?q=Vijayaraghavan+Sridhar&oq=Vijayaraghavan+Sridhar" style="width: 0px;">
-          <img class="resume_icon" src="./images/cm_icon.png" />
-          <div class="resume_block award">
-            <span class="resume_title long_text_title">US Patent 2021/0055740</span>
-            <span class="resume_position long_text_subtitle">road surface based vehicle control</span>
-          </div>
-          </a>
-        </div>
-    
-        <div class="resume_item">
-          <a href="https://youtu.be/w87fOAG8fjk?t=438" style="width: 0px;">
-            <img class="resume_icon" src="./images/apple_icon.png" />
-            <div class="resume_block award">
-              <span class="resume_title long_text_title">wwdc student scholarship</span>
-              <span class="resume_position long_text_subtitle">awarded in 2013 & 2014</span>
+      <div class="right">
+         <div class="life">
+            <p class="section_title">life</p>
+            <div class="video_grid">
+               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                  <video autoplay muted playsinline id="video-1d" class="life_video" style="margin-left: 0px !important;">
+                     <source src="./videos/1life.mp4" type="video/mp4">
+                  </video>
+               </button>
+               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                  <video muted playsinline id="video-2d" class="life_video">
+                     <source src="./videos/2life.mp4" type="video/mp4">
+                  </video>
+               </button>
+               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                  <video muted playsinline id="video-3d" class="life_video" >
+                     <source src="./videos/3life.mp4" type="video/mp4">
+                  </video>
+               </button>
+               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                  <video muted playsinline id="video-4d" class="life_video">
+                     <source src="./videos/4life.mp4" type="video/mp4">
+                  </video>
+               </button>
             </div>
-          </a>
-        </div>
-    </div>
-    </div>
-    </div>
-  
-    </div>
+            <a href="https://vijay.photo/">
+            <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
+            </a>
+            </span>
+         </div>
+         <div class="resume">
+            <p class="section_title">work</p>
+            <div class="resume_item">
+               <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
+                  <img class="resume_icon" src="./images/mood_icon.png" />
+                  <div class="resume_block">
+                     <span class="resume_title">mood</span>
+               </a>
+               <span class="resume_position">ios lead</span>
+               <span class="resume_time">‘22</span>
+               <a href="https://apps.apple.com/us/app/mood-camera/id1585452578">
+               <span class="resume_info"
+                  >install <img class="right_arrow" src="./images/right_icon.png" />
+               </span>
+               </a>
+               </div>
+            </div>
+            <div class="resume_item">
+               <a href="http://meta.com" style="width: 0px;">
+                  <img class="resume_icon" src="./images/meta_icon.png" />
+                  <div class="resume_block">
+                     <span class="resume_title">meta</span>
+               </a>
+               <span class="resume_position">sw eng</span>
+               <span class="resume_time">‘21-’22</span>
+               <span class="resume_info" style="opacity: 0.5;">XR Maps Team</span>
+               </div>
+            </div>
+            <div class="resume_item">
+               <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670" style="width: 0px;">
+                  <img class="resume_icon" src="./images/sg_icon.png" />
+                  <div class="resume_block">
+                     <span class="resume_title">supergreat</span>
+               </a>
+               <span class="resume_position">ios lead</span>
+               <span class="resume_time">‘20-’21</span>
+               <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670">
+               <span class="resume_info">install <img class="right_arrow" src="./images/right_icon.png" /></span>
+               </a>
+               </div>
+            </div>
+            <img class="move_indicator" src="./images/move_indicator.svg" />
+            <div class="resume_item">
+               <a href="https://www.clearmotion.com/roadmotion" style="width: 0px;">
+                  <img class="resume_icon" src="./images/cm_icon.png" />
+                  <div class="resume_block">
+                     <span class="resume_title">clearmotion</span>
+               </a>
+               <span class="resume_position">director, mapping</span>
+               <span class="resume_time">‘16-’19</span>
+               <a href="https://www.clearmotion.com/roadmotion" >
+               <span class="resume_info"
+                  >view
+               <img class="right_arrow" src="./images/right_icon.png" />
+               </span>
+               </a>
+               </div>
+            </div>
+            <div class="resume_item">
+               <a href="https://vimeo.com/116007539" style="width: 0px;">
+                  <img class="resume_icon" src="./images/mapkin_icon.png" />
+                  <div class="resume_block">
+                     <span class="resume_title">mapkin</span>
+               </a>
+               <span class="resume_position">ios lead</span>
+               <span class="resume_time">‘15-’16</span>
+               <span class="resume_info" style="opacity: 50%"
+                  >acquired by verizon</span
+                  >
+               </div>
+            </div>
+            <p class="mini_section_title">awards</p>
+            <div class="resume_item">
+               <a href="https://patents.google.com/?q=Vijayaraghavan+Sridhar&oq=Vijayaraghavan+Sridhar" style="width: 0px;">
+                  <img class="resume_icon" src="./images/cm_icon.png" />
+                  <div class="resume_block award">
+                     <span class="resume_title long_text_title">US Patent 2021/0055740</span>
+                     <span class="resume_position long_text_subtitle">road surface based vehicle control</span>
+                  </div>
+               </a>
+            </div>
+            <div class="resume_item">
+               <a href="https://youtu.be/w87fOAG8fjk?t=438" style="width: 0px;">
+                  <img class="resume_icon" src="./images/apple_icon.png" />
+                  <div class="resume_block award">
+                     <span class="resume_title long_text_title">wwdc student scholarship</span>
+                     <span class="resume_position long_text_subtitle">awarded in 2013 & 2014</span>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div style="display: flex; justify-content:center; align-items:center; width: 100vw; height: 300px;position: relative; pointer-events: none;
+   ">
+   <video class="signature" autoplay muted playsinline infinite>
+      <source src="./videos/signature.mp4" type="video/mp4" />
+      vsridhar
+   </video>
+   </div>
+</div>
 </body>
 
 
@@ -494,9 +481,12 @@
   const RINGS_MAX_R = 1; // deg
   const RING_PROPAGATION_SPEED = 1; // deg/sec
 
+  var hasClickedGlobe = false;
+
   const globe = Globe()
     .globeImageUrl("/cities.jpg")
-    // .bumpImageUrl('./bump3.jpg')
+    .bumpImageUrl('./bump4k.jpg')
+    .alphaImageUrl('./alpha_invert.jpg')
     .arcColor(() => "darkOrange")
     .backgroundColor("#000000")
     .onGlobeClick(clickedLocation)
@@ -517,6 +507,40 @@
     document.getElementById("globeViz")
   );
 
+      // custom globe material
+      const globeMaterial = globe.globeMaterial();
+    globeMaterial.bumpScale = 10;
+    new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
+      globeMaterial.specularMap = texture;
+      globeMaterial.specular = new THREE.Color('#ffffff');
+      globeMaterial.shininess = 15;
+    });
+
+  document.addEventListener('rotateglobe', function(event) {
+    hasClickedGlobe = true;
+
+    document.getElementById("mini_city").style.opacity = 0;
+    document.getElementById("mini_city").classList.remove("slide-right");
+
+    if (document.getElementById("city_name").innerText != "interactive mode") {
+      document.getElementById("city_name").style.opacity = 0.0;
+      document.getElementById("season_name").style.opacity = 0.0;
+
+      setTimeout(function () {
+        document.getElementById("city_name").innerText = "interactive mode";
+        document.getElementById("season_name").innerText = "tap a point on the globe!";
+        document.getElementById("city_name").style.opacity = 1;
+        document.getElementById("season_name").style.opacity = 0.5;
+      }, 500);
+    }
+  });
+
+  var directionalLight2;
+
+  document.addEventListener('changeglobe', function(event) {
+    directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+  });
+
   window.addEventListener('resize', (event) => {
     globe.width([event.target.innerWidth])
     globe.height([event.target.innerHeight])
@@ -524,26 +548,16 @@
 
   globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
 
-  // remove default lights
   setTimeout(function () {
-    globe.scene().children.forEach(function (e) {
-      if (e.isLight) {
-        scene.remove(e);
-      }
-    });
-  }, 10);
-
-  setTimeout(function () {
-    globe.scene().children.forEach(function (e) {
-      if (e.isLight) {
-        scene.remove(e);
-      }
-    });
-
     // add new ambient light
-    ambientLight = new THREE.AmbientLight(0xffffff);
+    ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
     globe.scene().add(ambientLight);
-  }, 20);
+
+    // add new directional light
+    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.1);
+    directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+    globe.scene().add(directionalLight2);
+  }, 10);
 
   var isAnimatingMovies = false;
 
@@ -640,17 +654,22 @@
   var reverseGeocoder = function(coordinates, callback) {
     var lat = coordinates[0];
     var lng = coordinates[1];
-    var url = 'https://secure.geonames.org/findNearbyPlaceNameJSON?style=medium&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
+    var url = 'https://secure.geonames.org/findNearbyPlaceNameJSON?style=long&radius=300&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-              var geoname = JSON.parse(xhr.responseText).geonames[0];
-              var name = geoname.name;
-              var state = geoname.adminCode1;
-              var countryCode = geoname.countryCode;
-              var countryName = geoname.countryName;
+              var geonames = JSON.parse(xhr.responseText).geonames;
+
+              var maxPopulationMatch = geonames.reduce(function(prev, current) {
+                return (prev.population > current.population) ? prev : current;
+              });
+
+              var name = maxPopulationMatch.name;
+              var state = maxPopulationMatch.adminCode1;
+              var countryCode = maxPopulationMatch.countryCode;
+              var countryName = maxPopulationMatch.countryName;
 
               if (countryCode == "US") {
                 callback(null, name + ", " + state);
@@ -823,7 +842,6 @@
   var timerIndex = 0;
 
   var lastSeasonShown = "fall '22";
-  var hasClickedGlobe = false;
   var hasClickedGlobeTwice = false;
 
   function startTimer() {
@@ -861,15 +879,22 @@
 
   startTimer();
   let prevCoords = { lat: 40.7128, lng: -74.006 };
-
+  var delayIndex = 0;
   function clickedLocation({lat: endLat, lng: endLng}) {
-    if (hasClickedGlobe) {
-      hasClickedGlobeTwice = true;
-    }
+    delayIndex += 1;
 
-    hasClickedGlobe = true;
+    var currentDelayIndex = delayIndex;
+    setTimeout(function () {
+        if (delayIndex == currentDelayIndex) {
+          hasClickedGlobe = false;
+        }
+    }, 10000);
+
     document.getElementById("mini_city").style.opacity = 0.0;
     document.getElementById("mini_city").classList.remove("slide-right");
+    document.getElementById("mini_city").innerText = "";
+
+    emitArc({ lat: endLat, lng: endLng });
 
     reverseGeocoder([endLat, endLng], function(err, city) {
       if (err) {
@@ -888,19 +913,6 @@
           setTimeout(function () {
             document.getElementById("mini_city").style.opacity = 0;
           }, 9000);
-
-          emitArc({ lat: endLat, lng: endLng });
-
-          setTimeout(function () {
-            if (hasClickedGlobeTwice) {
-              setTimeout(function () {
-                hasClickedGlobe = false;
-                hasClickedGlobeTwice = false;
-              }, 30000);
-            } else {
-              hasClickedGlobe = false;
-            }
-          }, 10000);
 
           console.log(city);
       }
