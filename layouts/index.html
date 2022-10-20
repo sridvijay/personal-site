@@ -508,14 +508,9 @@
     document.getElementById("globeViz")
   );
 
-    // custom globe material
-    const globeMaterial = globe.globeMaterial();
-    globeMaterial.bumpScale = 10;
-    new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
-      globeMaterial.specularMap = texture;
-      globeMaterial.specular = new THREE.Color('#ffffff');
-      globeMaterial.shininess = 15;
-    });
+  // custom globe material
+  const globeMaterial = globe.globeMaterial();
+  globeMaterial.bumpScale = 10;
 
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
@@ -584,9 +579,10 @@
     globe.scene().add(ambientLight);
 
     // add new directional light
-    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.1);
+    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.8);
     directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
     globe.scene().add(directionalLight2);
+
   }, 0);
 
   var isAnimatingMovies = false;
