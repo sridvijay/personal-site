@@ -849,7 +849,7 @@
         document.getElementById("season_name").innerText = city["season"];
 
         document.getElementById("city_name").style.opacity = 1;
-        document.getElementById("season_name").style.opacity = 1;
+        document.getElementById("season_name").style.opacity = 0.5;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
