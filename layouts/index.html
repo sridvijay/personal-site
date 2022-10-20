@@ -7,7 +7,6 @@
   <script src="//unpkg.com/three"></script>
   <!-- <script src="//unpkg.com/globe.gl"></script> -->
   <script src="./dist/globe.gl.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
   <meta name="format-detection" content="telephone=no" />
@@ -62,7 +61,7 @@
       Fall '22
     </p>
     <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-      <img class="down_arrow" src="./images/down_icon.png" />
+      <img class="down_arrow" id="down_arrow" src="./images/down_icon.png" />
     </button>
   </div>
   
@@ -120,10 +119,7 @@
           }
         </script>
         <a href="https://vijay.photo/">
-        <span class="photo_website_link"
-          >my photo website
-          <img class="right_arrow" src="./images/right_icon.png" />
-        </span>
+          <span class="photo_website_link" style="margin-top: 20px !important;">my photo website <img class="right_arrow" src="./images/right_icon.png" />
         </a>
       </div>
     </div>
@@ -246,7 +242,7 @@
     </div>
 
     <div class="mobile_item_four">
-      <p class="section_title">shoot me a note</p>
+      <p class="section_title">send me a note</p>
 
       <form name="contact" method="POST" data-netlify="true">
         <div class="contact-grid-item">
@@ -301,12 +297,12 @@
   </div>
 
 <div class="desktop-only">
-   <div class="content" id="content">
+   <div class="content" id="content-d">
       <div class="left">
          <img class="propic" id="propic" src="./images/propic.png" />
          <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
          <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
-         <p class="section_title">contact me</p>
+         <p class="section_title">send me a note</p>
          <form name="contact" method="POST" data-netlify="true">
             <div class="contact-grid-item">
                <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
@@ -314,33 +310,29 @@
             <div class="contact-grid-item">
                <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
             </div>
-            <button type="submit" class="bodymovinanim fillwhite send-button" id="send-button"></button>
+            <button
+            type="submit"
+            class="send-button"
+            id="send-button-2"
+          >
+            <span
+              class="photo_website_link"
+              style="
+                position: absolute;
+                top: 0px;
+                right: -4px;
+                font-family: pinecone-mvb-condensed, sans-serif;
+                font-weight: 400;
+              "
+              >send&nbsp;
+              <img
+                class="right_arrow"
+                style="transform: translateX(-4px)"
+                src="./images/right_icon.png"
+              />
+            </span>
+          </button>
          </form>
-         <script>
-            let iconMenu = document.querySelector('.bodymovinanim');
-            
-            let animationMenu = bodymovin.loadAnimation({
-                    container: iconMenu,
-                    renderer: 'svg',
-                    loop: false,
-                    autoplay: false,
-                    path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
-            });
-            
-            var directionMenu = 1;
-              iconMenu.addEventListener('mouseenter', (e) => {
-              animationMenu.setDirection(directionMenu);
-              animationMenu.play();
-            });
-            
-              iconMenu.addEventListener('mouseleave', (e) => {
-              animationMenu.setDirection(-directionMenu);
-              animationMenu.play();
-            });
-            
-            function testFunction() { console.log("YAHOOOOOOOOO")}
-            function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
-         </script>
       </div>
       <div class="right">
          <div class="life">
@@ -529,6 +521,7 @@
         document.getElementById("season_name").innerText = "tap a point on the globe!";
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
+        document.getElementById("down_arrow").style.opacity = 0.0;
       }, 500);
     }
   });
@@ -543,10 +536,16 @@
 
   window.addEventListener('resize', (event) => {
     globe.width([event.target.innerWidth])
-    globe.height([event.target.innerHeight])
+    if (window.innerWidth > 600) {
+      globe.height([event.target.innerHeight])
+    }
   });
 
-  globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
+  if (window.innerWidth < 600) {
+    globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.2 });
+  } else {
+    globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
+  }
 
   document.addEventListener("DOMContentLoaded", function() {
   var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
@@ -606,7 +605,11 @@
   });
 
   function scrollDown() {
-    var element = document.getElementById("content");
+    if (window.innerWidth > 600) {
+      var element = document.getElementById("content-d");
+    } else {
+      var element = document.getElementById("content");
+    }
     element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 
   }
@@ -910,6 +913,7 @@
 
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
+        document.getElementById("down_arrow").style.opacity = 1;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
@@ -932,7 +936,7 @@
         if (delayIndex == currentDelayIndex) {
           hasClickedGlobe = false;
         }
-    }, 10000);
+    }, 6000);
 
     document.getElementById("mini_city").style.opacity = 0.0;
     document.getElementById("mini_city").classList.remove("slide-right");
@@ -946,16 +950,22 @@
           console.log(err);
       } else {
           setTimeout(function () {
-            document.getElementById("mini_city").classList.add("slide-right");
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").classList.add("slide-right");
+            }
           }, 1600);
 
           setTimeout(function () {
-            document.getElementById("mini_city").innerText = city;
-            document.getElementById("mini_city").style.opacity = 0.7;
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").innerText = city;
+              document.getElementById("mini_city").style.opacity = 0.7;
+            }
           }, 1600);
 
           setTimeout(function () {
-            document.getElementById("mini_city").style.opacity = 0;
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").style.opacity = 0;
+            }
           }, 9000);
 
           console.log(city);

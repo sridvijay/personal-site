@@ -65,6 +65,17 @@ a, u {
   color: white;
 }
 
+.send-button {
+  background-color: transparent;
+  border-width: 0px;
+  position: absolute;
+  height: 0px;
+  width: 180px;
+  cursor: pointer;
+  left: calc(min(450px, 100%) - 180px);
+  margin-top: 12px;
+}
+
 @media only screen and (min-width: 601px) {
 
   .mobile-only {
@@ -107,6 +118,8 @@ a, u {
     right: 4vw;
     width: 30px;
     opacity: 0.7;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s; /* Safari */
     animation: wiggle 2s ease-in-out infinite;
   }
 
@@ -393,17 +406,6 @@ a, u {
     border-width: 0px;
   }
 
-  .send-button {
-    width: 90px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border-width: 0px;
-    margin-top: 16px;
-    margin-left: calc(min(450px, 100%) - 90px);
-    cursor: pointer;
-  }
-
   .fillwhite {
     fill: white;
   }
@@ -500,6 +502,8 @@ a, u {
     right: 20px;
     width: 26px;
     opacity: 0.7;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s; /* Safari */
     animation: wiggle 2s ease-in-out infinite;
   }
 
@@ -585,7 +589,7 @@ a, u {
     font-family: pinecone-mvb-condensed, sans-serif;
     font-size: 48px;
     margin-right: 0px;
-    margin-top: 20px;
+    margin-top: 0px;
     float: right;
   }
 
@@ -815,17 +819,6 @@ a, u {
     height: 26vh;
     border-radius: 20px;
     border-width: 0px;
-  }
-
-  .send-button {
-    background-color: transparent;
-    border-width: 0px;
-    position: absolute;
-    right: 0px;
-    height: 60px;
-    width: 180px;
-    cursor: pointer;
-    margin-top: 0px;
   }
 
   .name-input-field {

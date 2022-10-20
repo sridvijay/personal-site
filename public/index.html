@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./stylesheet.css" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="initial-scale=1.0" />
+  <img style="display: none; height: 0px; position: absolute; width: 0px; top: 0px; left: 0px;" src="./bump3-min.jpg" />
 </head>
 
 <body style="background-color: black">
@@ -61,14 +62,16 @@
     >
       Fall '22
     </p>
-    <img class="down_arrow" src="./images/down_icon.png" />
+    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
+      <img class="down_arrow" id="down_arrow" src="./images/down_icon.png" />
+    </button>
   </div>
   
   <div class="mobile-only">
 
-  <div class="content">
+  <div class="content" id="content">
     <div class="mobile_item_one">
-      <img class="propic" src="./images/propic.png" />
+      <img class="propic" id="propic" src="./images/propic.png" />
       <p class="description" style="width: auto; margin-left: 20px; font-size: 16px;">
         Hey! I'm
         <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.</br>
@@ -89,25 +92,25 @@
               muted
               playsinline
               id="video-1"
-              class="life_video"
+              class="life_video lazy"
               style="margin-left: 0px !important"
             >
-              <source src="./videos/1life.mp4" type="video/mp4" />
+              <source data-src="./videos/1life.mp4" type="video/mp4" />
             </video>
           </button>
           <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-2" class="life_video">
-            <source src="./videos/2life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-2" class="life_video lazy">
+            <source data-src="./videos/2life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-3" class="life_video">
-            <source src="./videos/3life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-3" class="life_video lazy">
+            <source data-src="./videos/3life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-4" class="life_video">
-            <source src="./videos/4life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-4" class="life_video lazy">
+            <source data-src="./videos/4life.mp4" type="video/mp4" />
           </video>
           </button>
         </div>
@@ -299,9 +302,9 @@
   </div>
 
 <div class="desktop-only">
-   <div class="content">
+   <div class="content" id="content">
       <div class="left">
-         <img class="propic" src="./images/propic.png" />
+         <img class="propic" id="propic" src="./images/propic.png" />
          <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
          <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
          <p class="section_title">contact me</p>
@@ -345,23 +348,23 @@
             <p class="section_title">life</p>
             <div class="video_grid">
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video autoplay muted playsinline id="video-1d" class="life_video" style="margin-left: 0px !important;">
-                     <source src="./videos/1life.mp4" type="video/mp4">
+                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important;">
+                     <source data-src="./videos/1life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-2d" class="life_video">
-                     <source src="./videos/2life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-2d" class="life_video lazy">
+                     <source data-src="./videos/2life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-3d" class="life_video" >
-                     <source src="./videos/3life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-3d" class="life_video lazy" >
+                     <source data-src="./videos/3life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-4d" class="life_video">
-                     <source src="./videos/4life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-4d" class="life_video lazy">
+                     <source data-src="./videos/4life.mp4" type="video/mp4">
                   </video>
                </button>
             </div>
@@ -486,7 +489,7 @@
 
   const globe = Globe()
     .globeImageUrl("/cities.jpg")
-    .bumpImageUrl('./bump4k.jpg')
+    .bumpImageUrl('./bump3-min.jpg')
     .alphaImageUrl('./alpha_invert.jpg')
     .arcColor(() => "darkOrange")
     .backgroundColor("#000000")
@@ -508,14 +511,9 @@
     document.getElementById("globeViz")
   );
 
-      
-      const globeMaterial = globe.globeMaterial();
-    globeMaterial.bumpScale = 10;
-    new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
-      globeMaterial.specularMap = texture;
-      globeMaterial.specular = new THREE.Color('#ffffff');
-      globeMaterial.shininess = 15;
-    });
+  
+  const globeMaterial = globe.globeMaterial();
+  globeMaterial.bumpScale = 5;
 
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
@@ -532,6 +530,7 @@
         document.getElementById("season_name").innerText = "tap a point on the globe!";
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
+        document.getElementById("down_arrow").style.opacity = 0.0;
       }, 500);
     }
   });
@@ -539,8 +538,9 @@
   var directionalLight2;
 
   document.addEventListener('changeglobe', function(event) {
-    console.log("x position is " + globe.camera().position.x);
-    directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+    if (directionalLight2 != null) {
+      directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
+    }
   });
 
   window.addEventListener('resize', (event) => {
@@ -550,42 +550,68 @@
 
   globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
 
-  
-  setTimeout(function () {
-    globe.scene().children.forEach(function (e) {
-      if (e.isLight) {
-        scene.remove(e);
-      }
+  document.addEventListener("DOMContentLoaded", function() {
+  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(video) {
+        if (video.isIntersecting) {
+          for (var source in video.target.children) {
+            var videoSource = video.target.children[source];
+            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
     });
-  }, 10);
+
+    lazyVideos.forEach(function(lazyVideo) {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+
+    if (!isAnimatingMovies) {
+
+      const videoElement = document.getElementById("video-1");
+      videoElement.addEventListener('loadeddata', (e) => {
+        if(videoElement.readyState >= 3){
+          startAnimation();
+        }
+      });
+    }
+  }
+});
 
   setTimeout(function () {
-    globe.scene().children.forEach(function (e) {
-      if (e.isLight) {
-        scene.remove(e);
-      }
-    });
-
     
     ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
     globe.scene().add(ambientLight);
 
     
-    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.1);
-    directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.8);
+    directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     globe.scene().add(directionalLight2);
 
-    
-
-  }, 20);
+  }, 0);
 
   var isAnimatingMovies = false;
 
   var observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting & !isAnimatingMovies) {
-      startAnimation();
-    }
+    
+      
+    
   });
+
+  function scrollDown() {
+    var element = document.getElementById("content");
+    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+
+  }
 
   function startAnimation() {
     isAnimatingMovies = true;
@@ -668,8 +694,8 @@
     }, 2900 * 3);
   }
 
-  observer.observe(document.querySelector("#video-1"));
-  observer.observe(document.querySelector("#video-1d"));
+  
+  
 
   var reverseGeocoder = function(coordinates, callback) {
     var lat = coordinates[0];
@@ -886,6 +912,7 @@
 
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
+        document.getElementById("down_arrow").style.opacity = 1;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
