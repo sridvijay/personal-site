@@ -118,7 +118,7 @@
           }
         </script>
         <a href="https://vijay.photo/">
-          <span class="photo_website_link" style="margin-top: 20px !important;">my photo website <img class="right_arrow" src="./images/right_icon.png" />
+          <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
         </a>
       </div>
     </div>
@@ -338,7 +338,7 @@
             <p class="section_title">life</p>
             <div class="video_grid">
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important;">
+                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important; opacity: 1.0 !important;">
                      <source data-src="./videos/1life.mp4" type="video/mp4">
                   </video>
                </button>
@@ -573,12 +573,22 @@
 
     if (!isAnimatingMovies) {
 
+      if (window.innerWidth < 600) { 
       const videoElement = document.getElementById("video-1");
       videoElement.addEventListener('loadeddata', (e) => {
         if(videoElement.readyState >= 3){
           startAnimation();
         }
       });
+      } else {
+
+        const videoElementD = document.getElementById("video-1d");
+        videoElementD.addEventListener('loadeddata', (e) => {
+          if(videoElementD.readyState >= 3){
+            startAnimation();
+          }
+        });
+      }
     }
   }
 });

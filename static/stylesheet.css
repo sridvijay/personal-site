@@ -263,6 +263,7 @@ a, u {
     font-family: pinecone-mvb-condensed, sans-serif;
     font-size: 24px;
     margin-right: 0px;
+    margin-top: 25px;
     float: right;
   }
 
@@ -537,7 +538,7 @@ a, u {
   }
 
   .video_grid {
-    width: 90vw;
+    width: 100%;
     height: calc((90vw / 4 / 0.61) + 20px);
     position: relative;
     display: flex;
@@ -589,7 +590,7 @@ a, u {
     font-family: pinecone-mvb-condensed, sans-serif;
     font-size: 48px;
     margin-right: 0px;
-    margin-top: 0px;
+    margin-top: 20px;
     float: right;
   }
 
