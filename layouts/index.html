@@ -61,14 +61,16 @@
     >
       Fall '22
     </p>
-    <img class="down_arrow" src="./images/down_icon.png" />
+    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
+      <img class="down_arrow" src="./images/down_icon.png" />
+    </button>
   </div>
   
   <div class="mobile-only">
 
-  <div class="content">
+  <div class="content" id="content">
     <div class="mobile_item_one">
-      <img class="propic" src="./images/propic.png" />
+      <img class="propic" id="propic" src="./images/propic.png" />
       <p class="description" style="width: auto; margin-left: 20px; font-size: 16px;">
         Hey! I'm
         <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.</br>
@@ -299,9 +301,9 @@
   </div>
 
 <div class="desktop-only">
-   <div class="content">
+   <div class="content" id="content">
       <div class="left">
-         <img class="propic" src="./images/propic.png" />
+         <img class="propic" id="propic" src="./images/propic.png" />
          <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
          <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
          <p class="section_title">contact me</p>
@@ -510,7 +512,7 @@
 
   // custom globe material
   const globeMaterial = globe.globeMaterial();
-  globeMaterial.bumpScale = 10;
+  globeMaterial.bumpScale = 5;
 
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
@@ -535,7 +537,7 @@
 
   document.addEventListener('changeglobe', function(event) {
     if (directionalLight2 != null) {
-      directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+      directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     }
   });
 
@@ -570,6 +572,16 @@
     lazyVideos.forEach(function(lazyVideo) {
       lazyVideoObserver.observe(lazyVideo);
     });
+
+    if (!isAnimatingMovies) {
+
+      const videoElement = document.getElementById("video-1");
+      videoElement.addEventListener('loadeddata', (e) => {
+        if(videoElement.readyState >= 3){
+          startAnimation();
+        }
+      });
+    }
   }
 });
 
@@ -580,7 +592,7 @@
 
     // add new directional light
     directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.8);
-    directionalLight2.position.set(globe.camera().position.x, 0, globe.camera().position.z - 1);
+    directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     globe.scene().add(directionalLight2);
 
   }, 0);
@@ -588,10 +600,16 @@
   var isAnimatingMovies = false;
 
   var observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting & !isAnimatingMovies) {
-      startAnimation();
-    }
+    // if (entries[0].isIntersecting & !isAnimatingMovies) {
+      // startAnimation();
+    // }
   });
+
+  function scrollDown() {
+    var element = document.getElementById("content");
+    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+
+  }
 
   function startAnimation() {
     isAnimatingMovies = true;
@@ -674,8 +692,8 @@
     }, 2900 * 3);
   }
 
-  observer.observe(document.querySelector("#video-1"));
-  observer.observe(document.querySelector("#video-1d"));
+  // observer.observe(document.querySelector("#video-1"));
+  // observer.observe(document.querySelector("#video-1d"));
 
   var reverseGeocoder = function(coordinates, callback) {
     var lat = coordinates[0];
