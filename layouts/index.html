@@ -642,20 +642,17 @@
   var reverseGeocoder = function(coordinates, callback) {
     var lat = coordinates[0];
     var lng = coordinates[1];
-    var url = 'http://api.geonames.org/findNearbyPlaceName?style=long&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
+    var url = 'http://api.geonames.org/findNearbyPlaceNameJSON?style=medium&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-
-              var parser = new DOMParser();
-              var xml = parser.parseFromString(xhr.responseText, "text/xml");
-              var geoname = xml.getElementsByTagName("geoname")[0];
-              var name = xml.getElementsByTagName("name")[0].firstChild.nodeValue;
-              var state = geoname.getElementsByTagName("adminCode1")[0].firstChild.nodeValue;
-              var countryCode = geoname.getElementsByTagName("countryCode")[0].firstChild.nodeValue;
-              var countryName = geoname.getElementsByTagName("countryName")[0].firstChild.nodeValue;
+              var geoname = JSON.parse(xhr.responseText).geonames[0];
+              var name = geoname.name;
+              var state = geoname.adminCode1;
+              var countryCode = geoname.countryCode;
+              var countryName = geoname.countryName;
 
               if (countryCode == "US") {
                 callback(null, name + ", " + state);
