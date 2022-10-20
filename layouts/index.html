@@ -16,6 +16,29 @@
 <body style="background-color: black">
   <div id="header" style="position: relative; display: inline-block">
     <div id="globeViz" style="position: relative; display: inline-block"></div>
+    <div style="display: flex; justify-content:center; align-items:center; width: 100vw; height: 100vh; top: 0px; position: absolute; pointer-events: none;
+    ">
+    <p
+    style="
+    width: 300px;
+    height: 60px;
+    margin-left: 300px;
+    margin-top: 25px;
+    text-align: left;
+    color: white;
+    opacity: 0;
+    font-family: pinecone-mvb, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s; /* Safari */
+    "
+
+    id="mini_city"
+>
+    New York
+</p></div>
     <p class="header_title">
       Vijay Sridhar
     </p>
@@ -478,7 +501,7 @@
     // .bumpImageUrl('./bump3.jpg')
     .arcColor(() => "darkOrange")
     .backgroundColor("#000000")
-    .onGlobeClick(emitArc)
+    .onGlobeClick(clickedLocation)
     .arcDashLength(ARC_REL_LEN)
     .enablePointerInteraction(true)
     .showAtmosphere(false)
@@ -615,6 +638,38 @@
 
   observer.observe(document.querySelector("#video-1"));
   observer.observe(document.querySelector("#video-1d"));
+
+  var reverseGeocoder = function(coordinates, callback) {
+    var lat = coordinates[0];
+    var lng = coordinates[1];
+    var url = 'http://api.geonames.org/findNearbyPlaceName?style=long&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+
+              var parser = new DOMParser();
+              var xml = parser.parseFromString(xhr.responseText, "text/xml");
+              var geoname = xml.getElementsByTagName("geoname")[0];
+              var name = xml.getElementsByTagName("name")[0].firstChild.nodeValue;
+              var state = geoname.getElementsByTagName("adminCode1")[0].firstChild.nodeValue;
+              var countryCode = geoname.getElementsByTagName("countryCode")[0].firstChild.nodeValue;
+              var countryName = geoname.getElementsByTagName("countryName")[0].firstChild.nodeValue;
+
+              if (countryCode == "US") {
+                callback(null, name + ", " + state);
+              } else {
+                callback(null, name + ", " + countryName);
+              }
+
+            } else {
+                callback(xhr.statusText);
+            }
+        }
+    };
+    xhr.send();
+};
 
   const cities = [
     {
@@ -773,12 +828,19 @@
   var timerIndex = 0;
 
   var lastSeasonShown = "fall '22";
+  var hasClickedGlobe = false;
+  var hasClickedGlobeTwice = false;
 
   function startTimer() {
     timer = setInterval(function () {
+      if (hasClickedGlobe) {
+        return
+      }
       var city = cities[timerIndex];
-
+  
       document.getElementById("city_name").style.opacity = 0;
+      document.getElementById("mini_city").style.opacity = 0;
+      document.getElementById("mini_city").classList.remove("slide-right");
 
       if (city["season"] != lastSeasonShown) {
         document.getElementById("season_name").style.opacity = 0;
@@ -790,7 +852,7 @@
         document.getElementById("season_name").innerText = city["season"];
 
         document.getElementById("city_name").style.opacity = 1;
-        document.getElementById("season_name").style.opacity = 0.5;
+        document.getElementById("season_name").style.opacity = 1;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
@@ -804,6 +866,51 @@
 
   startTimer();
   let prevCoords = { lat: 40.7128, lng: -74.006 };
+
+  function clickedLocation({lat: endLat, lng: endLng}) {
+    if (hasClickedGlobe) {
+      hasClickedGlobeTwice = true;
+    }
+
+    hasClickedGlobe = true;
+    document.getElementById("mini_city").style.opacity = 0.0;
+    document.getElementById("mini_city").classList.remove("slide-right");
+
+    reverseGeocoder([endLat, endLng], function(err, city) {
+      if (err) {
+          document.getElementById("mini_city").style.opacity = 0.0;
+          console.log(err);
+      } else {
+          setTimeout(function () {
+            document.getElementById("mini_city").classList.add("slide-right");
+          }, 1600);
+
+          setTimeout(function () {
+            document.getElementById("mini_city").innerText = city;
+            document.getElementById("mini_city").style.opacity = 0.7;
+          }, 1600);
+
+          setTimeout(function () {
+            document.getElementById("mini_city").style.opacity = 0;
+          }, 9000);
+
+          emitArc({ lat: endLat, lng: endLng });
+
+          setTimeout(function () {
+            if (hasClickedGlobeTwice) {
+              setTimeout(function () {
+                hasClickedGlobe = false;
+                hasClickedGlobeTwice = false;
+              }, 30000);
+            } else {
+              hasClickedGlobe = false;
+            }
+          }, 10000);
+
+          console.log(city);
+      }
+    });
+  }
 
   function emitArc({ lat: endLat, lng: endLng }) {
     const { lat: startLat, lng: startLng } = prevCoords;
@@ -835,7 +942,7 @@
       );
     }, FLIGHT_TIME);
 
-    globe.pointOfView({ lat: endLat, lng: endLng + 20, alt: 1.6 }, 2000);
+    globe.pointOfView({ lat: endLat, lng: endLng, alt: 1.6 }, 2000);
   }
 
   document.getElementById("video-1").addEventListener("ended", function() {

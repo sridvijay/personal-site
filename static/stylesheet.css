@@ -143,61 +143,61 @@ a, u {
 
   @media only screen and (min-width: 1900px) {
     .right {
-      right: 15vw;
+      right: 10vw;
     }
 
     .left {
-      left: 15vw;
+      left: 10vw;
     }
 
     .header_title {
-      right: 15vw;
+      right: 10vw;
     }
   
     .header_subtitle {
-      right: 15vw;
+      right: 10vw;
     }
   
     .city-name {
-      left: 15vw;
+      left: 10vw;
     }
   
     .season-name {
-      left: 15vw;
+      left: 10vw;
     }
 
     .down_arrow {
-      right: 15vw;
+      right: 10vw;
     }
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1900px) {
     .right {
-      right: 10vw;
+      right: 5vw;
     }
 
     .left {
-      left: 10vw;
+      left: 5vw;
     }
 
     .header_title {
-      right: 10vw;
+      right: 5vw;
     }
   
     .header_subtitle {
-      right: 10vw;
+      right: 5vw;
     }
   
     .city-name {
-      left: 10vw;
+      left: 5vw;
     }
   
     .season-name {
-      left: 10vw;
+      left: 5vw;
     }
 
     .down_arrow {
-      right: 10vw;
+      right: 5vw;
     }
   }
 
