@@ -88,25 +88,25 @@
               muted
               playsinline
               id="video-1"
-              class="life_video"
+              class="life_video lazy"
               style="margin-left: 0px !important"
             >
-              <source src="./videos/1life.mp4" type="video/mp4" />
+              <source data-src="./videos/1life.mp4" type="video/mp4" />
             </video>
           </button>
           <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-2" class="life_video">
-            <source src="./videos/2life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-2" class="life_video lazy">
+            <source data-src="./videos/2life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-3" class="life_video">
-            <source src="./videos/3life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-3" class="life_video lazy">
+            <source data-src="./videos/3life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-4" class="life_video">
-            <source src="./videos/4life.mp4" type="video/mp4" />
+          <video muted playsinline id="video-4" class="life_video lazy">
+            <source data-src="./videos/4life.mp4" type="video/mp4" />
           </video>
           </button>
         </div>
@@ -344,23 +344,23 @@
             <p class="section_title">life</p>
             <div class="video_grid">
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video autoplay muted playsinline id="video-1d" class="life_video" style="margin-left: 0px !important;">
-                     <source src="./videos/1life.mp4" type="video/mp4">
+                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important;">
+                     <source data-src="./videos/1life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-2d" class="life_video">
-                     <source src="./videos/2life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-2d" class="life_video lazy">
+                     <source data-src="./videos/2life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-3d" class="life_video" >
-                     <source src="./videos/3life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-3d" class="life_video lazy" >
+                     <source data-src="./videos/3life.mp4" type="video/mp4">
                   </video>
                </button>
                <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-4d" class="life_video">
-                     <source src="./videos/4life.mp4" type="video/mp4">
+                  <video muted playsinline id="video-4d" class="life_video lazy">
+                     <source data-src="./videos/4life.mp4" type="video/mp4">
                   </video>
                </button>
             </div>
@@ -507,8 +507,8 @@
     document.getElementById("globeViz")
   );
 
-      // custom globe material
-      const globeMaterial = globe.globeMaterial();
+    // custom globe material
+    const globeMaterial = globe.globeMaterial();
     globeMaterial.bumpScale = 10;
     new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/earth-water.png', texture => {
       globeMaterial.specularMap = texture;
@@ -549,6 +549,33 @@
   });
 
   globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
+
+  document.addEventListener("DOMContentLoaded", function() {
+  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(video) {
+        if (video.isIntersecting) {
+          for (var source in video.target.children) {
+            var videoSource = video.target.children[source];
+            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
+
+    lazyVideos.forEach(function(lazyVideo) {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  }
+});
 
   setTimeout(function () {
     // add new ambient light
