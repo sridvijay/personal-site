@@ -642,7 +642,7 @@
   var reverseGeocoder = function(coordinates, callback) {
     var lat = coordinates[0];
     var lng = coordinates[1];
-    var url = 'http://api.geonames.org/findNearbyPlaceNameJSON?style=medium&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
+    var url = 'https://secure.geonames.org/findNearbyPlaceNameJSON?style=medium&radius=250&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function() {
