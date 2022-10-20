@@ -149,6 +149,26 @@ a, u {
     .left {
       left: 15vw;
     }
+
+    .header_title {
+      right: 15vw;
+    }
+  
+    .header_subtitle {
+      right: 15vw;
+    }
+  
+    .city-name {
+      left: 15vw;
+    }
+  
+    .season-name {
+      left: 15vw;
+    }
+
+    .down_arrow {
+      right: 15vw;
+    }
   }
 
   @media only screen and (min-width: 1400px) and (max-width: 1900px) {
@@ -158,6 +178,26 @@ a, u {
 
     .left {
       left: 10vw;
+    }
+
+    .header_title {
+      right: 10vw;
+    }
+  
+    .header_subtitle {
+      right: 10vw;
+    }
+  
+    .city-name {
+      left: 10vw;
+    }
+  
+    .season-name {
+      left: 10vw;
+    }
+
+    .down_arrow {
+      right: 10vw;
     }
   }
 
@@ -420,26 +460,26 @@ a, u {
 
 @media only screen and (max-width: 600px) {
   .header_title {
-    top: 0px;
+    top: 10px;
     right: 20px;
     font-size: 24px;
   }
 
   .header_subtitle {
-    top: 30px;
+    top: 40px;
     right: 20px;
     font-size: 18px;
   }
 
   .city-name {
     bottom: 30px;
-    left: 20px;
+    left: 24px;
     font-size: 24px;
   }
 
   .season-name {
     bottom: 0px;
-    left: 20px;
+    left: 24px;
     font-size: 18px;
   }
 
