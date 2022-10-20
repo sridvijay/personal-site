@@ -67,22 +67,22 @@
               class="life_video"
               style="margin-left: 0px !important"
             >
-              <source src="./videos/life_1.mp4" type="video/mp4" />
+              <source src="./videos/1life.mp4" type="video/mp4" />
             </video>
           </button>
           <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-2" class="life_video">
-            <source src="./videos/life_2.mp4" type="video/mp4" />
+            <source src="./videos/2life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-3" class="life_video">
-            <source src="./videos/life_3.mp4" type="video/mp4" />
+            <source src="./videos/3life.mp4" type="video/mp4" />
           </video>
           </button>
           <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
           <video muted playsinline id="video-4" class="life_video">
-            <source src="./videos/life_4.mp4" type="video/mp4" />
+            <source src="./videos/4life.mp4" type="video/mp4" />
           </video>
           </button>
         </div>
@@ -91,10 +91,12 @@
             console.log("ASDLKAJSHDAK ", index);
           }
         </script>
+        <a href="https://vijay.photo/">
         <span class="photo_website_link"
           >my photo website
           <img class="right_arrow" src="./images/right_icon.png" />
         </span>
+        </a>
       </div>
     </div>
 
@@ -311,21 +313,23 @@
     <div class="life">
         <p class="section_title">life</p>
         <div class="video_grid">
-        <video autoplay muted playsinline id="video-1" class="life_video" style="margin-left: 0px !important;">
-            <source src="./videos/life_3.mp4" type="video/mp4">
+        <video autoplay muted playsinline id="video-1d" class="life_video" style="margin-left: 0px !important;">
+            <source src="./videos/1life.mp4" type="video/mp4">
         </video>
-        <video muted playsinline id="video-2" class="life_video">
-            <source src="./videos/life_2.mp4" type="video/mp4">
+        <video muted playsinline id="video-2d" class="life_video">
+            <source src="./videos/2life.mp4" type="video/mp4">
         </video>
-        <video muted playsinline id="video-3" class="life_video" >
-            <source src="./videos/life_3.mp4" type="video/mp4">
+        <video muted playsinline id="video-3d" class="life_video" >
+            <source src="./videos/3life.mp4" type="video/mp4">
         </video>
-        <video muted playsinline id="video-4" class="life_video">
-            <source src="./videos/life_4.mp4" type="video/mp4">
+        <video muted playsinline id="video-4d" class="life_video">
+            <source src="./videos/4life.mp4" type="video/mp4">
         </video>
       </div>
+      <a href="https://vijay.photo/">
       <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
-    </span>
+      </a>
+      </span>
     </div>
     
     <div class="resume">
@@ -336,31 +340,37 @@
             <span class="resume_title">mood</span>
             <span class="resume_position">ios lead</span>
             <span class="resume_time">‘22</span>
+            <a href="https://apps.apple.com/us/app/mood-camera/id1585452578">
             <span class="resume_info"
               >install <img class="right_arrow" src="./images/right_icon.png" />
             </span>
+            </a>
           </div>
         </div>
     
         <div class="resume_item">
           <img class="resume_icon" src="./images/meta_icon.png" />
           <div class="resume_block">
+            <!-- <a href="http://meta.com"> -->
             <span class="resume_title">meta</span>
+            <!-- </a> -->
             <span class="resume_position">sw eng (xr maps)</span>
             <span class="resume_time">‘21-’22</span>
-            <span class="resume_info">🤫</span>
+            <span class="resume_info" style="opacity: 0.5;">AR Navigation</span>
           </div>
         </div>
     
         <div class="resume_item">
           <img class="resume_icon" src="./images/sg_icon.png" />
           <div class="resume_block">
+            <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670" style="width: 0px;">
             <span class="resume_title">supergreat</span>
+            </a>
             <span class="resume_position">ios lead</span>
             <span class="resume_time">‘20-’21</span>
-            <span class="resume_info"
-              >install <img class="right_arrow" src="./images/right_icon.png" />
-            </span>
+            <a href="https://apps.apple.com/us/app/supergreat-beauty/id1360338670">
+              <span class="resume_info">install <img class="right_arrow" src="./images/right_icon.png" /></span>
+            </a>
           </div>
         </div>
     
@@ -370,13 +380,17 @@
         <div class="resume_item">
           <img class="resume_icon" src="./images/cm_icon.png" />
           <div class="resume_block">
+            <a href="https://www.clearmotion.com/roadmotion" style="width: 0px;">
             <span class="resume_title">clearmotion</span>
+            </a>
             <span class="resume_position">director, mapping</span>
             <span class="resume_time">‘16-’19</span>
+            <a href="https://www.clearmotion.com/roadmotion" >
             <span class="resume_info"
-              >watch
+              >view
               <img class="right_arrow" src="./images/right_icon.png" />
             </span>
+            </a>
           </div>
         </div>
     
@@ -479,7 +493,7 @@
   var isAnimatingMovies = false;
 
   var observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting && !isAnimatingMovies) {
+    if (entries[0].isIntersecting & !isAnimatingMovies) {
       startAnimation();
     }
   });
@@ -487,46 +501,78 @@
   function startAnimation() {
     isAnimatingMovies = true;
 
-    document.getElementById("video-1").currentTime = 0;
-    document.getElementById("video-2").currentTime = 0;
-    document.getElementById("video-3").currentTime = 0;
-    document.getElementById("video-4").currentTime = 0;
-
+    if (window.innerWidth < 600) { 
+      document.getElementById("video-1").currentTime = 0;
+      document.getElementById("video-2").currentTime = 0;
+      document.getElementById("video-3").currentTime = 0;
+      document.getElementById("video-4").currentTime = 0;
+    } else {
+      document.getElementById("video-1d").currentTime = 0;
+      document.getElementById("video-2d").currentTime = 0;
+      document.getElementById("video-3d").currentTime = 0;
+      document.getElementById("video-4d").currentTime = 0;
+    }
     // weird hack to ensure videos don't show up as black before they are loaded and played.
-    document.getElementById("video-2").style.opacity = 0.25;
-    document.getElementById("video-3").style.opacity = 0.25;
-    document.getElementById("video-4").style.opacity = 0.25;
+    var videos = ["video-2", "video-2d", "video-3", "video-3d", "video-4", "video-4d"];
 
-    document.getElementById("video-2").play();
-    document.getElementById("video-2").pause();
-    document.getElementById("video-3").play();
-    document.getElementById("video-3").pause();
-    document.getElementById("video-4").play();
-    document.getElementById("video-4").pause();
+    for (var i = 0; i < videos.length; i++) {
+  
+      var video = document.getElementById(videos[i])
+      video.style.opacity = "0.25";
 
-    document.getElementById("video-1").style.opacity = 1.0;
-    document.getElementById("video-1").play();
+      video.play();
+
+      video.pause();
+    }
+
+    if (window.innerWidth < 600) { 
+      document.getElementById("video-1").style.opacity = 1.0;
+      document.getElementById("video-1").play();
+    } else {
+      document.getElementById("video-1d").style.opacity = 1.0;
+      document.getElementById("video-1d").play();
+    }
   }
 
   function finishAnimations() {
-
-    document.getElementById("video-1").style.opacity = 0.25;
-    document.getElementById("video-2").style.opacity = 1.0;
-    document.getElementById("video-2").play();
+    if (window.innerWidth < 600) { 
+      document.getElementById("video-1").style.opacity = 0.25;
+      document.getElementById("video-2").style.opacity = 1.0;
+      document.getElementById("video-2").play();
+    } else {
+      document.getElementById("video-1d").style.opacity = 0.25;
+      document.getElementById("video-2d").style.opacity = 1.0;
+      document.getElementById("video-2d").play();
+    }
 
     setTimeout(function () {
-      document.getElementById("video-1").style.opacity = 0.25;
-      document.getElementById("video-2").style.opacity = 0.25;
-      document.getElementById("video-3").style.opacity = 1.0;
-      document.getElementById("video-3").play();
+      if (window.innerWidth < 600) { 
+        document.getElementById("video-1").style.opacity = 0.25;
+        document.getElementById("video-2").style.opacity = 0.25;
+        document.getElementById("video-3").style.opacity = 1.0;
+        document.getElementById("video-3").play();
+      } else {
+        document.getElementById("video-1d").style.opacity = 0.25;
+        document.getElementById("video-2d").style.opacity = 0.25;
+        document.getElementById("video-3d").style.opacity = 1.0;
+        document.getElementById("video-3d").play();
+      }
     }, 2800);
 
     setTimeout(function () {
-      document.getElementById("video-1").style.opacity = 0.25;
-      document.getElementById("video-2").style.opacity = 0.25;
-      document.getElementById("video-3").style.opacity = 0.25;
-      document.getElementById("video-4").style.opacity = 1.0;
-      document.getElementById("video-4").play();
+      if (window.innerWidth < 600) { 
+        document.getElementById("video-1").style.opacity = 0.25;
+        document.getElementById("video-2").style.opacity = 0.25;
+        document.getElementById("video-3").style.opacity = 0.25;
+        document.getElementById("video-4").style.opacity = 1.0;
+        document.getElementById("video-4").play();
+      } else {
+        document.getElementById("video-1d").style.opacity = 0.25;
+        document.getElementById("video-2d").style.opacity = 0.25;
+        document.getElementById("video-3d").style.opacity = 0.25;
+        document.getElementById("video-4d").style.opacity = 1.0;
+        document.getElementById("video-4d").play();
+      }
     }, 2800 * 2);
 
     setTimeout(function () {
@@ -534,7 +580,8 @@
     }, 2900 * 3);
   }
 
-  observer.observe(document.querySelector("#video-1"));
+  // observer.observe(document.querySelector("#video-1"));
+  observer.observe(document.querySelector("#video-1d"));
 
   const cities = [
     {
@@ -759,6 +806,10 @@
   }
 
   document.getElementById("video-1").addEventListener("ended", function() {
+    finishAnimations();
+  });
+
+  document.getElementById("video-1d").addEventListener("ended", function() {
     finishAnimations();
   });
 </script>
