@@ -482,13 +482,16 @@
   const globeMaterial = globe.globeMaterial();
   globeMaterial.bumpScale = 5;
 
+  setTimeout(function () {
+        startAnimation();
+  }, 1500);
 
   document.addEventListener('video1loaded', function(event) {
-    if (!isAnimatingMovies) {
-      setTimeout(function () {
-        startAnimation();
-      }, 1000);
-    }
+    // if (!isAnimatingMovies) {
+    //   setTimeout(function () {
+    //     startAnimation();
+    //   }, 1500);
+    // }
   });
 
   document.addEventListener('rotateglobe', function(event) {
@@ -524,7 +527,7 @@
     }
   });
 
-  const video1 = new Freezeframe('#video-1', { responsive: false, trigger: false });
+    const video1 = new Freezeframe('#video-1', { responsive: false, trigger: false });
     const video2 = new Freezeframe('#video-2', { responsive: false, trigger: false });
     const video3 = new Freezeframe('#video-3', { responsive: false, trigger: false });
     const video4 = new Freezeframe('#video-4', { responsive: false, trigger: false });
@@ -546,11 +549,6 @@
   } else {
     globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
   }
-
-  document.addEventListener("DOMContentLoaded", function() {
-
-
-});
 
   setTimeout(function () {
     // add new ambient light
@@ -593,17 +591,18 @@
   function startAnimation() {
     isAnimatingMovies = true;
 
+    console.log("attempting to play first video");
     if (window.innerWidth < 600) { 
       document.getElementById("video-1b").style.opacity = 1.0;
-      setTimeout(function () { video1.start(); }, 1000);
+      setTimeout(function () { video1.start(); }, 0);
     } else {
       document.getElementById("video-1db").style.opacity = 1.0;
-      setTimeout(function () { video1d.start(); }, 1000);
+      setTimeout(function () { video1d.start(); }, 0);
     }
 
     setTimeout(function () {
       finishAnimations();
-    }, 4000);
+    }, 3000);
   }
 
   function finishAnimations() {
@@ -633,7 +632,7 @@
         video2d.stop();
         video3d.start();
       }
-    }, 2800);
+    }, 3000);
 
     setTimeout(function () {
       if (window.innerWidth < 600) { 
@@ -651,7 +650,7 @@
         video3d.stop();
         video4d.start();
       }
-    }, 2800 * 2);
+    }, 3000 * 2);
 
     setTimeout(function () {
       document.getElementById("video-4b").style.opacity = 0.25;
@@ -659,7 +658,7 @@
       video4.stop();
       video4d.stop();
       startAnimation();
-    }, 2900 * 3);
+    }, 3000 * 3);
   }
 
   // observer.observe(document.querySelector("#video-1"));
