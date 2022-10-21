@@ -12,7 +12,7 @@
     .send-button {
       background-color: transparent;
       border-width: 0px;
-      margin-right: 10px;
+      margin-right: -16px;
       position: relative;
       display: block;
       /* margin-right: -200px; */
@@ -40,8 +40,8 @@
       color: white;
       opacity: 100%;
       margin-left: 0px;
-      width: max(400px, 60%);
-      height: max(54px, 6vh);
+      width: 400px;
+      height: 54px;
       border-radius: 20px;
       border-width: 0px;
     }
@@ -71,6 +71,10 @@
     }
 
     @media only screen and (max-width: 600px) {
+      .send-button {
+        margin-right: 35px;
+      }
+
       .description {
         width: 300px;
       }
@@ -78,6 +82,10 @@
       .name-input-field {
         width: 300px;
         margin-left: 0px;
+      }
+
+      .form {
+        width: 300px;
       }
     }
 
@@ -102,15 +110,16 @@
           </center>
           <button type="submit" class="send-button" id="send-button">
             <span class="photo_website_link" style="
-              position: absolute;
-              top: 0px;
-              right: -4px;
+              position: relative;
+              /* top: 0px; */
+              /* left: calc(50% - 200px); */
+              width: 80px;
               font-family: pinecone-mvb-condensed, sans-serif;
               font-weight: 400;
               color: white;
-              font-size: 24px;
+              font-size: 18px;
             ">sign up&nbsp;
-              <img class="right_arrow" style="transform: translateX(-4px)" src="./images/right_icon.png" />
+              <img class="right_arrow" style="transform: translateX(-4px) translateY(1px); height: 18px; width: auto;" src="./images/right_icon.png" />
             </span>
           </button>
       </div>
@@ -118,15 +127,15 @@
   </form>
   </div>
 
-  <div style="display: flex;  flex-direction:row; justify-content:left; align-items:center; width: 50vw; height: 24px; top: 20px; left: 20px; position: absolute; opacity: 0.5;">
+  <div style="display: flex;  flex-direction:row; justify-content:left; align-items:center; width: 50vw; height: 18px; top: 20px; left: 20px; position: absolute; opacity: 0.5;">
     <a href="./index.html" style="text-decoration: none;">
-    <img class="left_arrow" style="transform: scaleX(-1) translateY(2px); width: auto; height: 24px;" src="./images/right_icon.png" />
+    <img class="left_arrow" style="transform: scaleX(-1) translateY(2px); width: auto; height: 18px;" src="./images/right_icon.png" />
     <span class="photo_website_link" style="
     position: relative;
     font-family: pinecone-mvb-condensed, sans-serif;
     font-weight: 400;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     ">&nbsp;back
     </span>
     </a>
