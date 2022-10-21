@@ -7,6 +7,7 @@
   <script src="//unpkg.com/three"></script>
   <!-- <script src="//unpkg.com/globe.gl"></script> -->
   <script src="./dist/globe.gl.js"></script>
+  <script src="https://www.unpkg.com/freezeframe@5.0.2/dist/freezeframe.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
   <meta name="format-detection" content="telephone=no" />
@@ -39,11 +40,11 @@
 >
     New York
 </p></div>
-    <p class="header_title">
+    <p class="header_title" id="header_title">
       Vijay Sridhar
     </p>
     <p
-      class="header_subtitle"
+      class="header_subtitle" id="header_subtitle"
     >
       Travel Log
     </p>
@@ -53,13 +54,13 @@
     >
       New York, NY
     </p>
+    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
     <p
       class="season-name"
       id="season_name"
     >
       Fall '22
     </p>
-    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
       <img class="down_arrow" id="down_arrow" src="./images/down_icon.png" />
     </button>
   </div>
@@ -83,33 +84,19 @@
     <div class="mobile_item_two">
       <div class="life">
         <p class="section_title">life</p>
-        <div class="video_grid">
-          <button onclick="openVideo(0)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-            <video
-              muted
-              playsinline
-              id="video-1"
-              class="life_video lazy"
-              style="margin-left: 0px !important"
-            >
-              <source data-src="./videos/1life.mp4" type="video/mp4" />
-            </video>
-          </button>
-          <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-2" class="life_video lazy">
-            <source data-src="./videos/2life.mp4" type="video/mp4" />
-          </video>
-          </button>
-          <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-3" class="life_video lazy">
-            <source data-src="./videos/3life.mp4" type="video/mp4" />
-          </video>
-          </button>
-          <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-4" class="life_video lazy">
-            <source data-src="./videos/4life.mp4" type="video/mp4" />
-          </video>
-          </button>
+        <div class="video_grid" style="margin-top: 10px;">
+          <button onclick="openVideo(1)" id="video-1b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+            <img src="./videos/1life.webp" id="video-1" onload="var event = new CustomEvent('video1loaded', {}); document.dispatchEvent(event);" class="life_video freezeframe" style="margin-left: 0px !important; opacity: 1.0 !important;" alt="a video of the algarve in portugal" />
+       </button>
+       <button onclick="openVideo(1)" id="video-2b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/2life.webp" id="video-2" class="life_video freezeframe" alt="a video of a car driving up to Los Angeles" />
+       </button>
+       <button onclick="openVideo(1)" id="video-3b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/3life.webp" id="video-3" class="life_video freezeframe" alt="a video of jasper national park in canada" />
+       </button>
+       <button onclick="openVideo(1)" id="video-4b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/4life.webp" id="video-4" class="life_video freezeframe" alt="a video of the salkantay trek in peru" />
+       </button>
         </div>
         <script>
           function openVideo(index) {
@@ -140,7 +127,6 @@
         <span style="color: rgba(255, 255, 255, 1)">design</span>.
       </p>
       <div class="resume">
-        <p class="section_title">work</p>
         <div class="resume_item">
           <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
           <img class="resume_icon" src="./images/mood_icon.png" />
@@ -336,25 +322,17 @@
          <div class="life">
             <p class="section_title">life</p>
             <div class="video_grid">
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important; opacity: 1.0 !important;">
-                     <source data-src="./videos/1life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-1db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                    <img autoplay src="./videos/1life.webp" id="video-1d" onload="var event = new CustomEvent('video1loaded', {}); document.dispatchEvent(event);" class="life_video freezeframe" style="margin-left: 0px !important; opacity: 1.0 !important;" alt="a video of the algarve in portugal" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-2d" class="life_video lazy">
-                     <source data-src="./videos/2life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-2db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/2life.webp" id="video-2d" class="life_video freezeframe" alt="a video of a car driving up to Los Angeles" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-3d" class="life_video lazy" >
-                     <source data-src="./videos/3life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-3db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/3life.webp" id="video-3d" class="life_video freezeframe" alt="a video of jasper national park in canada" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-4d" class="life_video lazy">
-                     <source data-src="./videos/4life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-4db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/4life.webp" id="video-4d" class="life_video freezeframe" alt="a video of the salkantay trek in peru" />
                </button>
             </div>
             <a href="https://vijay.photo/">
@@ -504,20 +482,34 @@
   const globeMaterial = globe.globeMaterial();
   globeMaterial.bumpScale = 5;
 
+
+  document.addEventListener('video1loaded', function(event) {
+    if (!isAnimatingMovies) {
+      setTimeout(function () {
+        startAnimation();
+      }, 1000);
+    }
+  });
+
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
 
     document.getElementById("mini_city").style.opacity = 0;
     document.getElementById("mini_city").classList.remove("slide-right");
 
-    if (document.getElementById("city_name").innerText != "interactive mode") {
+    if (document.getElementById("header_title").innerText != "interactive mode") {
+      document.getElementById("header_title").style.opacity = 0.0;
+      document.getElementById("header_subtitle").style.opacity = 0.0;
       document.getElementById("city_name").style.opacity = 0.0;
       document.getElementById("season_name").style.opacity = 0.0;
 
       setTimeout(function () {
-        document.getElementById("city_name").innerText = "interactive mode";
-        document.getElementById("season_name").innerText = "tap a point on the globe!";
-        document.getElementById("city_name").style.opacity = 1;
+        document.getElementById("header_title").innerText = "interactive mode";
+        document.getElementById("header_subtitle").innerText = "tap a city on the globe";
+        document.getElementById("season_name").innerText = "tap here to see rest of site";
+        document.getElementById("header_title").style.opacity = 1.0;
+        document.getElementById("header_subtitle").style.opacity = 0.5;
+        document.getElementById("city_name").style.opacity = 0;
         document.getElementById("season_name").style.opacity = 0.5;
         document.getElementById("down_arrow").style.opacity = 0.0;
       }, 500);
@@ -531,6 +523,16 @@
       directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     }
   });
+
+  const video1 = new Freezeframe('#video-1', { responsive: false, trigger: false });
+    const video2 = new Freezeframe('#video-2', { responsive: false, trigger: false });
+    const video3 = new Freezeframe('#video-3', { responsive: false, trigger: false });
+    const video4 = new Freezeframe('#video-4', { responsive: false, trigger: false });
+
+    const video1d = new Freezeframe('#video-1d', { responsive: false, trigger: false });
+    const video2d = new Freezeframe('#video-2d', { responsive: false, trigger: false });
+    const video3d = new Freezeframe('#video-3d', { responsive: false, trigger: false });
+    const video4d = new Freezeframe('#video-4d', { responsive: false, trigger: false });
 
   window.addEventListener('resize', (event) => {
     globe.width([event.target.innerWidth])
@@ -546,50 +548,8 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
-  if ("IntersectionObserver" in window) {
-    var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(video) {
-        if (video.isIntersecting) {
-          for (var source in video.target.children) {
-            var videoSource = video.target.children[source];
-            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-              videoSource.src = videoSource.dataset.src;
-            }
-          }
 
-          video.target.load();
-          video.target.classList.remove("lazy");
-          lazyVideoObserver.unobserve(video.target);
-        }
-      });
-    });
-
-    lazyVideos.forEach(function(lazyVideo) {
-      lazyVideoObserver.observe(lazyVideo);
-    });
-
-    if (!isAnimatingMovies) {
-
-      if (window.innerWidth < 600) { 
-      const videoElement = document.getElementById("video-1");
-      videoElement.addEventListener('loadeddata', (e) => {
-        if(videoElement.readyState >= 3){
-          startAnimation();
-        }
-      });
-      } else {
-
-        const videoElementD = document.getElementById("video-1d");
-        videoElementD.addEventListener('loadeddata', (e) => {
-          if(videoElementD.readyState >= 3){
-            startAnimation();
-          }
-        });
-      }
-    }
-  }
 });
 
   setTimeout(function () {
@@ -622,83 +582,82 @@
 
   }
 
+  var videos = ["video-2b", "video-2db", "video-3b", "video-3db", "video-4b", "video-4db"];
+
+  for (var i = 0; i < videos.length; i++) {
+
+    var video = document.getElementById(videos[i])
+    video.style.opacity = "0.25";
+  }
+
   function startAnimation() {
     isAnimatingMovies = true;
 
     if (window.innerWidth < 600) { 
-      document.getElementById("video-1").currentTime = 0;
-      document.getElementById("video-2").currentTime = 0;
-      document.getElementById("video-3").currentTime = 0;
-      document.getElementById("video-4").currentTime = 0;
+      document.getElementById("video-1b").style.opacity = 1.0;
+      setTimeout(function () { video1.start(); }, 1000);
     } else {
-      document.getElementById("video-1d").currentTime = 0;
-      document.getElementById("video-2d").currentTime = 0;
-      document.getElementById("video-3d").currentTime = 0;
-      document.getElementById("video-4d").currentTime = 0;
-    }
-    // weird hack to ensure videos don't show up as black before they are loaded and played.
-    var videos = ["video-2", "video-2d", "video-3", "video-3d", "video-4", "video-4d"];
-
-    for (var i = 0; i < videos.length; i++) {
-  
-      var video = document.getElementById(videos[i])
-      video.style.opacity = "0.25";
-
-      video.play();
-      video.pause();
+      document.getElementById("video-1db").style.opacity = 1.0;
+      setTimeout(function () { video1d.start(); }, 1000);
     }
 
-    if (window.innerWidth < 600) { 
-      document.getElementById("video-1").style.opacity = 1.0;
-      document.getElementById("video-1").play();
-    } else {
-      document.getElementById("video-1d").style.opacity = 1.0;
-      document.getElementById("video-1d").play();
-    }
+    setTimeout(function () {
+      finishAnimations();
+    }, 4000);
   }
 
   function finishAnimations() {
     if (window.innerWidth < 600) { 
-      document.getElementById("video-1").style.opacity = 0.25;
-      document.getElementById("video-2").style.opacity = 1.0;
-      document.getElementById("video-2").play();
+      document.getElementById("video-1b").style.opacity = 0.25;
+      document.getElementById("video-2b").style.opacity = 1.0;
+      video1.stop();
+      video2.start();
     } else {
-      document.getElementById("video-1d").style.opacity = 0.25;
-      document.getElementById("video-2d").style.opacity = 1.0;
-      document.getElementById("video-2d").play();
+      document.getElementById("video-1db").style.opacity = 0.25;
+      document.getElementById("video-2db").style.opacity = 1.0;
+      video1d.stop();
+      video2d.start();
     }
 
     setTimeout(function () {
       if (window.innerWidth < 600) { 
-        document.getElementById("video-1").style.opacity = 0.25;
-        document.getElementById("video-2").style.opacity = 0.25;
-        document.getElementById("video-3").style.opacity = 1.0;
-        document.getElementById("video-3").play();
+        document.getElementById("video-1b").style.opacity = 0.25;
+        document.getElementById("video-2b").style.opacity = 0.25;
+        document.getElementById("video-3b").style.opacity = 1.0;
+        video2.stop();
+        video3.start();
       } else {
-        document.getElementById("video-1d").style.opacity = 0.25;
-        document.getElementById("video-2d").style.opacity = 0.25;
-        document.getElementById("video-3d").style.opacity = 1.0;
-        document.getElementById("video-3d").play();
+        document.getElementById("video-1db").style.opacity = 0.25;
+        document.getElementById("video-2db").style.opacity = 0.25;
+        document.getElementById("video-3db").style.opacity = 1.0;
+        video2d.stop();
+        video3d.start();
       }
     }, 2800);
 
     setTimeout(function () {
       if (window.innerWidth < 600) { 
-        document.getElementById("video-1").style.opacity = 0.25;
-        document.getElementById("video-2").style.opacity = 0.25;
-        document.getElementById("video-3").style.opacity = 0.25;
-        document.getElementById("video-4").style.opacity = 1.0;
-        document.getElementById("video-4").play();
+        document.getElementById("video-1b").style.opacity = 0.25;
+        document.getElementById("video-2b").style.opacity = 0.25;
+        document.getElementById("video-3b").style.opacity = 0.25;
+        document.getElementById("video-4b").style.opacity = 1.0;
+        video3.stop();
+        video4.start();
       } else {
-        document.getElementById("video-1d").style.opacity = 0.25;
-        document.getElementById("video-2d").style.opacity = 0.25;
-        document.getElementById("video-3d").style.opacity = 0.25;
-        document.getElementById("video-4d").style.opacity = 1.0;
-        document.getElementById("video-4d").play();
+        document.getElementById("video-1db").style.opacity = 0.25;
+        document.getElementById("video-2db").style.opacity = 0.25;
+        document.getElementById("video-3db").style.opacity = 0.25;
+        document.getElementById("video-4db").style.opacity = 1.0;
+        video3d.stop();
+        video4d.start();
       }
     }, 2800 * 2);
 
     setTimeout(function () {
+      document.getElementById("video-4b").style.opacity = 0.25;
+      document.getElementById("video-4db").style.opacity = 0.25;
+      video4.stop();
+      video4d.stop();
       startAnimation();
     }, 2900 * 3);
   }
@@ -1899,13 +1858,24 @@
         lastSeasonShown = city["season"];
       }
 
+      if (document.getElementById("header_title").innerText == "interactive mode") {
+        document.getElementById("header_title").style.opacity = 0;
+        document.getElementById("header_subtitle").style.opacity = 0;
+      }
+
       setTimeout(function () {
         document.getElementById("city_name").innerText = city["city"];
         document.getElementById("season_name").innerText = city["season"];
 
+        document.getElementById("header_title").innerText = "vijay sridhar";
+        document.getElementById("header_subtitle").innerText = "travel log";
+        
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
         document.getElementById("down_arrow").style.opacity = 1;
+
+        document.getElementById("header_title").style.opacity = 1;
+        document.getElementById("header_subtitle").style.opacity = 0.5;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
