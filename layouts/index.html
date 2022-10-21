@@ -591,7 +591,6 @@
   function startAnimation() {
     isAnimatingMovies = true;
 
-    console.log("attempting to play first video");
     if (window.innerWidth < 600) { 
       document.getElementById("video-1b").style.opacity = 1.0;
       setTimeout(function () { video1.start(); }, 0);
@@ -1846,6 +1845,13 @@
       if (hasClickedGlobe) {
         return
       }
+
+      if (timerIndex > cities.length - 1) {
+        document.getElementById("city_name").innerText = "thanks for watching!";
+        document.getElementById("season_name").innerText = "please send a note if you liked this :)";
+        return;
+      }
+
       var city = cities[timerIndex];
   
       document.getElementById("city_name").style.opacity = 0;
