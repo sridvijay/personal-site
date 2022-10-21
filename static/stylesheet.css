@@ -88,7 +88,7 @@ a, u {
   height: 0px;
   width: 180px;
   cursor: pointer;
-  left: calc(min(450px, 100%) - 180px);
+  left: calc(min(600px, 100%) - 180px);
   margin-top: 12px;
 }
 
@@ -200,6 +200,10 @@ a, u {
     .content {
       width: 100vw;
       height: 1250px !important;
+    }
+
+    .send-button {
+      left: calc(min(450px, 100%) - 180px) !important;
     }
   }
 
@@ -505,7 +509,8 @@ a, u {
     width: 200px !important;
     font-size: 12px !important;
     margin-left: 52% !important;
-    /* margin-top: -40px !important; */
+    margin-top: 70px !important;
+    /* margin-top: 0px !important; */
   }
 
   .header_title {
