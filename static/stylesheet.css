@@ -196,7 +196,30 @@ a, u {
     }
   }
 
+  @media only screen and (min-width: 1225px) and (max-width: 1400px) {
+    .content {
+      width: 100vw;
+      height: 1250px !important;
+    }
+  }
+
   @media only screen and (min-width: 1400px) and (max-width: 2800px) {
+    .description {
+      width: min(600px, 100%) !important;
+    }
+
+    .name-input-field {
+      width: min(600px, 100%) !important;
+    }
+
+    .form-input-field {
+      width: min(600px, 100%) !important;
+    }
+
+    .send-button {
+      left: calc(min(600px, 100%) - 180px) !important;
+    }
+
     .right {
       right: 5vw;
     }
@@ -227,7 +250,7 @@ a, u {
 
     .content {
       width: 100vw;
-      height: 1350px;
+      height: 1500px !important;
     }
   }
 
@@ -255,7 +278,7 @@ a, u {
   .propic {
     width: 120px;
     height: 120px;
-    margin-top: 30px;
+    margin-top: 0px;
     padding-bottom: 15px;
   }
 
@@ -479,9 +502,10 @@ a, u {
 @media only screen and (max-width: 600px) {
 
   .mini_city {
-    width: 58% !important;
+    width: 200px !important;
+    font-size: 12px !important;
     margin-left: 52% !important;
-    margin-top: -40px !important;
+    /* margin-top: -40px !important; */
   }
 
   .header_title {
@@ -568,7 +592,7 @@ a, u {
   }
 
   .life_video {
-    height: calc(90vw / 4 / 0.61);
+    height: calc(90vw / 4 / 0.63);
     width: auto;
     margin-top: 0px;
     margin-left: 0px;
@@ -611,7 +635,7 @@ a, u {
     font-family: pinecone-mvb-condensed, sans-serif;
     font-size: 48px;
     margin-right: 0px;
-    margin-top: 20px;
+    margin-top: 5px;
     float: right;
   }
 
@@ -862,7 +886,7 @@ a, u {
 
   .mobile_item_one {
     width: 100%;
-    height: 250px;
+    height: 150px;
     display: flex;
     margin-top: 0vh;
     flex-direction: row;
@@ -873,7 +897,7 @@ a, u {
   .mobile_item_two {
     width: 100%;
     height: calc((90vw / 4 / 0.61) + 20px);
-    margin-top: 0vh;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -1176,6 +1200,11 @@ a, u {
     text-align: left;
     color: white;
     margin-bottom: 0px;
+  }
+
+  .content {
+    width: 100vw;
+    height: 1050px;
   }
 
   .move_indicator {

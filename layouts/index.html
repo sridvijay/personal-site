@@ -23,15 +23,15 @@
     style="
     width: 300px;
     height: 60px;
-    margin-left: 300px;
-    margin-top: 25px;
+    margin-left: 320px;
+    margin-top: 65px;
     text-align: left;
     color: white;
     opacity: 0;
     font-family: pinecone-mvb, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 12px;
+    font-size: 13px;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s; /* Safari */
     "
@@ -70,7 +70,7 @@
   <div class="content" id="content">
     <div class="mobile_item_one">
       <img class="propic" id="propic" src="./images/propic.png" />
-      <p class="description" style="width: auto; margin-left: 20px; font-size: 16px;">
+      <p class="description" style="width: auto; margin-left: 16px; font-size: 16px;">
         Hey! I'm
         <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.</br>
         <span style="margin-top: 10px; display: block;"></span>
@@ -84,7 +84,7 @@
     <div class="mobile_item_two">
       <div class="life">
         <p class="section_title">life</p>
-        <div class="video_grid" style="margin-top: 10px;">
+        <div class="video_grid" style="margin-top: 5px;">
           <button onclick="openVideo(1)" id="video-1b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
             <img src="./videos/1life.webp" id="video-1" onload="var event = new CustomEvent('video1loaded', {}); document.dispatchEvent(event);" class="life_video freezeframe" style="margin-left: 0px !important; opacity: 1.0 !important;" alt="a video of the algarve in portugal" />
        </button>
@@ -116,7 +116,7 @@
         <span style="color: rgba(255, 255, 255, 1)">designing software</span>
         and
         <span style="color: rgba(255, 255, 255, 1)">writing code</span> since I
-        was 13 years old.<br /><br />I love building things that bring a
+        was 13 years old.<br /><br />I love building things that spark a
         <span style="color: rgba(255, 255, 255, 1)">sense of joy</span> and
         deeply value
         <span style="color: rgba(255, 255, 255, 1)">human-centered design</span>
@@ -127,6 +127,20 @@
         <span style="color: rgba(255, 255, 255, 1)">design</span>.
       </p>
       <div class="resume">
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/tba_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title" style="font-size: 16px; width: 200%;">TBA</span>
+            <span class="resume_position">coming soon</span>
+            <span class="resume_time">‘22</span>
+            <a href="./notifyme.html" style="width: 0px;">
+            <span class="resume_info" style="width: 100%;"
+              >notify me <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+            </a>
+          </div>
+        </div>
+
         <div class="resume_item">
           <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
           <img class="resume_icon" src="./images/mood_icon.png" />
@@ -284,8 +298,8 @@
    <div class="content" id="content-d">
       <div class="left">
          <img class="propic" id="propic" src="./images/propic.png" />
-         <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
-         <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
+         <p class="description">Hey! I'm <span style="color:rgba(255,255,255,0.9)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,0.9)">product engineer</span> and <span style="color:rgba(255,255,255,0.9)">designer</span> based out of <span style="color:rgba(255,255,255,0.9)">NYC</span>.</p>
+         <p class="description">I've been <span style="color:rgba(255,255,255,0.9)">designing software</span> and <span style="color:rgba(255,255,255,0.9)">writing code</span> since I was 13 years old.<br><br>I love building things that spark a <span style="color:rgba(255,255,255,0.9)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,0.9)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,0.9)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,0.9)">iOS development</span> & <span style="color:rgba(255,255,255,0.9)">design</span>.<br><br>I'm currently working on <span style="color:rgba(255,255,255,0.9)">something new</span> & excited to share more <span style="color:rgba(255,255,255,0.9)" >soon</span>!</p>
          <p class="section_title">send me a note</p>
          <form name="contact" method="POST" data-netlify="true">
             <div class="contact-grid-item">
@@ -342,6 +356,20 @@
          </div>
          <div class="resume">
             <p class="section_title">work</p>
+            <div class="resume_item">
+              <img class="resume_icon" src="./images/tba_icon.png" />
+              <div class="resume_block">
+                <span class="resume_title">To be announced</span>
+                <span class="resume_position">coming soon</span>
+                <span class="resume_time">‘22</span>
+                <a href="./notifyme.html">
+                <span class="resume_info"
+                  >notify me <img class="right_arrow" src="./images/right_icon.png" />
+                </span>
+                </a>
+              </div>
+            </div>
+
             <div class="resume_item">
                <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
                   <img class="resume_icon" src="./images/mood_icon.png" />
@@ -509,7 +537,7 @@
       setTimeout(function () {
         document.getElementById("header_title").innerText = "interactive mode";
         document.getElementById("header_subtitle").innerText = "tap a city on the globe";
-        document.getElementById("season_name").innerText = "tap here to see rest of site";
+        document.getElementById("season_name").innerText = "tap to see rest of site";
         document.getElementById("header_title").style.opacity = 1.0;
         document.getElementById("header_subtitle").style.opacity = 0.5;
         document.getElementById("city_name").style.opacity = 0;
@@ -556,7 +584,7 @@
     globe.scene().add(ambientLight);
 
     // add new directional light
-    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.8);
+    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 2.0);
     directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     globe.scene().add(directionalLight2);
 
