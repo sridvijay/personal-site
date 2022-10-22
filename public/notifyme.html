@@ -1,0 +1,145 @@
+<head>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="initial-scale=1.0" />
+
+  <style>
+    .send-button {
+      background-color: transparent;
+      border-width: 0px;
+      margin-right: -16px;
+      position: relative;
+      display: block;
+      /* margin-right: -200px; */
+      float: right;
+      height: 40px;
+      width: 124px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .name-input-field::placeholder {
+      font-family: pinecone-mvb, sans-serif;
+      opacity: 0.2;
+      color: white;
+    }
+
+    .name-input-field {
+      margin-top: 28px;
+      resize: none;
+      padding-left: 20px;
+      padding-top: 12px;
+      font-family: pinecone-mvb, sans-serif;
+      font-size: 24px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      opacity: 100%;
+      margin-left: 0px;
+      width: 400px;
+      height: 54px;
+      border-radius: 20px;
+      border-width: 0px;
+    }
+
+    .name-input-field:focus {
+      outline: none !important;
+      box-shadow: 0 0 10px #c3c3c381;
+      transition: box-shadow 0.25s;
+    }
+
+    .name-input-field {
+      margin-top: 12px;
+      padding-top: 13px;
+      font-size: 18px;
+    }
+
+    .name-input-field::placeholder {
+      font-family: pinecone-mvb, sans-serif;
+      font-size: 18px;
+    }
+
+    .description {
+      color: rgba(255, 255, 255, 0.9);
+      font-family: pinecone-mvb, sans-serif;
+      font-size: 16px;
+      width: 400px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .send-button {
+        margin-right: 35px;
+      }
+
+      .description {
+        width: 300px;
+      }
+
+      .name-input-field {
+        width: 300px;
+        margin-left: 0px;
+      }
+
+      .form {
+        width: 300px;
+      }
+    }
+
+    .form {
+      width: 400px;
+    }
+  </style>
+</head>
+
+<body style="background-color: black">
+  <div
+    style="display: flex;  flex-direction:column; justify-content:center; align-items:center; width: 100vw; height: 100vh; top: 0px; position: absolute;">
+    <p class="description">Thanks for signing up!<br><br><span style="color: rgba(255, 255, 255, 0.5)">I promise I won't
+        send you spam.<br><br>you'll maybe hear from me 3-4 times a year to demo you something new!</span></p>
+
+
+    <form name="email" method="POST" data-netlify="true" class="form">
+        <div class="contact-grid-item">
+          <center>
+          <textarea type="text" name="email" placeholder="email" class="name-input-field"
+            id="name-text-area"></textarea>
+          </center>
+          <button type="submit" class="send-button" id="send-button">
+            <span class="photo_website_link" style="
+              position: relative;
+              /* top: 0px; */
+              /* left: calc(50% - 200px); */
+              width: 80px;
+              font-family: pinecone-mvb-condensed, sans-serif;
+              font-weight: 400;
+              color: white;
+              font-size: 18px;
+            ">sign up&nbsp;
+              <img class="right_arrow" style="transform: translateX(-4px) translateY(1px); height: 18px; width: auto;" src="./images/right_icon.png" />
+            </span>
+          </button>
+      </div>
+
+  </form>
+  </div>
+
+  <div style="display: flex;  flex-direction:row; justify-content:left; align-items:center; width: 50vw; height: 18px; top: 20px; left: 20px; position: absolute; opacity: 0.5;">
+    <a href="./index.html" style="text-decoration: none;">
+    <img class="left_arrow" style="transform: scaleX(-1) translateY(2px); width: auto; height: 18px;" src="./images/right_icon.png" />
+    <span class="photo_website_link" style="
+    position: relative;
+    font-family: pinecone-mvb-condensed, sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    ">&nbsp;back
+    </span>
+    </a>
+    </a>
+  </div>
+
+</body>

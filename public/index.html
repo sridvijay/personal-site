@@ -1,5 +1,26 @@
 <head>
 	<meta name="generator" content="Hugo 0.104.3" />
+  <title>Vijay Sridhar</title>
+  <meta name="description" content="a product engineer and designer based in nyc.">
+
+  
+  <meta property="og:url" content="https://vijaysridhar.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vijay Sridhar">
+  <meta property="og:description" content="a product engineer and designer based in nyc.">
+  <meta property="og:video" content="video/mp4" content="https://vijaysridhar.com/videos/ograph.mp4">
+  <meta property="og:image" content="https://vijaysridhar.com/images/og_image.jpg">
+  <meta property="og:video:width" content="768">
+  <meta property="og:video:height" content="402">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="vijaysridhar.com">
+  <meta property="twitter:url" content="https://vijaysridhar.com">
+  <meta name="twitter:title" content="Vijay Sridhar">
+  <meta name="twitter:description" content="a product engineer and designer based in nyc.">
+  <meta name="twitter:image" content="https://vijaysridhar.com/images/og_image.jpg">
+
   <style>
     body {
       margin: 0;
@@ -8,32 +29,31 @@
   <script src="//unpkg.com/three"></script>
   
   <script src="./dist/globe.gl.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
+  <script src="https://www.unpkg.com/freezeframe@5.0.2/dist/freezeframe.min.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/qty5bax.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="initial-scale=1.0" />
-  <img style="display: none; height: 0px; position: absolute; width: 0px; top: 0px; left: 0px;" src="./bump3-min.jpg" />
 </head>
 
 <body style="background-color: black">
   <div id="header" style="position: relative; display: inline-block">
     <div id="globeViz" style="position: relative; display: inline-block"></div>
-    <div style="display: flex; justify-content:center; align-items:center; width: 100vw; height: 100vh; top: 0px; position: absolute; pointer-events: none;
+    <div style="display: flex; justify-content:center; align-items:center; width: 100%; height: 100%; top: 0px; position: absolute; pointer-events: none;
     ">
     <p
     style="
     width: 300px;
     height: 60px;
-    margin-left: 300px;
-    margin-top: 25px;
+    margin-left: 320px;
+    margin-top: 65px;
     text-align: left;
     color: white;
     opacity: 0;
     font-family: pinecone-mvb, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 12px;
+    font-size: 13px;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s; /* Safari */
     "
@@ -42,11 +62,11 @@
 >
     New York
 </p></div>
-    <p class="header_title">
+    <p class="header_title" id="header_title">
       Vijay Sridhar
     </p>
     <p
-      class="header_subtitle"
+      class="header_subtitle" id="header_subtitle"
     >
       Travel Log
     </p>
@@ -56,13 +76,13 @@
     >
       New York, NY
     </p>
+    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
     <p
       class="season-name"
       id="season_name"
     >
       Fall '22
     </p>
-    <button onclick="scrollDown()" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
       <img class="down_arrow" id="down_arrow" src="./images/down_icon.png" />
     </button>
   </div>
@@ -72,7 +92,7 @@
   <div class="content" id="content">
     <div class="mobile_item_one">
       <img class="propic" id="propic" src="./images/propic.png" />
-      <p class="description" style="width: auto; margin-left: 20px; font-size: 16px;">
+      <p class="description" style="width: auto; margin-left: 16px; font-size: 16px;">
         Hey! I'm
         <span style="color: rgba(255, 255, 255, 1)">Vijay</span>.</br>
         <span style="margin-top: 10px; display: block;"></span>
@@ -86,45 +106,27 @@
     <div class="mobile_item_two">
       <div class="life">
         <p class="section_title">life</p>
-        <div class="video_grid">
-          <button onclick="openVideo(0)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-            <video
-              muted
-              playsinline
-              id="video-1"
-              class="life_video lazy"
-              style="margin-left: 0px !important"
-            >
-              <source data-src="./videos/1life.mp4" type="video/mp4" />
-            </video>
-          </button>
-          <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-2" class="life_video lazy">
-            <source data-src="./videos/2life.mp4" type="video/mp4" />
-          </video>
-          </button>
-          <button onclick="openVideo(2)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-3" class="life_video lazy">
-            <source data-src="./videos/3life.mp4" type="video/mp4" />
-          </video>
-          </button>
-          <button onclick="openVideo(3)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important;">
-          <video muted playsinline id="video-4" class="life_video lazy">
-            <source data-src="./videos/4life.mp4" type="video/mp4" />
-          </video>
-          </button>
+        <div class="video_grid" style="margin-top: 5px;">
+          <button onclick="openVideo(1)" id="video-1b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+            <img src="./videos/1life.webp" id="video-1" onload="var event = new CustomEvent('video1loaded', {}); document.dispatchEvent(event);" class="life_video freezeframe" style="margin-left: 0px !important; opacity: 1.0 !important;" alt="a video of the algarve in portugal" />
+       </button>
+       <button onclick="openVideo(1)" id="video-2b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/2life.webp" id="video-2" class="life_video freezeframe" alt="a video of a car driving up to Los Angeles" />
+       </button>
+       <button onclick="openVideo(1)" id="video-3b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/3life.webp" id="video-3" class="life_video freezeframe" alt="a video of jasper national park in canada" />
+       </button>
+       <button onclick="openVideo(1)" id="video-4b" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+        <img src="./videos/4life.webp" id="video-4" class="life_video freezeframe" alt="a video of the salkantay trek in peru" />
+       </button>
         </div>
         <script>
           function openVideo(index) {
-            console.log("ASDLKAJSHDAK ", index);
             window.location = "https://vijay.photo";
           }
         </script>
         <a href="https://vijay.photo/">
-        <span class="photo_website_link"
-          >my photo website
-          <img class="right_arrow" src="./images/right_icon.png" />
-        </span>
+          <span class="photo_website_link">my photo website <img class="right_arrow" src="./images/right_icon.png" />
         </a>
       </div>
     </div>
@@ -136,7 +138,7 @@
         <span style="color: rgba(255, 255, 255, 1)">designing software</span>
         and
         <span style="color: rgba(255, 255, 255, 1)">writing code</span> since I
-        was 13 years old.<br /><br />I love building things that bring a
+        was 13 years old.<br /><br />I love building things that spark a
         <span style="color: rgba(255, 255, 255, 1)">sense of joy</span> and
         deeply value
         <span style="color: rgba(255, 255, 255, 1)">human-centered design</span>
@@ -147,7 +149,20 @@
         <span style="color: rgba(255, 255, 255, 1)">design</span>.
       </p>
       <div class="resume">
-        <p class="section_title">work</p>
+        <div class="resume_item">
+          <img class="resume_icon" src="./images/tba_icon.png" />
+          <div class="resume_block">
+            <span class="resume_title" style="font-size: 16px; width: 200%;">TBA</span>
+            <span class="resume_position">coming soon</span>
+            <span class="resume_time">‘22</span>
+            <a href="./notifyme.html">
+            <span class="resume_info">
+              notify me <img class="right_arrow" src="./images/right_icon.png" />
+            </span>
+            </a>
+          </div>
+        </div>
+
         <div class="resume_item">
           <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
           <img class="resume_icon" src="./images/mood_icon.png" />
@@ -247,7 +262,7 @@
     </div>
 
     <div class="mobile_item_four">
-      <p class="section_title">shoot me a note</p>
+      <p class="section_title">send me a note</p>
 
       <form name="contact" method="POST" data-netlify="true">
         <div class="contact-grid-item">
@@ -302,12 +317,12 @@
   </div>
 
 <div class="desktop-only">
-   <div class="content" id="content">
+   <div class="content" id="content-d">
       <div class="left">
          <img class="propic" id="propic" src="./images/propic.png" />
-         <p class="description">Hey! I'm <span style="color:rgba(255,255,255,1.0)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,1.0)">product engineer</span> and <span style="color:rgba(255,255,255,1.0)">designer</span> based out of <span style="color:rgba(255,255,255,1.0)">NYC</span>.</p>
-         <p class="description">I've been <span style="color:rgba(255,255,255,1.0)">designing software</span> and <span style="color:rgba(255,255,255,1.0)">writing code</span> since I was 13 years old.<br><br>I love building things that bring a <span style="color:rgba(255,255,255,1.0)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,1.0)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,1.0)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,1.0)">iOS development</span> & <span style="color:rgba(255,255,255,1.0)">design</span>.</p>
-         <p class="section_title">contact me</p>
+         <p class="description">Hey! I'm <span style="color:rgba(255,255,255,0.9)">Vijay</span>.<br><br>I'm a 24 year old <span style="color:rgba(255,255,255,0.9)">product engineer</span> and <span style="color:rgba(255,255,255,0.9)">designer</span> based out of <span style="color:rgba(255,255,255,0.9)">NYC</span>.</p>
+         <p class="description">I've been <span style="color:rgba(255,255,255,0.9)">designing software</span> and <span style="color:rgba(255,255,255,0.9)">writing code</span> since I was 13 years old.<br><br>I love building things that spark a <span style="color:rgba(255,255,255,0.9)">sense of joy</span> and deeply value <span style="color:rgba(255,255,255,0.9)">human-centered design</span> principles.<br><br>I'm a <span style="color:rgba(255,255,255,0.9)">just-in-time learner</span> & can build pretty much any software - but I specialize in <span style="color:rgba(255,255,255,0.9)">iOS development</span> & <span style="color:rgba(255,255,255,0.9)">design</span>.<br><br>I'm currently working on <span style="color:rgba(255,255,255,0.9)">something new</span> & excited to share more <span style="color:rgba(255,255,255,0.9)" >soon</span>!</p>
+         <p class="section_title">send me a note</p>
          <form name="contact" method="POST" data-netlify="true">
             <div class="contact-grid-item">
                <textarea type="text" name="name" placeholder="name" class="name-input-field" id="name-text-area"></textarea>
@@ -315,57 +330,45 @@
             <div class="contact-grid-item">
                <textarea type="text" name="form" placeholder="what's on your mind?" class="form-input-field" id="form-text-area"></textarea>
             </div>
-            <button type="submit" class="bodymovinanim fillwhite send-button" id="send-button"></button>
+            <button
+            type="submit"
+            class="send-button"
+            id="send-button-2"
+          >
+            <span
+              class="photo_website_link"
+              style="
+                position: absolute;
+                top: 0px;
+                right: -4px;
+                font-family: pinecone-mvb-condensed, sans-serif;
+                font-weight: 400;
+              "
+              >send&nbsp;
+              <img
+                class="right_arrow"
+                style="transform: translateX(-4px)"
+                src="./images/right_icon.png"
+              />
+            </span>
+          </button>
          </form>
-         <script>
-            let iconMenu = document.querySelector('.bodymovinanim');
-            
-            let animationMenu = bodymovin.loadAnimation({
-                    container: iconMenu,
-                    renderer: 'svg',
-                    loop: false,
-                    autoplay: false,
-                    path: "https://lottie.host/528977b5-4e1d-4620-9c61-fde3bff1a9ae/7sxT4D8uaI.json"
-            });
-            
-            var directionMenu = 1;
-              iconMenu.addEventListener('mouseenter', (e) => {
-              animationMenu.setDirection(directionMenu);
-              animationMenu.play();
-            });
-            
-              iconMenu.addEventListener('mouseleave', (e) => {
-              animationMenu.setDirection(-directionMenu);
-              animationMenu.play();
-            });
-            
-            function testFunction() { console.log("YAHOOOOOOOOO")}
-            function myFunction() { if (document.getElementById('name-text-area').value && document.getElementById('form-text-area').value) { document.getElementById('send-button').disabled = false; } else { document.getElementById('send-button').disabled = true; } } document.getElementById('name-text-area').addEventListener('input', myFunction); document.getElementById('form-text-area').addEventListener('input', myFunction);
-         </script>
       </div>
       <div class="right">
          <div class="life">
             <p class="section_title">life</p>
             <div class="video_grid">
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video autoplay muted playsinline id="video-1d" class="life_video lazy" style="margin-left: 0px !important;">
-                     <source data-src="./videos/1life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-1db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                    <img autoplay src="./videos/1life.webp" id="video-1d" onload="var event = new CustomEvent('video1loaded', {}); document.dispatchEvent(event);" class="life_video freezeframe" style="margin-left: 0px !important; opacity: 1.0 !important;" alt="a video of the algarve in portugal" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-2d" class="life_video lazy">
-                     <source data-src="./videos/2life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-2db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/2life.webp" id="video-2d" class="life_video freezeframe" alt="a video of a car driving up to Los Angeles" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-3d" class="life_video lazy" >
-                     <source data-src="./videos/3life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-3db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/3life.webp" id="video-3d" class="life_video freezeframe" alt="a video of jasper national park in canada" />
                </button>
-               <button onclick="openVideo(1)" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
-                  <video muted playsinline id="video-4d" class="life_video lazy">
-                     <source data-src="./videos/4life.mp4" type="video/mp4">
-                  </video>
+               <button onclick="openVideo(1)" id="video-4db" style="background-color: transparent; border-width: 0px; padding: 0px !important; margin: 0px !important; cursor: pointer;">
+                <img src="./videos/4life.webp" id="video-4d" class="life_video freezeframe" alt="a video of the salkantay trek in peru" />
                </button>
             </div>
             <a href="https://vijay.photo/">
@@ -375,6 +378,19 @@
          </div>
          <div class="resume">
             <p class="section_title">work</p>
+            <div class="resume_item">
+              <img class="resume_icon" src="./images/tba_icon.png" />
+              <div class="resume_block">
+                <span class="resume_title">To be announced</span>
+                <span class="resume_position">coming soon</span>
+                <span class="resume_time">‘22</span>
+                <a href="./notifyme.html">
+                <span class="resume_info">notify me <img class="right_arrow" src="./images/right_icon.png" />
+                </span>
+                </a>
+              </div>
+            </div>
+
             <div class="resume_item">
                <a href="https://apps.apple.com/us/app/mood-camera/id1585452578" style="width: 0px;">
                   <img class="resume_icon" src="./images/mood_icon.png" />
@@ -515,20 +531,37 @@
   const globeMaterial = globe.globeMaterial();
   globeMaterial.bumpScale = 5;
 
+  setTimeout(function () {
+        startAnimation();
+  }, 1500);
+
+  document.addEventListener('video1loaded', function(event) {
+    
+    
+    
+    
+    
+  });
+
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
 
     document.getElementById("mini_city").style.opacity = 0;
     document.getElementById("mini_city").classList.remove("slide-right");
 
-    if (document.getElementById("city_name").innerText != "interactive mode") {
+    if (document.getElementById("header_title").innerText != "interactive mode") {
+      document.getElementById("header_title").style.opacity = 0.0;
+      document.getElementById("header_subtitle").style.opacity = 0.0;
       document.getElementById("city_name").style.opacity = 0.0;
       document.getElementById("season_name").style.opacity = 0.0;
 
       setTimeout(function () {
-        document.getElementById("city_name").innerText = "interactive mode";
-        document.getElementById("season_name").innerText = "tap a point on the globe!";
-        document.getElementById("city_name").style.opacity = 1;
+        document.getElementById("header_title").innerText = "interactive mode";
+        document.getElementById("header_subtitle").innerText = "tap a city on the globe";
+        document.getElementById("season_name").innerText = "tap to see rest of site";
+        document.getElementById("header_title").style.opacity = 1.0;
+        document.getElementById("header_subtitle").style.opacity = 0.5;
+        document.getElementById("city_name").style.opacity = 0;
         document.getElementById("season_name").style.opacity = 0.5;
         document.getElementById("down_arrow").style.opacity = 0.0;
       }, 500);
@@ -543,49 +576,28 @@
     }
   });
 
+    const video1 = new Freezeframe('#video-1', { responsive: false, trigger: false });
+    const video2 = new Freezeframe('#video-2', { responsive: false, trigger: false });
+    const video3 = new Freezeframe('#video-3', { responsive: false, trigger: false });
+    const video4 = new Freezeframe('#video-4', { responsive: false, trigger: false });
+
+    const video1d = new Freezeframe('#video-1d', { responsive: false, trigger: false });
+    const video2d = new Freezeframe('#video-2d', { responsive: false, trigger: false });
+    const video3d = new Freezeframe('#video-3d', { responsive: false, trigger: false });
+    const video4d = new Freezeframe('#video-4d', { responsive: false, trigger: false });
+
   window.addEventListener('resize', (event) => {
     globe.width([event.target.innerWidth])
-    globe.height([event.target.innerHeight])
+    if (window.innerWidth > 600) {
+      globe.height([event.target.innerHeight])
+    }
   });
 
-  globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
-
-  document.addEventListener("DOMContentLoaded", function() {
-  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
-
-  if ("IntersectionObserver" in window) {
-    var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(video) {
-        if (video.isIntersecting) {
-          for (var source in video.target.children) {
-            var videoSource = video.target.children[source];
-            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-              videoSource.src = videoSource.dataset.src;
-            }
-          }
-
-          video.target.load();
-          video.target.classList.remove("lazy");
-          lazyVideoObserver.unobserve(video.target);
-        }
-      });
-    });
-
-    lazyVideos.forEach(function(lazyVideo) {
-      lazyVideoObserver.observe(lazyVideo);
-    });
-
-    if (!isAnimatingMovies) {
-
-      const videoElement = document.getElementById("video-1");
-      videoElement.addEventListener('loadeddata', (e) => {
-        if(videoElement.readyState >= 3){
-          startAnimation();
-        }
-      });
-    }
+  if (window.innerWidth < 600) {
+    globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.2 });
+  } else {
+    globe.pointOfView({ lat: 40.7128, lng: -74.006, altitude: 1.6 });
   }
-});
 
   setTimeout(function () {
     
@@ -593,7 +605,7 @@
     globe.scene().add(ambientLight);
 
     
-    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 0.8);
+    directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 2.0);
     directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
     globe.scene().add(directionalLight2);
 
@@ -608,90 +620,93 @@
   });
 
   function scrollDown() {
-    var element = document.getElementById("content");
+    if (window.innerWidth > 600) {
+      var element = document.getElementById("content-d");
+    } else {
+      var element = document.getElementById("content");
+    }
     element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 
+  }
+
+  var videos = ["video-2b", "video-2db", "video-3b", "video-3db", "video-4b", "video-4db"];
+
+  for (var i = 0; i < videos.length; i++) {
+
+    var video = document.getElementById(videos[i])
+    video.style.opacity = "0.25";
   }
 
   function startAnimation() {
     isAnimatingMovies = true;
 
     if (window.innerWidth < 600) { 
-      document.getElementById("video-1").currentTime = 0;
-      document.getElementById("video-2").currentTime = 0;
-      document.getElementById("video-3").currentTime = 0;
-      document.getElementById("video-4").currentTime = 0;
+      document.getElementById("video-1b").style.opacity = 1.0;
+      setTimeout(function () { video1.start(); }, 0);
     } else {
-      document.getElementById("video-1d").currentTime = 0;
-      document.getElementById("video-2d").currentTime = 0;
-      document.getElementById("video-3d").currentTime = 0;
-      document.getElementById("video-4d").currentTime = 0;
-    }
-    
-    var videos = ["video-2", "video-2d", "video-3", "video-3d", "video-4", "video-4d"];
-
-    for (var i = 0; i < videos.length; i++) {
-  
-      var video = document.getElementById(videos[i])
-      video.style.opacity = "0.25";
-
-      video.play();
-      video.pause();
+      document.getElementById("video-1db").style.opacity = 1.0;
+      setTimeout(function () { video1d.start(); }, 0);
     }
 
-    if (window.innerWidth < 600) { 
-      document.getElementById("video-1").style.opacity = 1.0;
-      document.getElementById("video-1").play();
-    } else {
-      document.getElementById("video-1d").style.opacity = 1.0;
-      document.getElementById("video-1d").play();
-    }
+    setTimeout(function () {
+      finishAnimations();
+    }, 3000);
   }
 
   function finishAnimations() {
     if (window.innerWidth < 600) { 
-      document.getElementById("video-1").style.opacity = 0.25;
-      document.getElementById("video-2").style.opacity = 1.0;
-      document.getElementById("video-2").play();
+      document.getElementById("video-1b").style.opacity = 0.25;
+      document.getElementById("video-2b").style.opacity = 1.0;
+      video1.stop();
+      video2.start();
     } else {
-      document.getElementById("video-1d").style.opacity = 0.25;
-      document.getElementById("video-2d").style.opacity = 1.0;
-      document.getElementById("video-2d").play();
+      document.getElementById("video-1db").style.opacity = 0.25;
+      document.getElementById("video-2db").style.opacity = 1.0;
+      video1d.stop();
+      video2d.start();
     }
 
     setTimeout(function () {
       if (window.innerWidth < 600) { 
-        document.getElementById("video-1").style.opacity = 0.25;
-        document.getElementById("video-2").style.opacity = 0.25;
-        document.getElementById("video-3").style.opacity = 1.0;
-        document.getElementById("video-3").play();
+        document.getElementById("video-1b").style.opacity = 0.25;
+        document.getElementById("video-2b").style.opacity = 0.25;
+        document.getElementById("video-3b").style.opacity = 1.0;
+        video2.stop();
+        video3.start();
       } else {
-        document.getElementById("video-1d").style.opacity = 0.25;
-        document.getElementById("video-2d").style.opacity = 0.25;
-        document.getElementById("video-3d").style.opacity = 1.0;
-        document.getElementById("video-3d").play();
+        document.getElementById("video-1db").style.opacity = 0.25;
+        document.getElementById("video-2db").style.opacity = 0.25;
+        document.getElementById("video-3db").style.opacity = 1.0;
+        video2d.stop();
+        video3d.start();
       }
-    }, 2800);
+    }, 3000);
 
     setTimeout(function () {
       if (window.innerWidth < 600) { 
-        document.getElementById("video-1").style.opacity = 0.25;
-        document.getElementById("video-2").style.opacity = 0.25;
-        document.getElementById("video-3").style.opacity = 0.25;
-        document.getElementById("video-4").style.opacity = 1.0;
-        document.getElementById("video-4").play();
+        document.getElementById("video-1b").style.opacity = 0.25;
+        document.getElementById("video-2b").style.opacity = 0.25;
+        document.getElementById("video-3b").style.opacity = 0.25;
+        document.getElementById("video-4b").style.opacity = 1.0;
+        video3.stop();
+        video4.start();
       } else {
-        document.getElementById("video-1d").style.opacity = 0.25;
-        document.getElementById("video-2d").style.opacity = 0.25;
-        document.getElementById("video-3d").style.opacity = 0.25;
-        document.getElementById("video-4d").style.opacity = 1.0;
-        document.getElementById("video-4d").play();
+        document.getElementById("video-1db").style.opacity = 0.25;
+        document.getElementById("video-2db").style.opacity = 0.25;
+        document.getElementById("video-3db").style.opacity = 0.25;
+        document.getElementById("video-4db").style.opacity = 1.0;
+        video3d.stop();
+        video4d.start();
       }
-    }, 2800 * 2);
+    }, 3000 * 2);
 
     setTimeout(function () {
+      document.getElementById("video-4b").style.opacity = 0.25;
+      document.getElementById("video-4db").style.opacity = 0.25;
+      video4.stop();
+      video4d.stop();
       startAnimation();
-    }, 2900 * 3);
+    }, 3000 * 3);
   }
 
   
@@ -882,6 +897,990 @@
       longitude: "-74.006",
       season: "winter'22",
     },
+    {
+      city: "shirley",
+      latitude: "40.7957",
+      longitude: "-73.5558",
+      season: "winter '21",
+    },
+    {
+      city: "old lyme",
+      latitude: "41.3417",
+      longitude: "-72.3142",
+      season: "winter '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '21",
+    },
+    {
+      city: "denver",
+      latitude: "39.7392",
+      longitude: "-104.9903",
+      season: "fall '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "fall '21",
+    },
+    {
+      city: "denali",
+      latitude: "63.3387",
+      longitude: "-149.4695",
+      season: "fall '21",
+    },
+    {
+      city: "fairbanks",
+      latitude: "64.8378",
+      longitude: "-147.7164",
+      season: "fall '21",
+    },
+    {
+      city: "calgary",
+      latitude: "51.0486",
+      longitude: "-114.0708",
+      season: "fall '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "fall '21",
+    },
+    {
+      city: "los angeles",
+      latitude: "34.0522",
+      longitude: "-118.2437",
+      season: "fall '21",
+    },
+    {
+      city: "lake tahoe",
+      latitude: "39.0968",
+      longitude: "-120.0324",
+      season: "fall '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "fall '21",
+    },
+    {
+      city: "Albuquerque",
+      latitude: "35.1056",
+      longitude: "-106.6474",
+      season: "summer '21",
+    },
+    {
+      city: "catalina island",
+      latitude: "33.3999",
+      longitude: "-118.4143",
+      season: "summer '21",
+    },
+    {
+      city: "phoenix",
+      latitude: "33.4484",
+      longitude: "-112.074",
+      season: "summer '21",
+    },
+    {
+      city: "long beach island",
+      latitude: "39.6261",
+      longitude: "-74.2279",
+      season: "summer '21",
+    },
+    {
+      city: "cammusett state park",
+      latitude: "41.6667",
+      longitude: "-70.5167",
+      season: "spring '21",
+    },
+    {
+      city: "oceanside",
+      latitude: "45.5886",
+      longitude: "-123.9362",
+      season: "winter '21",
+    },
+    {
+      city: "crater lake",
+      latitude: "42.9167",
+      longitude: "-122.1667",
+      season: "winter '21",
+    },
+    {
+      city: "bend",
+      latitude: "44.0519",
+      longitude: "-121.3153",
+      season: "winter '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '21",
+    },
+    {
+      city: "vail",
+      latitude: "39.6403",
+      longitude: "-106.3742",
+      season: "winter '21",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '21",
+    },
+    {
+      city: "sagaponack",
+      latitude: "40.9361",
+      longitude: "-72.3911",
+      season: "winter '21",
+    },
+    {
+      city: "kiawah island",
+      latitude: "32.2988",
+      longitude: "-80.0441",
+      season: "winter '21",
+    },
+    {
+      city: "west windsor",
+      latitude: "40.2687",
+      longitude: "-74.6282",
+      season: "fall '20",
+    },
+    {
+      city: "sawtooth mountains",
+      latitude: "43.7833",
+      longitude: "-114.6333",
+      season: "fall '20",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "covid times",
+    },
+    {
+      city: "somerset",
+      latitude: "40.5247",
+      longitude: "-74.5125",
+      season: "covid times",
+    },
+    {
+      city: "mt. snow",
+      latitude: "42.9955",
+      longitude: "-72.8741",
+      season: "winter '20",
+    },
+    {
+      city: "los angeles",
+      latitude: "34.0522",
+      longitude: "-118.2437",
+      season: "winter '20",
+    },
+    {
+      city: "big sur",
+      latitude: "36.0522",
+      longitude: "-121.9652",
+      season: "winter '20",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '20",
+    },
+    {
+      city: "eloy",
+      latitude: "32.8227",
+      longitude: "-111.5512",
+      season: "winter '20",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '20",
+    },
+    {
+      city: "killington",
+      latitude: "43.6287",
+      longitude: "-72.7796",
+      season: "winter '20",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '20",
+    },
+    {
+      city: "cologne",
+      latitude: "50.9333",
+      longitude: "6.95",
+      season: "winter '19",
+    },
+    {
+      city: "amsterdam",
+      latitude: "52.3667",
+      longitude: "4.8945",
+      season: "winter '19",
+    },
+    {
+      city: "luxembourg city",
+      latitude: "49.6117",
+      longitude: "6.13",
+      season: "winter '19",
+    },
+    {
+      city: "strasbourg",
+      latitude: "48.5833",
+      longitude: "7.75",
+      season: "winter '19",
+    },
+    {
+      city: "stuttgart",
+      latitude: "48.7667",
+      longitude: "9.1833",
+      season: "winter '19",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '19",
+    },
+    {
+      city: "sedona",
+      latitude: "34.8667",
+      longitude: "-111.7667",
+      season: "winter '19",
+    },
+    {
+      city: "grand canyon",
+      latitude: "36.0544",
+      longitude: "-112.1401",
+      season: "winter '19",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.006",
+      season: "winter '19",
+    },
+    {
+      city: "malibu",
+      latitude: "34.0389",
+      longitude: "-118.7778",
+      season: "winter '19",
+    },
+    {
+      city: "san diego",
+      latitude: "32.7157",
+      longitude: "-117.1611",
+      season: "winter '19",
+    },
+    {
+      city: "las cruces",
+      latitude: "32.3199",
+      longitude: "-106.7624",
+      season: "spring '21",
+    },
+    {
+      city: "white sands NP",
+      latitude: "32.7789",
+      longitude: "-106.2669",
+      season: "fall '19",
+    },
+    {
+      city: "west windsor",
+      latitude: "40.2756",
+      longitude: "-74.6608",
+      season: "fall '19",
+    },
+    {
+      city: "billerica",
+      latitude: "42.5651",
+      longitude: "-71.2697",
+      season: "fall '19",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '19",
+    },
+    {
+      city: "napa",
+      latitude: "38.2975",
+      longitude: "-122.2868",
+      season: "summer '19",
+    },
+    {
+      city: "bodega bay",
+      latitude: "38.3143",
+      longitude: "-123.0462",
+      season: "summer '19",
+    },
+    {
+      city: "mexico city",
+      latitude: "19.4333",
+      longitude: "-99.1333",
+      season: "summer '19",
+    },
+    {
+      city: "nevado de toluca",
+      latitude: "19.2794",
+      longitude: "-99.6294",
+      season: "summer '19",
+    },
+    {
+      city: "teotihuacan",
+      latitude: "19.6833",
+      longitude: "-98.9667",
+      season: "summer '19",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "summer '19",
+    },
+    {
+      city: "glacier NP",
+      latitude: "48.7596",
+      longitude: "-113.7870",
+      season: "summer '19",
+    },
+    {
+      city: "yellowstone NP",
+      latitude: "44.4280",
+      longitude: "-110.5885",
+      season: "summer '19",
+    },
+    {
+      city: "denver",
+      latitude: "39.7392",
+      longitude: "-104.9903",
+      season: "summer '19",
+    },
+    {
+      city: "bryce canyon np",
+      latitude: "37.5858",
+      longitude: "-112.1870",
+      season: "spring '19",
+    },
+    {
+      city: "zion np",
+      latitude: "37.2982",
+      longitude: "-113.0263",
+      season: "spring '19",
+    },
+    {
+      city: "killington",
+      latitude: "43.6247",
+      longitude: "-72.7793",
+      season: "winter '19",
+    },
+    {
+      city: "london",
+      latitude: "51.5074",
+      longitude: "-0.1278",
+      season: "winter '19",
+    },
+    {
+      city: "dover",
+      latitude: "51.1306",
+      longitude: "1.3077",
+      season: "winter '19",
+    },
+    {
+      city: "nuneaton",
+      latitude: "52.5426",
+      longitude: "-1.4728",
+      season: "winter '19",
+    },
+    {
+      city: "san francisco",
+      latitude: "37.7749",
+      longitude: "-122.4194",
+      season: "winter '19",
+    },
+    {
+      city: "billerica",
+      latitude: "42.5584",
+      longitude: "-71.2675",
+      season: "winter '19",
+    },
+    {
+      city: "la jolla",
+      latitude: "32.8954",
+      longitude: "-117.2522",
+      season: "winter '19",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '19",
+    },
+    {
+      city: "kiawah island",
+      latitude: "32.5892",
+      longitude: "-80.0558",
+      season: "winter '18",
+    },
+    {
+      city: "billerica",
+      latitude: "42.5584",
+      longitude: "-71.2675",
+      season: "winter '18",
+    },
+    {
+      city: "nuneaton",
+      latitude: "52.5426",
+      longitude: "-1.4728",
+      season: "winter '18",
+    },
+    {
+      city: "snowdonia",
+      latitude: "52.9362",
+      longitude: "-4.1026",
+      season: "winter '18",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '18",
+    },
+    {
+      city: "woburn",
+      latitude: "42.4759",
+      longitude: "-71.1940",
+      season: "fall '18",
+    },
+    {
+      city: "bristol",
+      latitude: "43.5867",
+      longitude: "-72.6090",
+      season: "fall '18",
+    },
+    {
+      city: "palo alto",
+      latitude: "37.4292",
+      longitude: "-122.1381",
+      season: "fall '18",
+    },
+    {
+      city: "chennai",
+      latitude: "13.0827",
+      longitude: "80.2707",
+      season: "summer '18",
+    },
+    {
+      city: "mumbai",
+      latitude: "19.0760",
+      longitude: "72.8777",
+      season: "summer '18",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "summer '18",
+    },
+    {
+      city: "belmont park",
+      latitude: "40.7062",
+      longitude: "-73.7501",
+      season: "summer '18",
+    },
+    {
+      city: "salt lake city",
+      latitude: "40.7608",
+      longitude: "-111.8910",
+      season: "spring '18",
+    },
+    {
+      city: "arches np",
+      latitude: "38.6869",
+      longitude: "-109.5498",
+      season: "spring '18",
+    },
+    {
+      city: "peabody",
+      latitude: "42.5262",
+      longitude: "-70.9288",
+      season: "spring '18",
+    },
+    {
+      city: "nashville",
+      latitude: "36.1627",
+      longitude: "-86.7816",
+      season: "spring '18",
+    },
+    {
+      city: "woburn",
+      latitude: "42.4759",
+      longitude: "-71.1940",
+      season: "spring '18",
+    },
+    {
+      city: "grand canyon",
+      latitude: "36.1069",
+      longitude: "-112.1126",
+      season: "spring '18",
+    },
+    {
+      city: "franconia notch",
+      latitude: "44.1535",
+      longitude: "-71.6921",
+      season: "winter '18",
+    },
+    {
+      city: "santa monica",
+      latitude: "34.0195",
+      longitude: "-118.4912",
+      season: "winter '18",
+    },
+    {
+      city: "pasadena",
+      latitude: "34.1478",
+      longitude: "-118.1445",
+      season: "winter '18",
+    },
+    {
+      city: "death valley",
+      latitude: "36.4701",
+      longitude: "-117.1350",
+      season: "winter '18",
+    },
+    {
+      city: "las vegas",
+      latitude: "36.1699",
+      longitude: "-115.1398",
+      season: "winter '18",
+    },
+    {
+      city: "west windsor",
+      latitude: "40.2672",
+      longitude: "-74.6282",
+      season: "winter '17",
+    },
+    {
+      city: "montreal",
+      latitude: "45.5017",
+      longitude: "-73.5673",
+      season: "winter '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '17",
+    },
+    {
+      city: "snowqualmie falls",
+      latitude: "47.5301",
+      longitude: "-121.5801",
+      season: "fall '17",
+    },
+    {
+      city: "east liberty",
+      latitude: "39.9384",
+      longitude: "-83.0294",
+      season: "fall '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '17",
+    },
+    {
+      city: "big sur",
+      latitude: "36.3727",
+      longitude: "-121.6555",
+      season: "fall '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '17",
+    },
+    {
+      city: "southern nh",
+      latitude: "42.7325",
+      longitude: "-71.4659",
+      season: "fall '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '17",
+    },
+    {
+      city: "cinque terra",
+      latitude: "44.1378",
+      longitude: "9.6863",
+      season: "summer '17",
+    },
+    {
+      city: "pisa",
+      latitude: "43.7228",
+      longitude: "10.4017",
+      season: "summer '17",
+    },
+    {
+      city: "florence",
+      latitude: "43.7696",
+      longitude: "11.2558",
+      season: "summer '17",
+    },
+    {
+      city: "rome",
+      latitude: "41.9028",
+      longitude: "12.4964",
+      season: "summer '17",
+    },
+    {
+      city: "griggstown",
+      latitude: "40.4914",
+      longitude: "-74.6228",
+      season: "summer '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "summer '17",
+    },
+    {
+      city: "marthas vineyard",
+      latitude: "41.3767",
+      longitude: "-70.6262",
+      season: "summer '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "summer '17",
+    },
+    {
+      city: "kvalvika beach",
+      latitude: "67.2804",
+      longitude: "13.5094",
+      season: "summer '17",
+    },
+    {
+      city: "tromso",
+      latitude: "69.6489",
+      longitude: "18.9553",
+      season: "summer '17",
+    },
+    {
+      city: "bergen",
+      latitude: "60.3913",
+      longitude: "5.3221",
+      season: "summer '17",
+    },
+    {
+      city: "jotunheimen np",
+      latitude: "61.0167",
+      longitude: "8.4833",
+      season: "summer '17",
+    },
+    {
+      city: "larkollen",
+      latitude: "59.3967",
+      longitude: "10.4633",
+      season: "summer '17",
+    },
+    {
+      city: "oslo",
+      latitude: "59.9139",
+      longitude: "10.7522",
+      season: "summer '17",
+    },
+    {
+      city: "acadia NP",
+      latitude: "44.35",
+      longitude: "-68.2733",
+      season: "summer '17",
+    },
+    {
+      city: "plainsboro",
+      latitude: "40.3285",
+      longitude: "-74.5141",
+      season: "spring '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "spring '17",
+    },
+    {
+      city: "myrtle beach",
+      latitude: "33.6891",
+      longitude: "-78.8867",
+      season: "spring '17",
+    },
+    {
+      city: "long island sound",
+      latitude: "41.1296",
+      longitude: "-73.5558",
+      season: "spring '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "spring '17",
+    },
+    {
+      city: "mt. rainier np",
+      latitude: "46.852",
+      longitude: "-121.7522",
+      season: "spring '17",
+    },
+    {
+      city: "pike place",
+      latitude: "47.6062",
+      longitude: "-122.3321",
+      season: "spring '17",
+    },
+    {
+      city: "big sur",
+      latitude: "36.0556",
+      longitude: "-121.9167",
+      season: "spring '17",
+    },
+    {
+      city: "novato",
+      latitude: "38.1072",
+      longitude: "-122.5709",
+      season: "spring '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '17",
+    },
+    {
+      city: "cabo san lucas",
+      latitude: "22.8905",
+      longitude: "-109.9167",
+      season: "winter '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '17",
+    },
+    {
+      city: "cape flattery",
+      latitude: "48.3758",
+      longitude: "-124.7286",
+      season: "winter '17",
+    },
+    {
+      city: "mt. storm king",
+      latitude: "47.8667",
+      longitude: "-123.6167",
+      season: "winter '17",
+    },
+    {
+      city: "seattle",
+      latitude: "47.6062",
+      longitude: "-122.3321",
+      season: "winter '17",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '17",
+    },
+    {
+      city: "zion np",
+      latitude: "37.3167",
+      longitude: "-113.05",
+      season: "winter '17",
+    },
+    {
+      city: "zurich",
+      latitude: "46.1167",
+      longitude: "7.2167",
+      season: "winter '16",
+    },
+    {
+      city: "strasbourg",
+      latitude: "48.5833",
+      longitude: "7.75",
+      season: "winter '16",
+    },
+    {
+      city: "mt. lafayette",
+      latitude: "44.1667",
+      longitude: "-71.65",
+      season: "winter '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '16",
+    },
+    {
+      city: "half moon bay",
+      latitude: "37.4631",
+      longitude: "-122.4283",
+      season: "winter '16",
+    },
+    {
+      city: "point reyes",
+      latitude: "38.0722",
+      longitude: "-122.8333",
+      season: "winter '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '16",
+    },
+    {
+      city: "hyannis",
+      latitude: "41.6562",
+      longitude: "-70.2863",
+      season: "winter '16",
+    },
+    {
+      city: "stanford",
+      latitude: "37.4192",
+      longitude: "-122.0574",
+      season: "fall '16",
+    },
+    {
+      city: "cambridge",
+      latitude: "42.3736",
+      longitude: "-71.1097",
+      season: "fall '16",
+    },
+    {
+      city: "berkeley",
+      latitude: "37.8716",
+      longitude: "-122.2727",
+      season: "fall '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '16",
+    },
+    {
+      city: "chicago",
+      latitude: "41.8781",
+      longitude: "-87.6298",
+      season: "fall '16",
+    },
+    {
+      city: "big sur",
+      latitude: "36.1169",
+      longitude: "-121.5058",
+      season: "fall '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '16",
+    },
+    {
+      city: "mt washington",
+      latitude: "44.2703",
+      longitude: "-71.3055",
+      season: "summer '16",
+    },
+    {
+      city: "mt tallac",
+      latitude: "38.9328",
+      longitude: "-120.1465",
+      season: "summer '16",
+    },
+    {
+      city: "silver springs",
+      latitude: "39.5062",
+      longitude: "-119.4778",
+      season: "summer '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "spring '16",
+    },
+    {
+      city: "san francisco",
+      latitude: "37.7749",
+      longitude: "-122.4194",
+      season: "spring '16",
+    },
+    {
+      city: "el capitan",
+      latitude: "37.7312",
+      longitude: "-119.6351",
+      season: "spring '16",
+    },
+    {
+      city: "los angeles",
+      latitude: "34.0522",
+      longitude: "-118.2437",
+      season: "winter '16",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "winter '16",
+    },
+    {
+      city: "new york",
+      latitude: "40.7128",
+      longitude: "-74.0060",
+      season: "winter '15",
+    },
+    {
+      city: "franconia notch",
+      latitude: "44.2172",
+      longitude: "-71.6805",
+      season: "winter '15",
+    },
+    {
+      city: "boston",
+      latitude: "42.3601",
+      longitude: "-71.0589",
+      season: "fall '15",
+    },
+    {
+      city: "plainsboro",
+      latitude: "40.3287",
+      longitude: "-74.5122",
+      season: "fall '15",
+    },
   ];
 
   var timer;
@@ -895,6 +1894,13 @@
       if (hasClickedGlobe) {
         return
       }
+
+      if (timerIndex > cities.length - 1) {
+        document.getElementById("city_name").innerText = "thanks for watching!";
+        document.getElementById("season_name").innerText = "please send a note if you liked this :)";
+        return;
+      }
+
       var city = cities[timerIndex];
   
       document.getElementById("city_name").style.opacity = 0;
@@ -906,13 +1912,24 @@
         lastSeasonShown = city["season"];
       }
 
+      if (document.getElementById("header_title").innerText == "interactive mode") {
+        document.getElementById("header_title").style.opacity = 0;
+        document.getElementById("header_subtitle").style.opacity = 0;
+      }
+
       setTimeout(function () {
         document.getElementById("city_name").innerText = city["city"];
         document.getElementById("season_name").innerText = city["season"];
 
+        document.getElementById("header_title").innerText = "vijay sridhar";
+        document.getElementById("header_subtitle").innerText = "travel log";
+        
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
         document.getElementById("down_arrow").style.opacity = 1;
+
+        document.getElementById("header_title").style.opacity = 1;
+        document.getElementById("header_subtitle").style.opacity = 0.5;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
@@ -935,7 +1952,7 @@
         if (delayIndex == currentDelayIndex) {
           hasClickedGlobe = false;
         }
-    }, 10000);
+    }, 6000);
 
     document.getElementById("mini_city").style.opacity = 0.0;
     document.getElementById("mini_city").classList.remove("slide-right");
@@ -949,16 +1966,22 @@
           console.log(err);
       } else {
           setTimeout(function () {
-            document.getElementById("mini_city").classList.add("slide-right");
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").classList.add("slide-right");
+            }
           }, 1600);
 
           setTimeout(function () {
-            document.getElementById("mini_city").innerText = city;
-            document.getElementById("mini_city").style.opacity = 0.7;
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").innerText = city;
+              document.getElementById("mini_city").style.opacity = 0.7;
+            }
           }, 1600);
 
           setTimeout(function () {
-            document.getElementById("mini_city").style.opacity = 0;
+            if (delayIndex == currentDelayIndex) {
+              document.getElementById("mini_city").style.opacity = 0;
+            }
           }, 9000);
 
           console.log(city);
