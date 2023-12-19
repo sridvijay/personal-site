@@ -83,7 +83,7 @@
     .backgroundColor("#000000")
     .onGlobeClick(clickedLocation)
     .arcDashLength(ARC_REL_LEN)
-    .enablePointerInteraction(true)
+    .enablePointerInteraction(false)
     .showAtmosphere(false)
     .arcDashGap(2)
     .arcDashInitialGap(1)
@@ -98,6 +98,9 @@
     .ringRepeatPeriod((FLIGHT_TIME * ARC_REL_LEN) / NUM_RINGS)(
     document.getElementById("globeViz")
   );
+
+    // Prevent globe from getting touch or pointer events
+  document.getElementById("globeViz").style.pointerEvents = "none";
 
   // custom globe material
   const globeMaterial = globe.globeMaterial();
@@ -1456,8 +1459,8 @@
         document.getElementById("city_name").innerText = city["city"];
         document.getElementById("season_name").innerText = city["season"];
 
-        document.getElementById("header_title").innerText = "vijay sridhar";
-        document.getElementById("header_subtitle").innerText = "travel log";
+        document.getElementById("header_title").innerText = "travel log";
+        // document.getElementById("header_subtitle").innerText = "travel log";
         
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
