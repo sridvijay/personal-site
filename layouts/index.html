@@ -575,6 +575,7 @@
   });
 
   document.addEventListener('rotateglobe', function(event) {
+    return;
     hasClickedGlobe = true;
 
     document.getElementById("mini_city").style.opacity = 0;
@@ -635,6 +636,9 @@
     ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
     globe.scene().add(ambientLight);
 
+    globe.controls().enableRotate = false;
+    globe.controls().enablePan = false;
+    
     // add new directional light
     directionalLight2 = new THREE.DirectionalLight(0x6d6d6d, 2.0);
     directionalLight2.position.set(globe.camera().position.x, globe.camera().position.y, globe.camera().position.z);
@@ -2192,6 +2196,7 @@
   let prevCoords = { lat: 40.7128, lng: -74.006 };
   var delayIndex = 0;
   function clickedLocation({lat: endLat, lng: endLng}) {
+    return;
     delayIndex += 1;
 
     var currentDelayIndex = delayIndex;
