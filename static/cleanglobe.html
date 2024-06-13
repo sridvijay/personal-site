@@ -41,14 +41,6 @@
 >
     New York
 </p></div>
-    <p class="header_title" id="header_title">
-      Travel Log
-    </p>
-    <p
-      class="header_subtitle" id="header_subtitle"
-    >
-      Spring '24
-    </p>
     <p
       class="city-name"
       id="city_name"
@@ -62,6 +54,14 @@
       
     </p>
   </div>
+          <p class="header_title" style="opacity: 0.25;" id="header_title">
+      Travel Log
+    </p>
+    <p
+      class="header_subtitle" style="opacity: 0.5;" id="header_subtitle"
+    >
+      Spring '24
+    </p>
 </div>
 </body>
 
@@ -100,6 +100,8 @@
     document.getElementById("globeViz")
   );
 
+  globe.width([window.innerWidth*1.3])
+  globe.height([window.innerHeight*1.3])
     // Prevent globe from getting touch or pointer events
   document.getElementById("globeViz").style.pointerEvents = "none";
 
@@ -1556,7 +1558,7 @@
         // document.getElementById("city_name").style.opacity = 1;
         // document.getElementById("season_name").style.opacity = 0.5;
 
-        document.getElementById("header_title").style.opacity = 1;
+        document.getElementById("header_title").style.opacity = 0.25;
         document.getElementById("header_subtitle").style.opacity = 0.5;
       }, 500);
 
