@@ -31,9 +31,10 @@
     font-family: pinecone-mvb, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 13px;
+    font-size: 24px;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s; /* Safari */
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 1.0);
     "
     class="mini_city"
     id="mini_city"
@@ -46,19 +47,19 @@
     <p
       class="header_subtitle" id="header_subtitle"
     >
-      
+      Spring '24
     </p>
     <p
       class="city-name"
       id="city_name"
     >
-      New York, NY
+      
     </p>
     <p
       class="season-name"
       id="season_name"
     >
-      Fall '22
+      
     </p>
   </div>
 </div>
@@ -69,7 +70,7 @@
 
   const ARC_REL_LEN = 0.4; // relative to whole arc
   const FLIGHT_TIME = 1000;
-  const NUM_RINGS = 3;
+  const NUM_RINGS = 5;
   const RINGS_MAX_R = 1; // deg
   const RING_PROPAGATION_SPEED = 1; // deg/sec
 
@@ -1535,6 +1536,7 @@
 
       if (city["season"] != lastSeasonShown) {
         document.getElementById("season_name").style.opacity = 0;
+        document.getElementById("header_subtitle").style.opacity = 0;
         lastSeasonShown = city["season"];
       }
 
@@ -1544,19 +1546,27 @@
       }
 
       setTimeout(function () {
-        document.getElementById("city_name").innerText = city["city"];
-        document.getElementById("season_name").innerText = city["season"];
+        // document.getElementById("city_name").innerText = city["city"];
+        // document.getElementById("season_name").innerText = city["season"];
+        document.getElementById("header_subtitle").innerText = city["season"];
+        document.getElementById("mini_city").innerText = city["city"];
 
         document.getElementById("header_title").innerText = "travel log";
         
-        document.getElementById("city_name").style.opacity = 1;
-        document.getElementById("season_name").style.opacity = 0.5;
+        // document.getElementById("city_name").style.opacity = 1;
+        // document.getElementById("season_name").style.opacity = 0.5;
 
         document.getElementById("header_title").style.opacity = 1;
         document.getElementById("header_subtitle").style.opacity = 0.5;
       }, 500);
 
       emitArc({ lat: city["latitude"], lng: city["longitude"] });
+
+      setTimeout(function () {
+          document.getElementById("mini_city").style.opacity = 1.0;
+      }, 1700);
+
+
       timerIndex++;
     }, 2500);
   }
