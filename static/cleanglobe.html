@@ -106,33 +106,11 @@
   const globeMaterial = globe.globeMaterial();
   globeMaterial.bumpScale = 5;
 
-  setTimeout(function () {
-        startAnimation();
-  }, 1500);
-
   document.addEventListener('rotateglobe', function(event) {
     hasClickedGlobe = true;
 
     document.getElementById("mini_city").style.opacity = 0;
     document.getElementById("mini_city").classList.remove("slide-right");
-
-    if (document.getElementById("header_title").innerText != "interactive mode") {
-      document.getElementById("header_title").style.opacity = 0.0;
-      document.getElementById("header_subtitle").style.opacity = 0.0;
-      document.getElementById("city_name").style.opacity = 0.0;
-      document.getElementById("season_name").style.opacity = 0.0;
-
-      setTimeout(function () {
-        document.getElementById("header_title").innerText = "interactive mode";
-        document.getElementById("header_subtitle").innerText = "tap a city on the globe";
-        document.getElementById("season_name").innerText = "tap to see rest of site";
-        document.getElementById("header_title").style.opacity = 1.0;
-        document.getElementById("header_subtitle").style.opacity = 0.5;
-        document.getElementById("city_name").style.opacity = 0;
-        document.getElementById("season_name").style.opacity = 0.5;
-        document.getElementById("down_arrow").style.opacity = 0.0;
-      }, 500);
-    }
   });
 
   var directionalLight2;
@@ -177,40 +155,6 @@
     element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 
   }
-
-  var reverseGeocoder = function(coordinates, callback) {
-    var lat = coordinates[0];
-    var lng = coordinates[1];
-    var url = 'https://secure.geonames.org/findNearbyPlaceNameJSON?style=long&radius=300&lat=' + lat + '&lng=' + lng + '&cities=cities15000&username=sridvijay';
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              var geonames = JSON.parse(xhr.responseText).geonames;
-
-              var maxPopulationMatch = geonames.reduce(function(prev, current) {
-                return (prev.population > current.population) ? prev : current;
-              });
-
-              var name = maxPopulationMatch.name;
-              var state = maxPopulationMatch.adminCode1;
-              var countryCode = maxPopulationMatch.countryCode;
-              var countryName = maxPopulationMatch.countryName;
-
-              if (countryCode == "US") {
-                callback(null, name + ", " + state);
-              } else {
-                callback(null, name + ", " + countryName);
-              }
-
-            } else {
-                callback(xhr.statusText);
-            }
-        }
-    };
-    xhr.send();
-};
 
   const cities = [
     {
@@ -1568,7 +1512,7 @@
   var timer;
   var timerIndex = 0;
 
-  var lastSeasonShown = "fall '22";
+  var lastSeasonShown = "spring '24";
   var hasClickedGlobeTwice = false;
 
   function startTimer() {
@@ -1604,11 +1548,9 @@
         document.getElementById("season_name").innerText = city["season"];
 
         document.getElementById("header_title").innerText = "travel log";
-        // document.getElementById("header_subtitle").innerText = "travel log";
         
         document.getElementById("city_name").style.opacity = 1;
         document.getElementById("season_name").style.opacity = 0.5;
-        document.getElementById("down_arrow").style.opacity = 1;
 
         document.getElementById("header_title").style.opacity = 1;
         document.getElementById("header_subtitle").style.opacity = 0.5;
@@ -1643,34 +1585,6 @@
     document.getElementById("mini_city").innerText = "";
 
     emitArc({ lat: endLat, lng: endLng });
-
-    reverseGeocoder([endLat, endLng], function(err, city) {
-      if (err) {
-          document.getElementById("mini_city").style.opacity = 0.0;
-          console.log(err);
-      } else {
-          setTimeout(function () {
-            if (delayIndex == currentDelayIndex) {
-              document.getElementById("mini_city").classList.add("slide-right");
-            }
-          }, 1600);
-
-          setTimeout(function () {
-            if (delayIndex == currentDelayIndex) {
-              document.getElementById("mini_city").innerText = city;
-              document.getElementById("mini_city").style.opacity = 0.7;
-            }
-          }, 1600);
-
-          setTimeout(function () {
-            if (delayIndex == currentDelayIndex) {
-              document.getElementById("mini_city").style.opacity = 0;
-            }
-          }, 9000);
-
-          console.log(city);
-      }
-    });
   }
 
   function emitArc({ lat: endLat, lng: endLng }) {
