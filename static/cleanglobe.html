@@ -70,8 +70,8 @@
 
   const ARC_REL_LEN = 0.4; // relative to whole arc
   const FLIGHT_TIME = 1000;
-  const NUM_RINGS = 5;
-  const RINGS_MAX_R = 1; // deg
+  const NUM_RINGS = 1;
+  const RINGS_MAX_R = 2; // deg
   const RING_PROPAGATION_SPEED = 1; // deg/sec
 
   var hasClickedGlobe = false;
@@ -1577,8 +1577,8 @@
     clearInterval(timer);
   }
 
-  setTimeout(startTimer, 3000);
-  
+  setTimeout(startTimer, 1500);
+
   let prevCoords = { lat: 40.7128, lng: -74.006 };
   var delayIndex = 0;
 
@@ -1610,13 +1610,6 @@
     setTimeout(
       () => globe.arcsData(globe.arcsData().filter((d) => d !== arc)),
       FLIGHT_TIME * 2
-    );
-
-    const srcRing = { lat: startLat, lng: startLng };
-    globe.ringsData([...globe.ringsData(), srcRing]);
-    setTimeout(
-      () => globe.ringsData(globe.ringsData().filter((r) => r !== srcRing)),
-      FLIGHT_TIME * ARC_REL_LEN
     );
 
     setTimeout(() => {
